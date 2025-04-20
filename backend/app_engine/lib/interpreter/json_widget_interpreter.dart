@@ -5,19 +5,15 @@ Widget buildWidgetFromJson(Map<String, dynamic> json) {
     print("### interpretando type: ${json['type']}");
     switch (json['type']) {
       case 'Scaffold':
-        print("#### scaffold");
         return Scaffold(
           appBar: buildWidgetFromJson(json['appBar']) as PreferredSizeWidget,
           body: buildWidgetFromJson(json['body']),
         );
       case 'AppBar':
-        print("#### appBar");
-        print("#### appBar ${json['title']}");
         return AppBar(
           title: buildWidgetFromJson(json['title']),
         );
       case 'Body':
-        print("#### Body");
         final children = <Widget>[
           buildWidgetFromJson(json['content']),
         ];
@@ -33,7 +29,6 @@ Widget buildWidgetFromJson(Map<String, dynamic> json) {
           ),
         );
       case 'Button':
-        print("#### Button");
         return ElevatedButton(
           onPressed: () {
             final action = json['onPressed'];
@@ -42,7 +37,6 @@ Widget buildWidgetFromJson(Map<String, dynamic> json) {
           child: buildWidgetFromJson(json['text']),
         );
       case 'Text':
-        print("#### text");
         return Text(
           json['value'] ?? '',
           style: TextStyle(fontSize: 18),
@@ -51,7 +45,6 @@ Widget buildWidgetFromJson(Map<String, dynamic> json) {
         return SizedBox.shrink();
     }
   } on Exception {
-    print("##### errro");
     return CircularProgressIndicator();
   }
 }

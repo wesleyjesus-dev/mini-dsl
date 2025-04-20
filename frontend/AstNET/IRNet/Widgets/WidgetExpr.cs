@@ -12,18 +12,7 @@ public abstract class WidgetExpr
     
     [JsonPropertyName("type")]
     public abstract string Type { get; }
-    public abstract T Accept<T>(IWidgetVisitor<T> visitor);
 }
-
-public interface IWidgetVisitor<T>
-{
-    T VisitScaffold(ScaffoldWidget widget);
-    T VisitAppBar(AppBarWidget widget);
-    T VisitBody(BodyWidget widget);
-    T VisitText(TextWidget widget);
-    T VisitButton(ButtonWidget widget);
-}
-
 
 public class ScaffoldWidget : WidgetExpr
 {
@@ -37,8 +26,6 @@ public class ScaffoldWidget : WidgetExpr
     }
 
     public override string Type { get; } = "Scaffold";
-    
-    public override T Accept<T>(IWidgetVisitor<T> visitor) => visitor.VisitScaffold(this);
 }
 
 public class AppBarWidget : WidgetExpr
@@ -51,7 +38,6 @@ public class AppBarWidget : WidgetExpr
     }
 
     public override string Type { get; } = "AppBar";
-    public override T Accept<T>(IWidgetVisitor<T> visitor) => visitor.VisitAppBar(this);
 }
 
 public class BodyWidget : WidgetExpr
@@ -66,7 +52,6 @@ public class BodyWidget : WidgetExpr
     }
 
     public override string Type { get; } = "Body";
-    public override T Accept<T>(IWidgetVisitor<T> visitor) => visitor.VisitBody(this);
 }
 
 public class TextWidget : WidgetExpr
@@ -76,7 +61,6 @@ public class TextWidget : WidgetExpr
     public TextWidget(string value) => Value = value;
 
     public override string Type { get; } = "Text";
-    public override T Accept<T>(IWidgetVisitor<T> visitor) => visitor.VisitText(this);
 }
 
 public class ButtonWidget : WidgetExpr
@@ -91,5 +75,9 @@ public class ButtonWidget : WidgetExpr
     }
 
     public override string Type { get; } = "Button";
-    public override T Accept<T>(IWidgetVisitor<T> visitor) => visitor.VisitButton(this);
+}
+
+public class ColumnWidget : WidgetExpr
+{
+    public override string Type { get; } = "Column";
 }

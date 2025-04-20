@@ -30,10 +30,8 @@ class MyApp extends StatelessWidget {
       ),
       home: FutureBuilder<Map<String, dynamic>>(future: getService(), builder: (c,data) {
         if (data.connectionState == ConnectionState.done) {
-          print("### conexao is done ${data.requireData}");
           return buildWidgetFromJson(data.requireData);
         } else {
-          print("### conexao not done");
           return CircularProgressIndicator();
         }
       }),
