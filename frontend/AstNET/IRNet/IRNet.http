@@ -1,0 +1,6 @@
+@IRNet_HostAddress = http://localhost:5221
+
+GET {{IRNet_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

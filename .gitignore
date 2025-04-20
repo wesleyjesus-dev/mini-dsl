@@ -1,0 +1,49 @@
+# From .NET Core 3.0 you can use the command: `dotnet new gitignore` to generate a customizable .gitignore file
+
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+
+# Visual Studio Code
+.vscode
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+frontend/AstNET/IRNet/bin
+# Build results
+frontend/AstNET/IRNet/[Dd]ebug/
+frontend/AstNET/IRNet/[Dd]ebugPublic/
+frontend/AstNET/IRNet/[Rr]elease/
+frontend/AstNET/IRNet/[Rr]eleases/
+frontend/AstNET/IRNet/x64/
+frontend/AstNET/IRNet/x86/
+frontend/AstNET/IRNet/build/
+frontend/AstNET/IRNet/bld/
+frontend/AstNET/IRNet/[Bb]in/
+frontend/AstNET/IRNet/[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio 2015
+.vs/
+
+gradle-wrapper.jar
+/.gradle
+/captures/
+/gradlew
+/gradlew.bat
+/local.properties
+GeneratedPluginRegistrant.java
+
+# Remember to never publicly share your keystore.
+# See https://flutter.dev/to/reference-keystore
+key.properties
+**/*.keystore
+**/*.jks
