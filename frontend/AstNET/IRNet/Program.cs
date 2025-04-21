@@ -16,44 +16,22 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast");
-
-app.MapGet("/expr", () =>
-{
-    return new ScaffoldWidget(
-        new AppBarWidget(
-            new TextWidget("Nebula App")
-        ),
-        new BodyWidget(
-            new TextWidget("Welcome to the Nebula"),
-            new ButtonWidget(
-                new TextWidget("Click me!"),
-                "printHello"
-            )
+app.MapGet("/expr", () => new Scaffold(
+    new AppBar(
+        new Text("Nebula App")
+    ),
+    new Body(
+        new Text("Welcome to the Nebula"),
+        new Button(
+            new Text("Click me!"),
+            handler: new CompositeHandler(new()
+            {
+                new PrintHandler("Usuário clicou"),
+                new SetStateHandler("loggedIn", "true"),
+                new GoHandler("/home")
+            })
         )
-    );
-});
+    )
+));
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
