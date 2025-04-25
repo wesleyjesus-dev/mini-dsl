@@ -25,8 +25,12 @@ class _WidgetserviceState extends State<Widgetservice> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(future: getService(), builder: (context,x){
-      return buildWidgetFromJson(x.requireData, context);
+    return FutureBuilder(future: getService(), builder: (context,state){
+      if (state.connectionState == ConnectionState.done) {
+        return buildWidgetFromJson(state.requireData, context);
+      } else {
+        return CircularProgressIndicator();
+      }
     });
   }
 }

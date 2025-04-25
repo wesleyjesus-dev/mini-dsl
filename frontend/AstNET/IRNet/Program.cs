@@ -23,10 +23,20 @@ app.MapGet("/routes", () => new List<RouteWidget>()
     new RouteWidget()
     {
         Name = "expr",
-        Path = "expr",
-        Service = "10.0.2.2"
-    }
+        Path = "/",
+        Service = "10.0.2.2:5221"
+    },
+    new RouteWidget()
+    {
+        Name = "details",
+        Path = "details",
+        Service = "10.0.2.2:5221"
+    },
 });
+
+app.MapGet("/details", () => new Scaffold(
+    appBar: new AppBar(new Text("Detail Screen")), 
+    body: new Body(content: new Text("Detail Screen"))));
 
 app.MapGet("/expr", () => new Scaffold(
     new AppBar(
