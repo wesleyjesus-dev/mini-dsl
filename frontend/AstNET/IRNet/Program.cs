@@ -1,4 +1,5 @@
 using Nebula.Ast;
+using Route = Microsoft.AspNetCore.Routing.Route;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,17 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+
+app.MapGet("/routes", () => new List<RouteWidget>()
+{
+    new RouteWidget()
+    {
+        Name = "expr",
+        Path = "expr",
+        Service = "10.0.2.2"
+    }
+});
+
 app.MapGet("/expr", () => new Scaffold(
     new AppBar(
         new Text("Nebula App")
@@ -24,12 +36,13 @@ app.MapGet("/expr", () => new Scaffold(
         new Text("Welcome to the Nebula"),
         new Button(
             new Text("Click me!"),
-            handler: new CompositeHandler(new()
-            {
-                new PrintHandler("Usuário clicou"),
-                new SetStateHandler("loggedIn", "true"),
-                new GoHandler("/home")
-            })
+            handler: new CompositeHandler(() => new List<Handler>()
+                {
+                    new PrintHandler("Usuário clicou"),
+                    new SetStateHandler("loggedIn", "true"),
+                    new GoHandler("/details")
+                }
+            )
         )
     )
 ));

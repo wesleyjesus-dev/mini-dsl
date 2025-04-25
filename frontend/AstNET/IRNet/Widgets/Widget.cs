@@ -102,6 +102,11 @@ public class ElevatedButton : Widget
     
     public override string Type { get; } = "ElevatedButton";
 }
+
+[JsonDerivedType(typeof(SetStateHandler))]
+[JsonDerivedType(typeof(PrintHandler))]
+[JsonDerivedType(typeof(CompositeHandler))]
+[JsonDerivedType(typeof(GoHandler))]
 public abstract class Handler
 {
     public abstract string Type { get; }
@@ -120,12 +125,14 @@ public class SetStateHandler(string key, string value) : Handler
     public string Value { get; } = value;
 }
 
-public class CompositeHandler(List<Handler> actions) : Handler
+public class CompositeHandler : Handler
 {
     public override string Type { get; } = "Composite";
-    public List<Handler> Actions { get; } = actions;
+    public List<Handler> Actions { get; }
+    
+    public CompositeHandler(List<Handler> actions) => Actions = actions;
+    public CompositeHandler(Func<List<Handler>> actions) => Actions = actions.Invoke();
 }
-
 public class PrintHandler(string message) : Handler
 {
     public override string Type { get; } = "Print";
