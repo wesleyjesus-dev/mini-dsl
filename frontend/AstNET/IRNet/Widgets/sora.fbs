@@ -1,0 +1,118 @@
+// FlatBuffer schema for Nebula.Ast Widget system
+
+namespace Nebula.Ast;
+
+// Widget types enum
+enum WidgetType : byte {
+    Scaffold = 0,
+    AppBar = 1,
+    Body = 2,
+    Text = 3,
+    Button = 4,
+    Row = 5,
+    Column = 6,
+    ElevatedButton = 7
+}
+
+// Handler types enum
+enum HandlerType : byte {
+    Go = 0,
+    SetState = 1,
+    Composite = 2,
+    Print = 3,
+    SetStateWithValue = 4
+}
+
+// Handler tables
+table GoHandler {
+    route: string;
+}
+
+table SetStateHandler {
+    key: string;
+    value: string;
+}
+
+table PrintHandler {
+    message: string;
+}
+
+table SetStateHandlerWithValue {
+    key: string;
+    value: string;
+}
+
+table CompositeHandler {
+    actions: [Handler];
+}
+
+// Handler union
+union HandlerData {
+    GoHandler,
+    SetStateHandler,
+    PrintHandler,
+    SetStateHandlerWithValue,
+    CompositeHandler
+}
+
+table Handler {
+    type: HandlerType;
+    data: HandlerData;
+}
+
+// Widget tables
+table Scaffold {
+    app_bar: Widget;
+    body: Widget;
+}
+
+table AppBar {
+    title: Widget;
+}
+
+table Body {
+    content: Widget;
+    button: Widget;
+}
+
+table Text {
+    value: string;
+}
+
+table Button {
+    text: Widget;
+    handler: Handler;
+}
+
+table Row {
+    children_exprs: [Widget];
+}
+
+table Column {
+    children_exprs: [Widget];
+}
+
+table ElevatedButton {
+    child: Widget;
+    on_pressed_handler: Handler;
+}
+
+// Widget union
+union WidgetData {
+    Scaffold,
+    AppBar,
+    Body,
+    Text,
+    Button,
+    Row,
+    Column,
+    ElevatedButton
+}
+
+table Widget {
+    type: WidgetType;
+    data: WidgetData;
+}
+
+// Root table
+root_type Widget;

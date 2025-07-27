@@ -1,7 +1,9 @@
 using System.Text.Json.Serialization;
 
-namespace Nebula.Ast;
+namespace Nebula.Ast.Original;
 
+[JsonDerivedType(typeof(Column))]
+[JsonDerivedType(typeof(TextFromState))]
 [JsonDerivedType(typeof(Scaffold))]
 [JsonDerivedType(typeof(AppBar))]
 [JsonDerivedType(typeof(Body))]
@@ -56,10 +58,17 @@ public class Body : Widget
 public class Text : Widget
 {
     public string Value { get; }
-
     public Text(string value) => Value = value;
 
     public override string Type { get; } = "Text";
+}
+
+public class TextFromState : Widget
+{
+    public TValue Value { get; }
+    public TextFromState(TValue value) => Value = value;
+
+    public override string Type { get; } = "TextFromState";
 }
 
 public class Button : Widget
@@ -90,6 +99,10 @@ public class Row : Widget
 }
 public class Column : Widget
 {
+    public Column(Widget[] children)
+    {
+        ChildrenExprs = children;
+    }
     public override string Type { get; } = "Column";
     
     public Widget[] ChildrenExprs { get; set; }
@@ -137,4 +150,27 @@ public class PrintHandler(string message) : Handler
 {
     public override string Type { get; } = "Print";
     public string Message { get; } = message;
+}
+
+public class SetStateHandlerWithValue(string key, string value) : Handler
+{
+    public override string Type { get; } = "SetStateWithValue";
+    public string Key { get; } = key;
+    public string Value { get; } = value;
+}
+
+public abstract class TValue {
+
+    public string Key { get; set; }
+    public virtual string Type { get; set; }
+    public string Value { get; set; }
+}
+
+public class TString : TValue {
+
+    public TString(string key)
+    {
+        Key = key;
+    }
+    public override string Type => "String";
 }
