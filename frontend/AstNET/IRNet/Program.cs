@@ -1,5 +1,6 @@
-using Nebula.Ast.Original;
-using Google.FlatBuffers;
+
+using IRNet.Widgets.Original;
+using Google.Protobuf;
 using Route = Microsoft.AspNetCore.Routing.Route;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,23 +25,31 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
-app.MapGet("/routes", () => new List<RouteWidget>()
+app.MapGet("/routes", () =>
 {
-    new RouteWidget()
-    {
-        //Name = "expr",
-        Name = "stateful-widget",
-        Path = "/",
-        Service = "10.0.2.2:5221"
-    },
-    new RouteWidget()
-    {
-        Name = "details",
-        Path = "/details",
-        Service = "10.0.2.2:5221"
-    },
+    var routes = new IRNet.Widgets.Router { 
+        Routes = { new IRNet.Widgets.RouteWidget() { Name = "protobuf", Path = "/", Service = "10.0.2.2:5221" } } 
+        };
+    var bytes = routes.ToByteArray();
+    return Results.Bytes(bytes, "application/x-protobuf");
 });
+
+// app.MapGet("/routes", () => new List<RouteWidget>()
+// {
+//     new RouteWidget()
+//     {
+//         //Name = "expr",
+//         Name = "stateful-widget",
+//         Path = "/",
+//         Service = "10.0.2.2:5221"
+//     },
+//     new RouteWidget()
+//     {
+//         Name = "details",
+//         Path = "/details",
+//         Service = "10.0.2.2:5221"
+//     },
+// });
 
 app.MapGet("/stateful-widget", () => new Scaffold(
     appBar: new AppBar(new Text("Widget With State")),
@@ -74,50 +83,118 @@ app.MapGet("/expr", () => new Scaffold(
     )
 ));
 
-app.MapGet("/flatbuffer", () =>
+app.MapGet("/protobuf", () =>
 {
-    var builder = new FlatBufferBuilder(1024);
-
-    // Create Text widget for title
-    var titleTextOffset = Nebula.Ast.Text.CreateText(builder, builder.CreateString("FlatBuffer App"));
-    var titleWidgetOffset = Nebula.Ast.Widget.CreateWidget(builder,
-        Nebula.Ast.WidgetType.Text,
-        Nebula.Ast.WidgetData.Text,
-        titleTextOffset.Value);
-
+    // Create protobuf messages following the same logic as /expr
+    
+    // Create Text widgets
+    var appBarText = new IRNet.Widgets.Text { Value = "Nebula App" };
+    var bodyText = new IRNet.Widgets.Text { Value = "Welcome to the Nebula" };
+    var buttonText = new IRNet.Widgets.Text { Value = "Click me!" };
+    
+    // Create AppBar title widget
+    var appBarTitleWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Text",
+        Text = appBarText
+    };
+    
     // Create AppBar
-    var appBarOffset = Nebula.Ast.AppBar.CreateAppBar(builder, titleWidgetOffset);
-    var appBarWidgetOffset = Nebula.Ast.Widget.CreateWidget(builder,
-        Nebula.Ast.WidgetType.AppBar,
-        Nebula.Ast.WidgetData.AppBar,
-        appBarOffset.Value);
-
-    // Create Text widget for body content
-    var contentTextOffset = Nebula.Ast.Text.CreateText(builder, builder.CreateString("Welcome to FlatBuffer serialization!"));
-    var contentWidgetOffset = Nebula.Ast.Widget.CreateWidget(builder,
-        Nebula.Ast.WidgetType.Text,
-        Nebula.Ast.WidgetData.Text,
-        contentTextOffset.Value);
-
-    // Create Body
-    var bodyOffset = Nebula.Ast.Body.CreateBody(builder, contentWidgetOffset);
-    var bodyWidgetOffset = Nebula.Ast.Widget.CreateWidget(builder,
-        Nebula.Ast.WidgetType.Body,
-        Nebula.Ast.WidgetData.Body,
-        bodyOffset.Value);
-
-    // Create Scaffold
-    var scaffoldOffset = Nebula.Ast.Scaffold.CreateScaffold(builder, appBarWidgetOffset, bodyWidgetOffset);
-    var scaffoldWidgetOffset = Nebula.Ast.Widget.CreateWidget(builder,
-        Nebula.Ast.WidgetType.Scaffold,
-        Nebula.Ast.WidgetData.Scaffold,
-        scaffoldOffset.Value);
-
-    // Finish the buffer
-    Nebula.Ast.Widget.FinishWidgetBuffer(builder, scaffoldWidgetOffset);
-
-    // Return the serialized data
-    return Results.Bytes(builder.SizedByteArray(), "application/octet-stream");
+    var appBar = new IRNet.Widgets.AppBar { Title = appBarTitleWidget };
+    var appBarWidget = new IRNet.Widgets.Widget
+    {
+        Type = "AppBar",
+        AppBar = appBar
+    };
+    
+    // Create body text widget
+    var bodyTextWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Text",
+        Text = bodyText
+    };
+    
+    // Create button text widget
+    var buttonTextWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Text",
+        Text = buttonText
+    };
+    
+    // Create handlers
+    var printHandler = new IRNet.Widgets.PrintHandler { Message = "Usuário clicou" };
+    var setStateHandler = new IRNet.Widgets.SetStateHandler { Key = "loggedIn", Value = "true" };
+    var goHandler = new IRNet.Widgets.GoHandler { Route = "/details" };
+    
+    // Create handler messages
+    var printHandlerMsg = new IRNet.Widgets.Handler
+    {
+        Type = "Print",
+        PrintHandler = printHandler
+    };
+    var setStateHandlerMsg = new IRNet.Widgets.Handler
+    {
+        Type = "SetState",
+        SetStateHandler = setStateHandler
+    };
+    var goHandlerMsg = new IRNet.Widgets.Handler
+    {
+        Type = "Go",
+        GoHandler = goHandler
+    };
+    
+    // Create composite handler
+    var compositeHandler = new IRNet.Widgets.CompositeHandler();
+    compositeHandler.Actions.Add(printHandlerMsg);
+    compositeHandler.Actions.Add(setStateHandlerMsg);
+    compositeHandler.Actions.Add(goHandlerMsg);
+    
+    var compositeHandlerMsg = new IRNet.Widgets.Handler
+    {
+        Type = "Composite",
+        CompositeHandler = compositeHandler
+    };
+    
+    // Create button
+    var button = new IRNet.Widgets.Button
+    {
+        Text = buttonTextWidget,
+        Handler = compositeHandlerMsg
+    };
+    var buttonWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Button",
+        Button = button
+    };
+    
+    // Create body
+    var body = new IRNet.Widgets.Body
+    {
+        Content = bodyTextWidget,
+        Button = buttonWidget
+    };
+    var bodyWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Body",
+        Body = body
+    };
+    
+    // Create scaffold
+    var scaffold = new IRNet.Widgets.Scaffold
+    {
+        AppBar = appBarWidget,
+        Body = bodyWidget
+    };
+    var scaffoldWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Scaffold",
+        Scaffold = scaffold
+    };
+    
+    // Serialize to protobuf bytes
+    var bytes = scaffoldWidget.ToByteArray();
+    
+    return Results.Bytes(bytes, "application/x-protobuf");
 });
 
 app.Run();

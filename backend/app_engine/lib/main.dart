@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:app_engine/generated/sora.pb.dart' as pb;
 import 'package:app_engine/interpreter/WidgetService.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -13,13 +14,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  Future<List<dynamic>> getService() async {
-    final response = await http.get(
-      Uri.parse('http://10.0.2.2:5221/routes'),
-    );
-    final json = jsonDecode(response.body) as List<dynamic>;
-    print("json result: $json");
-    return json;
+  Future<List<pb.RouteWidget>>? getService() async {
+      final response = await http.get(
+        Uri.parse('http://10.0.2.2:5221/routes'),
+        headers: {'Accept': 'application/x-protobuf'},
+      );
+
+      final routes = pb.Router.fromBuffer(response.bodyBytes);
+      print("json result: $routes");
+      return routes.routes;
   }
 
   @override
@@ -29,17 +32,17 @@ class MyApp extends StatelessWidget {
         builder: (context, data) {
           if (data.connectionState == ConnectionState.done) {
             final routes = List<RouteBase>.empty(growable: true);
-            data.requireData.forEach((e) {
-              final json = e as Map<String, dynamic>;
-              print("route ${json['name']}");
+            for (var e in data.requireData) {
+              final route = e as pb.RouteWidget;
+              print("route ${route.name}");
               routes.add(GoRoute(
-                name: json['name'],
-                path: json['path'],
+                name: route.name,
+                path: route.path,
                 builder: (BuildContext context, GoRouterState state) {
-                  return Widgetservice(service: json['service'], name: json['name']);
+                  return Widgetservice(service: route.service, name: route.name);
                 },
               ));
-            });
+            }
 
             print("$routes");
             return MaterialApp.router(

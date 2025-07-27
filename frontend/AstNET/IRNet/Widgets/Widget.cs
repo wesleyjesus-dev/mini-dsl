@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Nebula.Ast.Original;
+namespace IRNet.Widgets.Original;
 
 [JsonDerivedType(typeof(Column))]
 [JsonDerivedType(typeof(TextFromState))]

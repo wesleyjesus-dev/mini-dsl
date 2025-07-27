@@ -1,4 +1,4 @@
-namespace Nebula.Ast.Original;
+namespace IRNet.Widgets.Original;
 
 public class RouteWidget
 {
