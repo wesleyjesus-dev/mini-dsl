@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import '../generated/widgets.pb.dart' as pb;
 import '../generated/handlers.pb.dart' as handlers;
 import 'AnalyticService.dart';
+import 'cache_service.dart';
+import 'cache_config.dart';
 import 'widget_builders/layout_widget_builder.dart' as layout;
 import 'widget_builders/input_widget_builder.dart' as input;
 import 'widget_builders/display_widget_builder.dart' as display;
@@ -28,11 +30,38 @@ class _WidgetInterpreterState extends State<WidgetInterpreter> {
   bool _isLoading = true;
   String? _error;
   final AnalyticService _analytics = AnalyticService();
+  final CacheService _cache = CacheService();
 
   @override
   void initState() {
     super.initState();
+    // Initialize cache with default TTL
+    _cache.setDefaultTtl(CacheConfig.defaultTtl);
     _loadService();
+  }
+
+  /// Configures cache TTL using preset or custom duration
+  void configureCacheTtl({String? preset, Duration? customTtl}) {
+    if (customTtl != null) {
+      _cache.setDefaultTtl(customTtl);
+    } else if (preset != null) {
+      _cache.setDefaultTtl(CacheConfig.getTtlFromPreset(preset));
+    }
+  }
+
+  /// Clears the cache
+  void clearCache() {
+    _cache.clear();
+  }
+
+  /// Gets cache statistics
+  Map<String, dynamic> getCacheStats() {
+    return _cache.getStats();
+  }
+
+  /// Removes expired cache entries
+  void cleanupCache() {
+    _cache.cleanupExpired();
   }
 
   Future<void> _loadService() async {
@@ -44,8 +73,37 @@ class _WidgetInterpreterState extends State<WidgetInterpreter> {
     );
 
     final startTime = DateTime.now();
+    final cacheKey = CacheService.generateKey(widget.service, widget.name, widget.param);
     
     try {
+      // Check cache first
+      final cachedData = _cache.get(cacheKey);
+      if (cachedData != null) {
+        // Use cached data
+        final widgetData = pb.Widget.fromBuffer(cachedData);
+        final loadDuration = DateTime.now().difference(startTime);
+        
+        // Track cache hit
+        await _analytics.trackPerformance(
+          metricName: 'widget_load_cache_hit',
+          value: loadDuration.inMilliseconds,
+          unit: 'ms',
+          screenName: widget.name,
+          additionalProperties: {
+            'cache_key': cacheKey,
+            'widget_type': widgetData.type,
+          },
+        );
+        
+        setState(() {
+          _widgetData = widgetData;
+          _isLoading = false;
+          _error = null;
+        });
+        return;
+      }
+      
+      // Cache miss - fetch from service
       var basePath = 'http://${widget.service}/${widget.name}';
       if (widget.param != null) {
         basePath += '/${widget.param}';
@@ -54,8 +112,17 @@ class _WidgetInterpreterState extends State<WidgetInterpreter> {
         Uri.parse(basePath),
         headers: {'Accept': 'application/x-protobuf'},
       );
+
+      final kb = response.bodyBytes.length / 1024;
+      final mb = kb / 1024;
+      print('Response size: ' + response.bodyBytes.length.toString());
+      print('Response size: ' + kb.toString() + ' KB');
+      print('Response size: ' + mb.toString() + ' MB');
       
       if (response.statusCode == 200) {
+        // Store in cache
+        _cache.put(cacheKey, response.bodyBytes, ttl: CacheConfig.defaultTtl);
+        
         // Desserializar protobuf
         final widgetData = pb.Widget.fromBuffer(response.bodyBytes);
         final loadDuration = DateTime.now().difference(startTime);
@@ -69,6 +136,8 @@ class _WidgetInterpreterState extends State<WidgetInterpreter> {
           additionalProperties: {
             'response_size_bytes': response.bodyBytes.length,
             'widget_type': widgetData.type,
+            'cache_key': cacheKey,
+            'cached': false,
           },
         );
         

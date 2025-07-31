@@ -3,9 +3,11 @@ import 'package:app_engine/interpreter/widget_interpreter.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Required before loading .env
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
 
   Future<List<pb.RouteWidget>>? getService() async {
       final response = await http.get(
-        Uri.parse('http://10.0.2.2:5221/routes'),
+        Uri.parse('${dotenv.env['BASE_URL']}/routes'),
         headers: {'Accept': 'application/x-protobuf'},
       );
 
