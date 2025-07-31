@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package interpreter.handlers;
+
+// Handler base message with oneof for polymorphism
+message Handler {
+  string type = 1;
+  oneof handler_data {
+    GoHandler go_handler = 2;
+    SetStateHandler set_state_handler = 3;
+    CompositeHandler composite_handler = 4;
+    PrintHandler print_handler = 5;
+    SetStateHandlerWithValue set_state_handler_with_value = 6;
+  }
+}
+
+// Handler implementations
+message GoHandler {
+  string route = 1;
+}
+
+message SetStateHandler {
+  string key = 1;
+  string value = 2;
+}
+
+message CompositeHandler {
+  repeated Handler actions = 1;
+}
+
+message PrintHandler {
+  string message = 1;
+}
+
+message SetStateHandlerWithValue {
+  string key = 1;
+  string value = 2;
+}

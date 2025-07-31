@@ -1,7 +1,5 @@
-import 'dart:convert';
-
-import 'package:app_engine/generated/sora.pb.dart' as pb;
-import 'package:app_engine/interpreter/WidgetService.dart';
+import 'package:app_engine/generated/router.pb.dart' as pb;
+import 'package:app_engine/interpreter/widget_interpreter.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
@@ -32,14 +30,13 @@ class MyApp extends StatelessWidget {
         builder: (context, data) {
           if (data.connectionState == ConnectionState.done) {
             final routes = List<RouteBase>.empty(growable: true);
-            for (var e in data.requireData) {
-              final route = e as pb.RouteWidget;
-              print("route ${route.name}");
+            for (var router in data.requireData) {
+              print("route ${router.name}");
               routes.add(GoRoute(
-                name: route.name,
-                path: route.path,
+                name: router.name,
+                path: router.path,
                 builder: (BuildContext context, GoRouterState state) {
-                  return Widgetservice(service: route.service, name: route.name);
+                  return WidgetInterpreter(service: router.service, name: router.name);
                 },
               ));
             }

@@ -1,0 +1,663 @@
+syntax = "proto3";
+
+package IRNet.Widgets;
+
+import "Widgets/handlers.proto";
+import "Widgets/types.proto";
+
+// Base Widget message with oneof for polymorphism
+message Widget {
+  string type = 1;
+  oneof widget_data {
+    Scaffold scaffold = 2;
+    AppBar app_bar = 3;
+    Body body = 4;
+    Text text = 5;
+    TextFromState text_from_state = 6;
+    Button button = 7;
+    Row row = 8;
+    Column column = 9;
+    ElevatedButton elevated_button = 10;
+    Container container = 11;
+    Padding padding = 12;
+    Center center = 13;
+    ListView list_view = 14;
+    GridView grid_view = 15;
+    Card card = 16;
+    FloatingActionButton floating_action_button = 17;
+    TextField text_field = 18;
+    Image image = 19;
+    Icon icon = 20;
+    Divider divider = 21;
+    SizedBox sized_box = 22;
+    Expanded expanded = 23;
+    Flexible flexible = 24;
+    Stack stack = 25;
+    Positioned positioned = 26;
+    Wrap wrap = 27;
+    Chip chip = 28;
+    Switch switch = 29;
+    Checkbox checkbox = 30;
+    Radio radio = 31;
+    Slider slider = 32;
+    LinearProgressIndicator linear_progress_indicator = 33;
+    CircularProgressIndicator circular_progress_indicator = 34;
+    AlertDialog alert_dialog = 35;
+    BottomSheet bottom_sheet = 36;
+    Drawer drawer = 37;
+    TabBar tab_bar = 38;
+    TabBarView tab_bar_view = 39;
+    NavigationBar navigation_bar = 40;
+    ListTile list_tile = 41;
+    InkWell ink_well = 42;
+    GestureDetector gesture_detector = 43;
+    SafeArea safe_area = 44;
+    SingleChildScrollView single_child_scroll_view = 45;
+  }
+}
+
+// Widget implementations
+message Scaffold {
+  Widget app_bar = 1;
+  Widget body = 2;
+}
+
+message AppBar {
+  Widget title = 1;
+}
+
+message Body {
+  Widget content = 1;
+  Widget button = 2;
+}
+
+message Text {
+  string value = 1;
+}
+
+message TextFromState {
+  TValue value = 1;
+}
+
+message Button {
+  Widget text = 1;
+  Handler handler = 2;
+}
+
+message Row {
+  repeated Widget children_exprs = 1;
+}
+
+message Column {
+  repeated Widget children_exprs = 1;
+}
+
+message ElevatedButton {
+  Widget child = 1;
+  Handler on_pressed_handler = 2;
+}
+
+// ============================================================================
+// FLUTTER CORE WIDGETS
+// ============================================================================
+
+message Container {
+  Widget child = 1;
+  double width = 2;
+  double height = 3;
+  EdgeInsets padding = 4;
+  EdgeInsets margin = 5;
+  Color color = 6;
+  BoxDecoration decoration = 7;
+  AlignmentGeometry alignment = 8;
+}
+
+message Padding {
+  Widget child = 1;
+  EdgeInsets padding = 2;
+}
+
+message Center {
+  Widget child = 1;
+  double width_factor = 2;
+  double height_factor = 3;
+}
+
+message ListView {
+  repeated Widget children = 1;
+  Axis scroll_direction = 2;
+  bool reverse = 3;
+  ScrollPhysics physics = 4;
+  bool shrink_wrap = 5;
+  EdgeInsets padding = 6;
+}
+
+message GridView {
+  repeated Widget children = 1;
+  SliverGridDelegate grid_delegate = 2;
+  Axis scroll_direction = 3;
+  bool reverse = 4;
+  ScrollPhysics physics = 5;
+  bool shrink_wrap = 6;
+  EdgeInsets padding = 7;
+}
+
+message Card {
+  Widget child = 1;
+  Color color = 2;
+  Color shadow_color = 3;
+  double elevation = 4;
+  ShapeBorder shape = 5;
+  bool border_on_foreground = 6;
+  EdgeInsets margin = 7;
+  Clip clip_behavior = 8;
+}
+
+message FloatingActionButton {
+  Widget child = 1;
+  Handler on_pressed = 2;
+  string tooltip = 3;
+  Color foreground_color = 4;
+  Color background_color = 5;
+  Color focus_color = 6;
+  Color hover_color = 7;
+  Color splash_color = 8;
+  double elevation = 9;
+  double focus_elevation = 10;
+  double hover_elevation = 11;
+  double highlight_elevation = 12;
+  double disabled_elevation = 13;
+  bool mini = 14;
+  ShapeBorder shape = 15;
+  Clip clip_behavior = 16;
+  bool auto_focus = 17;
+}
+
+message TextField {
+  string initial_value = 1;
+  string placeholder = 2;
+  bool obscure_text = 3;
+  bool enabled = 4;
+  bool read_only = 5;
+  int32 max_lines = 6;
+  int32 min_lines = 7;
+  int32 max_length = 8;
+  TextInputType keyboard_type = 9;
+  TextInputAction text_input_action = 10;
+  TextCapitalization text_capitalization = 11;
+  TextAlign text_align = 12;
+  TextAlignVertical text_align_vertical = 13;
+  TextDirection text_direction = 14;
+  bool auto_focus = 15;
+  bool auto_correct = 16;
+  bool enable_suggestions = 17;
+  Handler on_changed = 18;
+  Handler on_submitted = 19;
+  Handler on_editing_complete = 20;
+  Handler on_tap = 21;
+}
+
+message Image {
+  string src = 1;
+  double width = 2;
+  double height = 3;
+  BoxFit fit = 4;
+  AlignmentGeometry alignment = 5;
+  ImageRepeat repeat = 6;
+  Color color = 7;
+  BlendMode color_blend_mode = 8;
+  FilterQuality filter_quality = 9;
+  bool match_text_direction = 10;
+  bool gapless_playback = 11;
+  bool is_anti_alias = 12;
+}
+
+message Icon {
+  IconData icon = 1;
+  double size = 2;
+  Color color = 3;
+  string semantic_label = 4;
+  TextDirection text_direction = 5;
+}
+
+message Divider {
+  double height = 1;
+  double thickness = 2;
+  double indent = 3;
+  double end_indent = 4;
+  Color color = 5;
+}
+
+message SizedBox {
+  Widget child = 1;
+  double width = 2;
+  double height = 3;
+}
+
+message Expanded {
+  Widget child = 1;
+  int32 flex = 2;
+}
+
+message Flexible {
+  Widget child = 1;
+  int32 flex = 2;
+  FlexFit fit = 3;
+}
+
+message Stack {
+  repeated Widget children = 1;
+  AlignmentGeometry alignment = 2;
+  TextDirection text_direction = 3;
+  StackFit fit = 4;
+  Clip clip_behavior = 5;
+}
+
+message Positioned {
+  Widget child = 1;
+  double left = 2;
+  double top = 3;
+  double right = 4;
+  double bottom = 5;
+  double width = 6;
+  double height = 7;
+}
+
+message Wrap {
+  repeated Widget children = 1;
+  Axis direction = 2;
+  WrapAlignment alignment = 3;
+  double spacing = 4;
+  WrapAlignment run_alignment = 5;
+  double run_spacing = 6;
+  WrapCrossAlignment cross_axis_alignment = 7;
+  TextDirection text_direction = 8;
+  VerticalDirection vertical_direction = 9;
+  Clip clip_behavior = 10;
+}
+
+message Chip {
+  Widget avatar = 1;
+  Widget label = 2;
+  TextStyle label_style = 3;
+  EdgeInsets label_padding = 4;
+  Widget delete_icon = 5;
+  Handler on_deleted = 6;
+  Color delete_icon_color = 7;
+  string delete_button_tooltip_message = 8;
+  BorderSide side = 9;
+  OutlinedBorder shape = 10;
+  Clip clip_behavior = 11;
+  Color background_color = 12;
+  EdgeInsets padding = 13;
+  VisualDensity visual_density = 14;
+  MaterialTapTargetSize material_tap_target_size = 15;
+  double elevation = 16;
+  Color shadow_color = 17;
+  Color surface_tint_color = 18;
+  Color selected_color = 19;
+  Color checkmark_color = 20;
+  Color disabled_color = 21;
+  bool selected = 22;
+  bool show_checkmark = 23;
+  bool is_enabled = 24;
+  bool auto_focus = 25;
+  Handler on_selected = 26;
+}
+
+message Switch {
+  bool value = 1;
+  Handler on_changed = 2;
+  Color active_color = 3;
+  Color active_track_color = 4;
+  Color inactive_thumb_color = 5;
+  Color inactive_track_color = 6;
+  ImageProvider active_thumb_image = 7;
+  Handler on_active_thumb_image_error = 8;
+  ImageProvider inactive_thumb_image = 9;
+  Handler on_inactive_thumb_image_error = 10;
+  Color thumb_color = 11;
+  Color track_color = 12;
+  MaterialStateProperty track_outline_color = 13;
+  MaterialStateProperty track_outline_width = 14;
+  MaterialStateProperty thumb_icon = 15;
+  MaterialTapTargetSize material_tap_target_size = 16;
+  DragStartBehavior drag_start_behavior = 17;
+  Color focus_color = 18;
+  Color hover_color = 19;
+  Color overlay_color = 20;
+  double splash_radius = 21;
+  bool auto_focus = 22;
+}
+
+message Checkbox {
+  bool value = 1;
+  bool tristate = 2;
+  Handler on_changed = 3;
+  Color active_color = 4;
+  MaterialStateProperty fill_color = 5;
+  Color checkmark_color = 6;
+  Color focus_color = 7;
+  Color hover_color = 8;
+  MaterialStateProperty overlay_color = 9;
+  double splash_radius = 10;
+  MaterialTapTargetSize material_tap_target_size = 11;
+  VisualDensity visual_density = 12;
+  bool auto_focus = 13;
+  OutlinedBorder shape = 14;
+  BorderSide side = 15;
+  bool is_error = 16;
+  string semantic_label = 17;
+}
+
+message Radio {
+  TValue value = 1;
+  TValue group_value = 2;
+  Handler on_changed = 3;
+  bool toggle_able = 4;
+  Color active_color = 5;
+  MaterialStateProperty fill_color = 6;
+  Color focus_color = 7;
+  Color hover_color = 8;
+  MaterialStateProperty overlay_color = 9;
+  double splash_radius = 10;
+  MaterialTapTargetSize material_tap_target_size = 11;
+  VisualDensity visual_density = 12;
+  bool auto_focus = 13;
+}
+
+message Slider {
+  double value = 1;
+  Handler on_changed = 2;
+  Handler on_change_start = 3;
+  Handler on_change_end = 4;
+  double min = 5;
+  double max = 6;
+  int32 divisions = 7;
+  string label = 8;
+  Color active_color = 9;
+  Color inactive_color = 10;
+  Color thumb_color = 11;
+  Color overlay_color = 12;
+  double mouse_cursor = 13;
+  string semantic_form_atter_callback = 14;
+  Color focus_color = 15;
+  bool auto_focus = 16;
+}
+
+message LinearProgressIndicator {
+  double value = 1;
+  Color background_color = 2;
+  Color color = 3;
+  Color value_color = 4;
+  double min_height = 5;
+  string semantic_label = 6;
+  string semantic_value = 7;
+}
+
+message CircularProgressIndicator {
+  double value = 1;
+  Color background_color = 2;
+  Color color = 3;
+  Color value_color = 4;
+  double stroke_width = 5;
+  double stroke_align = 6;
+  string semantic_label = 7;
+  string semantic_value = 8;
+  StrokeCap stroke_cap = 9;
+}
+
+message AlertDialog {
+  Widget title = 1;
+  EdgeInsets title_padding = 2;
+  TextStyle title_text_style = 3;
+  Widget content = 4;
+  EdgeInsets content_padding = 5;
+  TextStyle content_text_style = 6;
+  repeated Widget actions = 7;
+  EdgeInsets actions_padding = 8;
+  MainAxisAlignment actions_alignment = 9;
+  OverflowBarAlignment actions_overflow_alignment = 10;
+  VerticalDirection actions_overflow_direction = 11;
+  double actions_overflow_button_spacing = 12;
+  EdgeInsets button_padding = 13;
+  Color background_color = 14;
+  Color surface_tint_color = 15;
+  double elevation = 16;
+  Color shadow_color = 17;
+  Color icon_color = 18;
+  double icon_size = 19;
+  EdgeInsets inset_padding = 20;
+  Clip clip_behavior = 21;
+  ShapeBorder shape = 22;
+  AlignmentGeometry alignment = 23;
+  bool scrollable = 24;
+  string semantic_label = 25;
+}
+
+message BottomSheet {
+  Widget child = 1;
+  Color background_color = 2;
+  double elevation = 3;
+  ShapeBorder shape = 4;
+  Clip clip_behavior = 5;
+  BoxConstraints constraints = 6;
+  Color drag_handle_color = 7;
+  Size drag_handle_size = 8;
+  bool show_drag_handle = 9;
+  bool enable_drag = 10;
+  Handler on_closing = 11;
+  AnimationController animation_controller = 12;
+}
+
+message Drawer {
+  Widget child = 1;
+  Color background_color = 2;
+  double elevation = 3;
+  Color shadow_color = 4;
+  Color surface_tint_color = 5;
+  ShapeBorder shape = 6;
+  double width = 7;
+  string semantic_label = 8;
+  Clip clip_behavior = 9;
+}
+
+message TabBar {
+  repeated Widget tabs = 1;
+  TabController controller = 2;
+  bool is_scrollable = 3;
+  EdgeInsets padding = 4;
+  Color indicator_color = 5;
+  bool automatic_indicator_color_adjustment = 6;
+  double indicator_weight = 7;
+  EdgeInsets indicator_padding = 8;
+  Decoration indicator = 9;
+  TabBarIndicatorSize indicator_size = 10;
+  Color divider_color = 11;
+  double divider_height = 12;
+  Color label_color = 13;
+  TextStyle label_style = 14;
+  EdgeInsets label_padding = 15;
+  Color unselected_label_color = 16;
+  TextStyle unselected_label_style = 17;
+  DragStartBehavior drag_start_behavior = 18;
+  MaterialStateProperty overlay_color = 19;
+  InteractiveInkFeatureFactory splash_factory = 20;
+  double splash_border_radius = 21;
+  TabAlignment tab_alignment = 22;
+  TextScaler text_scaler = 23;
+  Handler on_tap = 24;
+  ScrollPhysics physics = 25;
+}
+
+message TabBarView {
+  repeated Widget children = 1;
+  TabController controller = 2;
+  ScrollPhysics physics = 3;
+  DragStartBehavior drag_start_behavior = 4;
+  double view_port_fraction = 5;
+  Clip clip_behavior = 6;
+}
+
+message NavigationBar {
+  repeated Widget destinations = 1;
+  int32 selected_index = 2;
+  Handler on_destination_selected = 3;
+  double elevation = 4;
+  Color shadow_color = 5;
+  Color surface_tint_color = 6;
+  Color background_color = 7;
+  Color indicator_color = 8;
+  ShapeBorder indicator_shape = 9;
+  double height = 10;
+  NavigationDestinationLabelBehavior label_behavior = 11;
+  OverlayVisibilityVariant overlay_color = 12;
+}
+
+message ListTile {
+  Widget leading = 1;
+  Widget title = 2;
+  Widget subtitle = 3;
+  Widget trailing = 4;
+  bool is_three_line = 5;
+  bool dense = 6;
+  VisualDensity visual_density = 7;
+  ShapeBorder shape = 8;
+  ListTileStyle style = 9;
+  Color selected_color = 10;
+  Color icon_color = 11;
+  Color text_color = 12;
+  TextStyle title_text_style = 13;
+  TextStyle subtitle_text_style = 14;
+  TextStyle leading_and_trailing_text_style = 15;
+  EdgeInsets content_padding = 16;
+  bool enabled = 17;
+  Handler on_tap = 18;
+  Handler on_long_press = 19;
+  Handler on_focus_change = 20;
+  bool selected = 21;
+  Color focus_color = 22;
+  Color hover_color = 23;
+  Color splash_color = 24;
+  InteractiveInkFeatureFactory splash_factory = 25;
+  bool enable_feedback = 26;
+  double horizontal_title_gap = 27;
+  double min_vertical_padding = 28;
+  double min_leading_width = 29;
+  ListTileTitleAlignment title_alignment = 30;
+}
+
+message InkWell {
+  Widget child = 1;
+  Handler on_tap = 2;
+  Handler on_double_tap = 3;
+  Handler on_long_press = 4;
+  Handler on_tap_down = 5;
+  Handler on_tap_up = 6;
+  Handler on_tap_cancel = 7;
+  Handler on_secondary_tap = 8;
+  Handler on_secondary_tap_up = 9;
+  Handler on_secondary_tap_down = 10;
+  Handler on_secondary_tap_cancel = 11;
+  Handler on_highlight_changed = 12;
+  Handler on_hover = 13;
+  Color focus_color = 14;
+  Color hover_color = 15;
+  Color highlight_color = 16;
+  MaterialStateProperty overlay_color = 17;
+  Color splash_color = 18;
+  InteractiveInkFeatureFactory splash_factory = 19;
+  double radius = 20;
+  BorderRadius border_radius = 21;
+  ShapeBorder custom_border = 22;
+  bool enable_feedback = 23;
+  bool exclude_from_semantics = 24;
+  Color focus_color_2 = 25;
+  bool can_request_focus = 26;
+  Handler on_focus_change = 27;
+  bool auto_focus = 28;
+  MaterialStatesController states_controller = 29;
+}
+
+message GestureDetector {
+  Widget child = 1;
+  Handler on_tap = 2;
+  Handler on_tap_up = 3;
+  Handler on_tap_down = 4;
+  Handler on_tap_cancel = 5;
+  Handler on_secondary_tap = 6;
+  Handler on_secondary_tap_up = 7;
+  Handler on_secondary_tap_down = 8;
+  Handler on_secondary_tap_cancel = 9;
+  Handler on_tertiary_tap_down = 10;
+  Handler on_tertiary_tap_up = 11;
+  Handler on_tertiary_tap_cancel = 12;
+  Handler on_double_tap_down = 13;
+  Handler on_double_tap = 14;
+  Handler on_double_tap_cancel = 15;
+  Handler on_long_press = 16;
+  Handler on_long_press_start = 17;
+  Handler on_long_press_move_update = 18;
+  Handler on_long_press_up = 19;
+  Handler on_long_press_end = 20;
+  Handler on_secondary_long_press = 21;
+  Handler on_secondary_long_press_start = 22;
+  Handler on_secondary_long_press_move_update = 23;
+  Handler on_secondary_long_press_up = 24;
+  Handler on_secondary_long_press_end = 25;
+  Handler on_tertiary_long_press_down = 26;
+  Handler on_tertiary_long_press_start = 27;
+  Handler on_tertiary_long_press_move_update = 28;
+  Handler on_tertiary_long_press_up = 29;
+  Handler on_tertiary_long_press_end = 30;
+  Handler on_vertical_drag_down = 31;
+  Handler on_vertical_drag_start = 32;
+  Handler on_vertical_drag_update = 33;
+  Handler on_vertical_drag_end = 34;
+  Handler on_vertical_drag_cancel = 35;
+  Handler on_horizontal_drag_down = 36;
+  Handler on_horizontal_drag_start = 37;
+  Handler on_horizontal_drag_update = 38;
+  Handler on_horizontal_drag_end = 39;
+  Handler on_horizontal_drag_cancel = 40;
+  Handler on_force_press_start = 41;
+  Handler on_force_press_peak = 42;
+  Handler on_force_press_update = 43;
+  Handler on_force_press_end = 44;
+  Handler on_pan_down = 45;
+  Handler on_pan_start = 46;
+  Handler on_pan_update = 47;
+  Handler on_pan_end = 48;
+  Handler on_pan_cancel = 49;
+  Handler on_scale_start = 50;
+  Handler on_scale_update = 51;
+  Handler on_scale_end = 52;
+  HitTestBehavior behavior = 53;
+  bool exclude_from_semantics = 54;
+  DragStartBehavior drag_start_behavior = 55;
+  Set supported_devices = 56;
+}
+
+message SafeArea {
+  Widget child = 1;
+  bool left = 2;
+  bool top = 3;
+  bool right = 4;
+  bool bottom = 5;
+  EdgeInsets minimum = 6;
+  bool maintain_bottom_view_padding = 7;
+}
+
+message SingleChildScrollView {
+  Widget child = 1;
+  Axis scroll_direction = 2;
+  bool reverse = 3;
+  EdgeInsets padding = 4;
+  bool primary = 5;
+  ScrollPhysics physics = 6;
+  ScrollController controller = 7;
+  DragStartBehavior drag_start_behavior = 8;
+  Clip clip_behavior = 9;
+  string restoration_id = 10;
+  ScrollViewKeyboardDismissBehavior keyboard_dismiss_behavior = 11;
+}

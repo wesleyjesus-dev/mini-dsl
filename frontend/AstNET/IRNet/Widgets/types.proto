@@ -1,0 +1,541 @@
+syntax = "proto3";
+
+package IRNet.Widgets;
+
+// TValue base message with oneof for polymorphism
+message TValue {
+  string key = 1;
+  string type = 2;
+  string value = 3;
+  oneof value_data {
+    TString t_string = 4;
+  }
+}
+
+message TString {
+  string key = 1;
+}
+
+enum MainAxisAlignment {
+    MAIN_AXIS_START = 0;
+    MAIN_AXIS_END = 1;
+    MAIN_AXIS_CENTER = 2;
+    MAIN_AXIS_SPACE_BETWEEN = 3;
+    MAIN_AXIS_SPACE_AROUND = 4;
+    MAIN_AXIS_SPACE_EVENLY = 5;
+}
+
+enum MainAxisSize {
+    MAIN_AXIS_SIZE_MIN = 0;
+    MAIN_AXIS_SIZE_MAX = 1;
+}
+
+enum CrossAxisAlignment {
+    CROSS_AXIS_START = 0;
+    CROSS_AXIS_END = 1;
+    CROSS_AXIS_CENTER = 2;
+    CROSS_AXIS_STRETCH = 3;
+}
+
+enum TextDirection {
+    TEXT_DIRECTION_LTR = 0;
+    TEXT_DIRECTION_RTL = 1;
+}
+
+enum VerticalDirection {
+    VERTICAL_DIRECTION_UP = 0;
+    VERTICAL_DIRECTION_DOWN = 1;
+}
+
+enum Clip {
+    CLIP_NONE = 0;
+    CLIP_HARD_EDGE = 1;
+    CLIP_ANTI_ALIAS = 2;
+    CLIP_ANTI_ALIAS_WITH_SAVE_LAYER = 3;
+}
+
+enum Axis {
+    AXIS_HORIZONTAL = 0;
+    AXIS_VERTICAL = 1;
+}
+
+// ============================================================================
+// FLUTTER UI TYPES
+// ============================================================================
+
+message Color {
+  int32 value = 1;
+}
+
+message EdgeInsets {
+  double left = 1;
+  double top = 2;
+  double right = 3;
+  double bottom = 4;
+}
+
+message BoxDecoration {
+  Color color = 1;
+  DecorationImage image = 2;
+  Border border = 3;
+  BorderRadius border_radius = 4;
+  repeated BoxShadow box_shadow = 5;
+  Gradient gradient = 6;
+  BlendMode background_blend_mode = 7;
+  BoxShape shape = 8;
+}
+
+message AlignmentGeometry {
+  double x = 1;
+  double y = 2;
+}
+
+message ScrollPhysics {
+  bool bouncing = 1;
+  bool clamping = 2;
+}
+
+message SliverGridDelegate {
+  int32 cross_axis_count = 1;
+  double main_axis_spacing = 2;
+  double cross_axis_spacing = 3;
+  double child_aspect_ratio = 4;
+}
+
+message ShapeBorder {
+  BorderSide side = 1;
+}
+
+enum TextInputType {
+  TEXT = 0;
+  MULTILINE = 1;
+  NUMBER = 2;
+  PHONE = 3;
+  DATETIME = 4;
+  EMAIL_ADDRESS = 5;
+  URL = 6;
+  VISIBLE_PASSWORD = 7;
+  NAME = 8;
+  STREET_ADDRESS = 9;
+}
+
+enum TextInputAction {
+  NONE_ACTION = 0;
+  UNSPECIFIED = 1;
+  DONE = 2;
+  GO = 3;
+  SEARCH = 4;
+  SEND = 5;
+  NEXT = 6;
+  PREVIOUS = 7;
+  CONTINUE_ACTION = 8;
+  JOIN = 9;
+  ROUTE = 10;
+  EMERGENCY_CALL = 11;
+  NEW_LINE = 12;
+}
+
+enum TextCapitalization {
+  NONE_CAP = 0;
+  WORDS = 1;
+  SENTENCES = 2;
+  CHARACTERS = 3;
+}
+
+enum TextAlign {
+  LEFT = 0;
+  RIGHT = 1;
+  CENTER = 2;
+  JUSTIFY = 3;
+  START = 4;
+  END = 5;
+}
+
+enum TextAlignVertical {
+  TOP = 0;
+  CENTER_VERTICAL = 1;
+  BOTTOM = 2;
+}
+
+enum BoxFit {
+  FILL = 0;
+  CONTAIN = 1;
+  COVER = 2;
+  FIT_WIDTH = 3;
+  FIT_HEIGHT = 4;
+  NONE_FIT = 5;
+  SCALE_DOWN = 6;
+}
+
+enum ImageRepeat {
+  REPEAT = 0;
+  REPEAT_X = 1;
+  REPEAT_Y = 2;
+  NO_REPEAT = 3;
+}
+
+enum BlendMode {
+  CLEAR = 0;
+  SRC = 1;
+  DST = 2;
+  SRC_OVER = 3;
+  DST_OVER = 4;
+  SRC_IN = 5;
+  DST_IN = 6;
+  SRC_OUT = 7;
+  DST_OUT = 8;
+  SRC_ATOP = 9;
+  DST_ATOP = 10;
+  XOR = 11;
+  PLUS = 12;
+  MODULATE = 13;
+  SCREEN = 14;
+  OVERLAY = 15;
+  DARKEN = 16;
+  LIGHTEN = 17;
+  COLOR_DODGE = 18;
+  COLOR_BURN = 19;
+  HARD_LIGHT = 20;
+  SOFT_LIGHT = 21;
+  DIFFERENCE = 22;
+  EXCLUSION = 23;
+  MULTIPLY = 24;
+  HUE = 25;
+  SATURATION = 26;
+  COLOR = 27;
+  LUMINOSITY = 28;
+}
+
+enum FilterQuality {
+  NONE_FILTER = 0;
+  LOW = 1;
+  MEDIUM = 2;
+  HIGH = 3;
+}
+
+message IconData {
+  int32 code_point = 1;
+  string font_family = 2;
+  string font_package = 3;
+  bool match_text_direction = 4;
+}
+
+enum FlexFit {
+  TIGHT = 0;
+  LOOSE = 1;
+}
+
+enum StackFit {
+  LOOSE_STACK = 0;
+  EXPAND = 1;
+  PASS_THROUGH = 2;
+}
+
+enum WrapAlignment {
+  START_WRAP = 0;
+  END_WRAP = 1;
+  CENTER_WRAP = 2;
+  SPACE_BETWEEN_WRAP = 3;
+  SPACE_AROUND_WRAP = 4;
+  SPACE_EVENLY_WRAP = 5;
+}
+
+enum WrapCrossAlignment {
+  START_CROSS = 0;
+  END_CROSS = 1;
+  CENTER_CROSS = 2;
+}
+
+message TextStyle {
+  bool inherit = 1;
+  Color color = 2;
+  Color background_color = 3;
+  double font_size = 4;
+  FontWeight font_weight = 5;
+  FontStyle font_style = 6;
+  double letter_spacing = 7;
+  double word_spacing = 8;
+  TextBaseline text_baseline = 9;
+  double height = 10;
+  Locale locale = 11;
+  Paint foreground = 12;
+  Paint background = 13;
+  repeated Shadow shadows = 14;
+  repeated FontFeature font_features = 15;
+  repeated FontVariation font_variations = 16;
+  TextDecoration decoration = 17;
+  Color decoration_color = 18;
+  TextDecorationStyle decoration_style = 19;
+  double decoration_thickness = 20;
+  string debug_label = 21;
+  string font_family = 22;
+  repeated string font_family_fallback = 23;
+  string package = 24;
+  TextOverflow overflow = 25;
+}
+
+message BorderSide {
+  Color color = 1;
+  double width = 2;
+  BorderStyle style = 3;
+  double stroke_align = 4;
+}
+
+message OutlinedBorder {
+  BorderSide side = 1;
+}
+
+message VisualDensity {
+  double horizontal = 1;
+  double vertical = 2;
+}
+
+enum MaterialTapTargetSize {
+  PADDED = 0;
+  SHRINK_WRAP = 1;
+}
+
+message MaterialStateProperty {
+  TValue value = 1;
+}
+
+enum DragStartBehavior {
+  DRAG_START = 0;
+  DRAG_DOWN = 1;
+}
+
+message ImageProvider {
+  string url = 1;
+}
+
+enum StrokeCap {
+  BUTT = 0;
+  ROUND = 1;
+  SQUARE = 2;
+}
+
+enum OverflowBarAlignment {
+  START_OVERFLOW = 0;
+  END_OVERFLOW = 1;
+  CENTER_OVERFLOW = 2;
+}
+
+message BoxConstraints {
+  double min_width = 1;
+  double max_width = 2;
+  double min_height = 3;
+  double max_height = 4;
+}
+
+message Size {
+  double width = 1;
+  double height = 2;
+}
+
+message AnimationController {
+  double value = 1;
+  double lower_bound = 2;
+  double upper_bound = 3;
+}
+
+message TabController {
+  int32 index = 1;
+  int32 length = 2;
+}
+
+message Decoration {
+  Color color = 1;
+}
+
+enum TabBarIndicatorSize {
+  TAB = 0;
+  LABEL = 1;
+}
+
+enum TabAlignment {
+  START_TAB = 0;
+  START_OFFSET = 1;
+  FILL_TAB = 2;
+  CENTER_TAB = 3;
+}
+
+message TextScaler {
+  double scale_factor = 1;
+}
+
+message InteractiveInkFeatureFactory {
+  string name = 1;
+}
+
+enum NavigationDestinationLabelBehavior {
+  ALWAYS_SHOW = 0;
+  ALWAYS_HIDE = 1;
+  ONLY_SHOW_SELECTED = 2;
+}
+
+message OverlayVisibilityVariant {
+  bool visible = 1;
+}
+
+enum ListTileStyle {
+  LIST = 0;
+  DRAWER = 1;
+}
+
+enum ListTileTitleAlignment {
+  THREE_LINE = 0;
+  TITLE_HEIGHT = 1;
+  TOP_ALIGN = 2;
+  CENTER_ALIGN = 3;
+  BOTTOM_ALIGN = 4;
+}
+
+message BorderRadius {
+  double top_left = 1;
+  double top_right = 2;
+  double bottom_left = 3;
+  double bottom_right = 4;
+}
+
+message MaterialStatesController {
+  repeated MaterialState states = 1;
+}
+
+enum HitTestBehavior {
+  DEFER_TO_CHILD = 0;
+  OPAQUE = 1;
+  TRANSLUCENT = 2;
+}
+
+message Set {
+  repeated TValue values = 1;
+}
+
+enum ScrollViewKeyboardDismissBehavior {
+  MANUAL = 0;
+  ON_DRAG = 1;
+}
+
+message ScrollController {
+  double initial_scroll_offset = 1;
+  bool keep_scroll_offset = 2;
+}
+
+// Additional supporting types
+message DecorationImage {
+  ImageProvider image = 1;
+  BoxFit fit = 2;
+  AlignmentGeometry alignment = 3;
+  ImageRepeat repeat = 4;
+  Color color_filter = 5;
+}
+
+message Border {
+  BorderSide top = 1;
+  BorderSide right = 2;
+  BorderSide bottom = 3;
+  BorderSide left = 4;
+}
+
+message BoxShadow {
+  Color color = 1;
+  double blur_radius = 2;
+  double spread_radius = 3;
+  double dx = 4;
+  double dy = 5;
+}
+
+message Gradient {
+  repeated Color colors = 1;
+  repeated double stops = 2;
+}
+
+enum BoxShape {
+  RECTANGLE = 0;
+  CIRCLE = 1;
+}
+
+enum FontWeight {
+  W100 = 0;
+  W200 = 1;
+  W300 = 2;
+  W400 = 3;
+  W500 = 4;
+  W600 = 5;
+  W700 = 6;
+  W800 = 7;
+  W900 = 8;
+}
+
+enum FontStyle {
+  NORMAL = 0;
+  ITALIC = 1;
+}
+
+enum TextBaseline {
+  ALPHABETIC = 0;
+  IDEOGRAPHIC = 1;
+}
+
+message Locale {
+  string language_code = 1;
+  string country_code = 2;
+}
+
+message Paint {
+  Color color = 1;
+}
+
+message Shadow {
+  Color color = 1;
+  double blur_radius = 2;
+  double dx = 3;
+  double dy = 4;
+}
+
+message FontFeature {
+  string feature = 1;
+  int32 value = 2;
+}
+
+message FontVariation {
+  string axis = 1;
+  double value = 2;
+}
+
+message TextDecoration {
+  bool underline = 1;
+  bool overline = 2;
+  bool line_through = 3;
+}
+
+enum TextDecorationStyle {
+  SOLID = 0;
+  DOUBLE = 1;
+  DOTTED = 2;
+  DASHED = 3;
+  WAVY = 4;
+}
+
+enum TextOverflow {
+  CLIP_OVERFLOW = 0;
+  FADE = 1;
+  ELLIPSIS = 2;
+  VISIBLE = 3;
+}
+
+enum BorderStyle {
+  NONE_BORDER = 0;
+  SOLID_BORDER = 1;
+}
+
+enum MaterialState {
+  HOVERED = 0;
+  FOCUSED = 1;
+  PRESSED = 2;
+  DRAGGED = 3;
+  SELECTED = 4;
+  SCROLLED_UNDER = 5;
+  DISABLED = 6;
+  ERROR = 7;
+}
