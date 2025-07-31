@@ -30,60 +30,145 @@ app.MapGet("/routes", () =>
             // new IRNet.Widgets.RouteWidget() { Name = "protobuf", Path = "/", Service = "10.0.2.2:5221" },
             // new IRNet.Widgets.RouteWidget() { Name = "catalog", Path = "/catalog", Service = "10.0.2.2:5221" }
             new IRNet.Widgets.RouteWidget() { Name = "catalog", Path = "/", Service = "10.0.2.2:5221" },
+            new IRNet.Widgets.RouteWidget() { Name = "product", Path = "/product/:id", Service = "10.0.2.2:5221" },
         } 
     };
     var bytes = routes.ToByteArray();
     return Results.Bytes(bytes, "application/x-protobuf");
 });
 
-// app.MapGet("/routes", () => new List<RouteWidget>()
-// {
-//     new RouteWidget()
-//     {
-//         //Name = "expr",
-//         Name = "stateful-widget",
-//         Path = "/",
-//         Service = "10.0.2.2:5221"
-//     },
-//     new RouteWidget()
-//     {
-//         Name = "details",
-//         Path = "/details",
-//         Service = "10.0.2.2:5221"
-//     },
-// });
-
-// app.MapGet("/stateful-widget", () => new Scaffold(
-//     appBar: new AppBar(new Text("Widget With State")),
-//     body: new Body(
-//             new TextFromState(new TString("loggedIn")),
-//             new Button(text: new Text("botao muda estado"), handler: new SetStateHandler("loggedIn", "outra msg"))
-//         )
-//     )
-// );
-
-// app.MapGet("/details", () => new Scaffold(
-//     appBar: new AppBar(new Text("Detail Screen")),
-//     body: new Body(content: new Text("Detail Screen"))));
-
-// app.MapGet("/expr", () => new Scaffold(
-//     new AppBar(
-//         new Text("Nebula App")
-//     ),
-//     new Body(
-//         new Text("Welcome to the Nebula"),
-//         new Button(
-//             new Text("Click me!"),
-//             handler: new CompositeHandler(() => new List<Handler>()
-//                 {
-//                     new PrintHandler("Usuário clicou"),
-//                     new SetStateHandler("loggedIn", "true"),
-//                     new GoHandler("/details")
-//                 }
-//             )
-//         )
-//     )
-// ));
+// Product detail page endpoint
+app.MapGet("/product/{id}", (string id) =>
+{
+    // Sample product data based on ID
+    var productData = id switch
+    {
+        "1" => new { Name = "Smartphone Pro Max", Price = "$999.99", Description = "Latest flagship smartphone with advanced camera system and powerful processor.", Image = "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop" },
+        "2" => new { Name = "Gaming Laptop Ultra", Price = "$1,499.99", Description = "High-performance gaming laptop with RTX graphics and fast SSD storage.", Image = "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop" },
+        "3" => new { Name = "Wireless Headphones", Price = "$299.99", Description = "Premium noise-canceling wireless headphones with superior sound quality.", Image = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop" },
+        _ => new { Name = "Product Not Found", Price = "N/A", Description = "The requested product could not be found.", Image = "" }
+    };
+    
+    // Create AppBar for product page
+    var appBarText = new IRNet.Widgets.Text { Value = productData.Name };
+    var appBarTitleWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Text",
+        Text = appBarText
+    };
+    
+    var appBar = new IRNet.Widgets.AppBar { Title = appBarTitleWidget };
+    var appBarWidget = new IRNet.Widgets.Widget
+    {
+        Type = "AppBar",
+        AppBar = appBar
+    };
+    
+    // Create product image
+    var productImageWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Image",
+        Image = new IRNet.Widgets.Image 
+        { 
+            Src = productData.Image,
+            Width = 400,
+            Height = 300,
+            Fit = IRNet.Widgets.BoxFit.Cover
+        }
+    };
+    
+    // Create product title
+    var productTitle = new IRNet.Widgets.Text { Value = productData.Name };
+    var productTitleWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Text",
+        Text = productTitle
+    };
+    
+    // Create product price
+    var productPrice = new IRNet.Widgets.Text { Value = productData.Price };
+    var productPriceWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Text",
+        Text = productPrice
+    };
+    
+    // Create product description
+    var productDescription = new IRNet.Widgets.Text { Value = productData.Description };
+    var productDescriptionWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Text",
+        Text = productDescription
+    };
+    
+    // Create back button
+    var backHandler = new IRNet.Widgets.Handler
+    {
+        Type = "Go",
+        GoHandler = new IRNet.Widgets.GoHandler { Route = "/catalog" }
+    };
+    
+    var backButtonText = new IRNet.Widgets.Text { Value = "Back to Catalog" };
+    var backButtonTextWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Text",
+        Text = backButtonText
+    };
+    
+    var backButton = new IRNet.Widgets.Button
+    {
+        Text = backButtonTextWidget,
+        Handler = backHandler
+    };
+    var backButtonWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Button",
+        Button = backButton
+    };
+    
+    // Create main content column
+    var contentColumn = new IRNet.Widgets.Column();
+    contentColumn.ChildrenExprs.Add(productImageWidget);
+    contentColumn.ChildrenExprs.Add(productTitleWidget);
+    contentColumn.ChildrenExprs.Add(productPriceWidget);
+    contentColumn.ChildrenExprs.Add(productDescriptionWidget);
+    contentColumn.ChildrenExprs.Add(backButtonWidget);
+    
+    var contentColumnWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Column",
+        Column = contentColumn
+    };
+    
+    // Create container with padding
+    var containerWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Container",
+        Container = new IRNet.Widgets.Container
+        {
+            Child = contentColumnWidget,
+            Padding = new IRNet.Widgets.EdgeInsets { Left = 16, Top = 16, Right = 16, Bottom = 16 }
+        }
+    };
+    
+    // Create scaffold
+    var scaffold = new IRNet.Widgets.Scaffold
+    {
+        AppBar = appBarWidget,
+        Body = containerWidget
+    };
+    
+    var scaffoldWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Scaffold",
+        Scaffold = scaffold
+    };
+    
+    // Serialize to protobuf bytes
+    var bytes = scaffoldWidget.ToByteArray();
+    
+    return Results.Bytes(bytes, "application/x-protobuf");
+});
 
 app.MapGet("/protobuf", () =>
 {
@@ -220,17 +305,16 @@ app.MapGet("/catalog", () =>
     var productCards = new List<IRNet.Widgets.Widget>();
     
     // Product 1: Smartphone
-    var product1Image = new IRNet.Widgets.Image 
-    { 
-        Src = "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=200&fit=crop",
-        Width = 300,
-        Height = 200,
-        Fit = IRNet.Widgets.BoxFit.Cover
-    };
     var product1ImageWidget = new IRNet.Widgets.Widget
     {
         Type = "Image",
-        Image = product1Image
+        Image = new IRNet.Widgets.Image 
+        { 
+            Src = "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=200&fit=crop",
+            Width = 300,
+            Height = 200,
+            Fit = IRNet.Widgets.BoxFit.Cover
+        }
     };
     
     var product1Title = new IRNet.Widgets.Text { Value = "Smartphone Pro Max" };
@@ -264,43 +348,38 @@ app.MapGet("/catalog", () =>
         Column = product1Column
     };
     
-    var product1Card = new IRNet.Widgets.Card
-    {
-        Child = product1ColumnWidget,
-        Elevation = 4,
-        Margin = new IRNet.Widgets.EdgeInsets { Left = 8, Top = 8, Right = 8, Bottom = 8 }
-    };
-    
-    var product1InkWell = new IRNet.Widgets.InkWell
-    {
-        Child = new IRNet.Widgets.Widget
-        {
-            Type = "Card",
-            Card = product1Card
-        },
-        OnTap = product1Handler
-    };
-    
     var product1Widget = new IRNet.Widgets.Widget
     {
         Type = "InkWell",
-        InkWell = product1InkWell
+        InkWell = new IRNet.Widgets.InkWell
+        {
+            Child = new IRNet.Widgets.Widget
+            {
+                Type = "Card",
+                Card = new IRNet.Widgets.Card
+                {
+                    Child = product1ColumnWidget,
+                    Elevation = 4,
+                    Margin = new IRNet.Widgets.EdgeInsets { Left = 8, Top = 8, Right = 8, Bottom = 8 }
+                }
+            },
+            OnTap = product1Handler
+        }
     };
     
     productCards.Add(product1Widget);
     
     // Product 2: Laptop
-    var product2Image = new IRNet.Widgets.Image 
-    { 
-        Src = "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=200&fit=crop",
-        Width = 300,
-        Height = 200,
-        Fit = IRNet.Widgets.BoxFit.Cover
-    };
     var product2ImageWidget = new IRNet.Widgets.Widget
     {
         Type = "Image",
-        Image = product2Image
+        Image = new IRNet.Widgets.Image 
+        { 
+            Src = "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=200&fit=crop",
+            Width = 300,
+            Height = 200,
+            Fit = IRNet.Widgets.BoxFit.Cover
+        }
     };
     
     var product2Title = new IRNet.Widgets.Text { Value = "Gaming Laptop Ultra" };
@@ -334,43 +413,38 @@ app.MapGet("/catalog", () =>
         Column = product2Column
     };
     
-    var product2Card = new IRNet.Widgets.Card
-    {
-        Child = product2ColumnWidget,
-        Elevation = 4,
-        Margin = new IRNet.Widgets.EdgeInsets { Left = 8, Top = 8, Right = 8, Bottom = 8 }
-    };
-    
-    var product2InkWell = new IRNet.Widgets.InkWell
-    {
-        Child = new IRNet.Widgets.Widget
-        {
-            Type = "Card",
-            Card = product2Card
-        },
-        OnTap = product2Handler
-    };
-    
     var product2Widget = new IRNet.Widgets.Widget
     {
         Type = "InkWell",
-        InkWell = product2InkWell
+        InkWell = new IRNet.Widgets.InkWell
+        {
+            Child = new IRNet.Widgets.Widget
+            {
+                Type = "Card",
+                Card = new IRNet.Widgets.Card
+                {
+                    Child = product2ColumnWidget,
+                    Elevation = 4,
+                    Margin = new IRNet.Widgets.EdgeInsets { Left = 8, Top = 8, Right = 8, Bottom = 8 }
+                }
+            },
+            OnTap = product2Handler
+        }
     };
     
     productCards.Add(product2Widget);
     
     // Product 3: Headphones
-    var product3Image = new IRNet.Widgets.Image 
-    { 
-        Src = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=200&fit=crop",
-        Width = 300,
-        Height = 200,
-        Fit = IRNet.Widgets.BoxFit.Cover
-    };
     var product3ImageWidget = new IRNet.Widgets.Widget
     {
         Type = "Image",
-        Image = product3Image
+        Image = new IRNet.Widgets.Image 
+        { 
+            Src = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=200&fit=crop",
+            Width = 300,
+            Height = 200,
+            Fit = IRNet.Widgets.BoxFit.Cover
+        }
     };
     
     var product3Title = new IRNet.Widgets.Text { Value = "Wireless Headphones" };
@@ -404,47 +478,41 @@ app.MapGet("/catalog", () =>
         Column = product3Column
     };
     
-    var product3Card = new IRNet.Widgets.Card
-    {
-        Child = product3ColumnWidget,
-        Elevation = 4,
-        Margin = new IRNet.Widgets.EdgeInsets { Left = 8, Top = 8, Right = 8, Bottom = 8 }
-    };
-    
-    var product3InkWell = new IRNet.Widgets.InkWell
-    {
-        Child = new IRNet.Widgets.Widget
-        {
-            Type = "Card",
-            Card = product3Card
-        },
-        OnTap = product3Handler
-    };
-    
     var product3Widget = new IRNet.Widgets.Widget
     {
         Type = "InkWell",
-        InkWell = product3InkWell
+        InkWell = new IRNet.Widgets.InkWell
+        {
+            Child = new IRNet.Widgets.Widget
+            {
+                Type = "Card",
+                Card = new IRNet.Widgets.Card
+                {
+                    Child = product3ColumnWidget,
+                    Elevation = 4,
+                    Margin = new IRNet.Widgets.EdgeInsets { Left = 8, Top = 8, Right = 8, Bottom = 8 }
+                }
+            },
+            OnTap = product3Handler
+        }
     };
     
     productCards.Add(product3Widget);
     
     // Create ListView
-    var listView = new IRNet.Widgets.ListView
+    var listViewWidget = new IRNet.Widgets.Widget
     {
-        Padding = new IRNet.Widgets.EdgeInsets { Left = 16, Top = 16, Right = 16, Bottom = 16 }
+        Type = "ListView",
+        ListView = new IRNet.Widgets.ListView
+        {
+            Padding = new IRNet.Widgets.EdgeInsets { Left = 16, Top = 16, Right = 16, Bottom = 16 }
+        }
     };
     
     foreach (var card in productCards)
     {
-        listView.Children.Add(card);
+        listViewWidget.ListView.Children.Add(card);
     }
-    
-    var listViewWidget = new IRNet.Widgets.Widget
-    {
-        Type = "ListView",
-        ListView = listView
-    };
     
     // Create scaffold
     var scaffold = new IRNet.Widgets.Scaffold

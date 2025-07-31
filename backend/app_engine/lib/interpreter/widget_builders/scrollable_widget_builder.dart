@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../generated/widgets.pb.dart' as pb;
-import '../../generated/handlers.pb.dart' as handlers;
 
 class ScrollableWidgetBuilder {
   static Widget buildListView(

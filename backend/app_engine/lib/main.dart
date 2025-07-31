@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
                 name: router.name,
                 path: router.path,
                 builder: (BuildContext context, GoRouterState state) {
-                  return WidgetInterpreter(service: router.service, name: router.name);
+                  return WidgetInterpreter(service: router.service, name: router.name, param: state.pathParameters['id']);
                 },
               ));
             }

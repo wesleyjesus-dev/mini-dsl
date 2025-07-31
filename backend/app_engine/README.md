@@ -20,6 +20,6 @@ rm -rf lib/generated && mkdir -p lib/generated
 ```
 
 ```
-export PATH="$PATH":"$HOME/.pub-cache/bin" && protoc --dart_out=lib/generated lib/interpreter/sora.proto --proto_path=lib/interpreter
+export PATH="$PATH":"$HOME/.pub-cache/bin" && protoc --dart_out=lib/generated lib/interpreter/*.proto --proto_path=lib/interpreter
 ```
 

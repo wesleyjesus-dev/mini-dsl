@@ -12,10 +12,11 @@ import 'widget_builders/scrollable_widget_builder.dart' as scrollable;
 import 'widget_builders/navigation_widget_builder.dart' as navigation;
 
 class WidgetInterpreter extends StatefulWidget {
-  WidgetInterpreter({super.key, required this.service, required this.name});
+  WidgetInterpreter({super.key, required this.service, required this.name, this.param});
 
   final String service;
   final String name;
+  final dynamic? param;
   final Map<String, dynamic> state = {};
 
   @override
@@ -45,8 +46,12 @@ class _WidgetInterpreterState extends State<WidgetInterpreter> {
     final startTime = DateTime.now();
     
     try {
+      var basePath = 'http://${widget.service}/${widget.name}';
+      if (widget.param != null) {
+        basePath += '/${widget.param}';
+      }
       final response = await http.get(
-        Uri.parse('http://${widget.service}/${widget.name}'),
+        Uri.parse(basePath),
         headers: {'Accept': 'application/x-protobuf'},
       );
       

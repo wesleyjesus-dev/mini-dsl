@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../generated/widgets.pb.dart' as pb;
-import '../../generated/handlers.pb.dart' as handlers;
-import '../AnalyticService.dart';
 
 class LayoutWidgetBuilder {
   static Widget buildScaffold(
