@@ -1,9 +1,12 @@
 namespace IRNet.Models
 {
-    class CartItem
+    public class CartItem
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
+        public string Size { get; set; } = string.Empty;
+        public int Quantity { get; set; } = 1;
+        public string Image { get; set; } = string.Empty;
     }
 }
