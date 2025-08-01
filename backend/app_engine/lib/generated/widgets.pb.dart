@@ -57,6 +57,7 @@ enum Widget_WidgetData {
   tabBar, 
   tabBarView, 
   navigationBar, 
+  navigationDestination, 
   listTile, 
   inkWell, 
   gestureDetector, 
@@ -108,6 +109,7 @@ class Widget extends $pb.GeneratedMessage {
     TabBar? tabBar,
     TabBarView? tabBarView,
     NavigationBar? navigationBar,
+    NavigationDestination? navigationDestination,
     ListTile? listTile,
     InkWell? inkWell,
     GestureDetector? gestureDetector,
@@ -235,6 +237,9 @@ class Widget extends $pb.GeneratedMessage {
     if (navigationBar != null) {
       $result.navigationBar = navigationBar;
     }
+    if (navigationDestination != null) {
+      $result.navigationDestination = navigationDestination;
+    }
     if (listTile != null) {
       $result.listTile = listTile;
     }
@@ -296,15 +301,16 @@ class Widget extends $pb.GeneratedMessage {
     38 : Widget_WidgetData.tabBar,
     39 : Widget_WidgetData.tabBarView,
     40 : Widget_WidgetData.navigationBar,
-    41 : Widget_WidgetData.listTile,
-    42 : Widget_WidgetData.inkWell,
-    43 : Widget_WidgetData.gestureDetector,
-    44 : Widget_WidgetData.safeArea,
-    45 : Widget_WidgetData.singleChildScrollView,
+    41 : Widget_WidgetData.navigationDestination,
+    42 : Widget_WidgetData.listTile,
+    43 : Widget_WidgetData.inkWell,
+    44 : Widget_WidgetData.gestureDetector,
+    45 : Widget_WidgetData.safeArea,
+    46 : Widget_WidgetData.singleChildScrollView,
     0 : Widget_WidgetData.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Widget', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.widgets'), createEmptyInstance: create)
-    ..oo(0, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45])
+    ..oo(0, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46])
     ..aOS(1, _omitFieldNames ? '' : 'type')
     ..aOM<Scaffold>(2, _omitFieldNames ? '' : 'scaffold', subBuilder: Scaffold.create)
     ..aOM<AppBar>(3, _omitFieldNames ? '' : 'appBar', subBuilder: AppBar.create)
@@ -345,11 +351,12 @@ class Widget extends $pb.GeneratedMessage {
     ..aOM<TabBar>(38, _omitFieldNames ? '' : 'tabBar', subBuilder: TabBar.create)
     ..aOM<TabBarView>(39, _omitFieldNames ? '' : 'tabBarView', subBuilder: TabBarView.create)
     ..aOM<NavigationBar>(40, _omitFieldNames ? '' : 'navigationBar', subBuilder: NavigationBar.create)
-    ..aOM<ListTile>(41, _omitFieldNames ? '' : 'listTile', subBuilder: ListTile.create)
-    ..aOM<InkWell>(42, _omitFieldNames ? '' : 'inkWell', subBuilder: InkWell.create)
-    ..aOM<GestureDetector>(43, _omitFieldNames ? '' : 'gestureDetector', subBuilder: GestureDetector.create)
-    ..aOM<SafeArea>(44, _omitFieldNames ? '' : 'safeArea', subBuilder: SafeArea.create)
-    ..aOM<SingleChildScrollView>(45, _omitFieldNames ? '' : 'singleChildScrollView', subBuilder: SingleChildScrollView.create)
+    ..aOM<NavigationDestination>(41, _omitFieldNames ? '' : 'navigationDestination', subBuilder: NavigationDestination.create)
+    ..aOM<ListTile>(42, _omitFieldNames ? '' : 'listTile', subBuilder: ListTile.create)
+    ..aOM<InkWell>(43, _omitFieldNames ? '' : 'inkWell', subBuilder: InkWell.create)
+    ..aOM<GestureDetector>(44, _omitFieldNames ? '' : 'gestureDetector', subBuilder: GestureDetector.create)
+    ..aOM<SafeArea>(45, _omitFieldNames ? '' : 'safeArea', subBuilder: SafeArea.create)
+    ..aOM<SingleChildScrollView>(46, _omitFieldNames ? '' : 'singleChildScrollView', subBuilder: SingleChildScrollView.create)
     ..hasRequiredFields = false
   ;
 
@@ -816,59 +823,70 @@ class Widget extends $pb.GeneratedMessage {
   NavigationBar ensureNavigationBar() => $_ensure(39);
 
   @$pb.TagNumber(41)
-  ListTile get listTile => $_getN(40);
+  NavigationDestination get navigationDestination => $_getN(40);
   @$pb.TagNumber(41)
-  set listTile(ListTile v) { setField(41, v); }
+  set navigationDestination(NavigationDestination v) { setField(41, v); }
   @$pb.TagNumber(41)
-  $core.bool hasListTile() => $_has(40);
+  $core.bool hasNavigationDestination() => $_has(40);
   @$pb.TagNumber(41)
-  void clearListTile() => clearField(41);
+  void clearNavigationDestination() => clearField(41);
   @$pb.TagNumber(41)
-  ListTile ensureListTile() => $_ensure(40);
+  NavigationDestination ensureNavigationDestination() => $_ensure(40);
 
   @$pb.TagNumber(42)
-  InkWell get inkWell => $_getN(41);
+  ListTile get listTile => $_getN(41);
   @$pb.TagNumber(42)
-  set inkWell(InkWell v) { setField(42, v); }
+  set listTile(ListTile v) { setField(42, v); }
   @$pb.TagNumber(42)
-  $core.bool hasInkWell() => $_has(41);
+  $core.bool hasListTile() => $_has(41);
   @$pb.TagNumber(42)
-  void clearInkWell() => clearField(42);
+  void clearListTile() => clearField(42);
   @$pb.TagNumber(42)
-  InkWell ensureInkWell() => $_ensure(41);
+  ListTile ensureListTile() => $_ensure(41);
 
   @$pb.TagNumber(43)
-  GestureDetector get gestureDetector => $_getN(42);
+  InkWell get inkWell => $_getN(42);
   @$pb.TagNumber(43)
-  set gestureDetector(GestureDetector v) { setField(43, v); }
+  set inkWell(InkWell v) { setField(43, v); }
   @$pb.TagNumber(43)
-  $core.bool hasGestureDetector() => $_has(42);
+  $core.bool hasInkWell() => $_has(42);
   @$pb.TagNumber(43)
-  void clearGestureDetector() => clearField(43);
+  void clearInkWell() => clearField(43);
   @$pb.TagNumber(43)
-  GestureDetector ensureGestureDetector() => $_ensure(42);
+  InkWell ensureInkWell() => $_ensure(42);
 
   @$pb.TagNumber(44)
-  SafeArea get safeArea => $_getN(43);
+  GestureDetector get gestureDetector => $_getN(43);
   @$pb.TagNumber(44)
-  set safeArea(SafeArea v) { setField(44, v); }
+  set gestureDetector(GestureDetector v) { setField(44, v); }
   @$pb.TagNumber(44)
-  $core.bool hasSafeArea() => $_has(43);
+  $core.bool hasGestureDetector() => $_has(43);
   @$pb.TagNumber(44)
-  void clearSafeArea() => clearField(44);
+  void clearGestureDetector() => clearField(44);
   @$pb.TagNumber(44)
-  SafeArea ensureSafeArea() => $_ensure(43);
+  GestureDetector ensureGestureDetector() => $_ensure(43);
 
   @$pb.TagNumber(45)
-  SingleChildScrollView get singleChildScrollView => $_getN(44);
+  SafeArea get safeArea => $_getN(44);
   @$pb.TagNumber(45)
-  set singleChildScrollView(SingleChildScrollView v) { setField(45, v); }
+  set safeArea(SafeArea v) { setField(45, v); }
   @$pb.TagNumber(45)
-  $core.bool hasSingleChildScrollView() => $_has(44);
+  $core.bool hasSafeArea() => $_has(44);
   @$pb.TagNumber(45)
-  void clearSingleChildScrollView() => clearField(45);
+  void clearSafeArea() => clearField(45);
   @$pb.TagNumber(45)
-  SingleChildScrollView ensureSingleChildScrollView() => $_ensure(44);
+  SafeArea ensureSafeArea() => $_ensure(44);
+
+  @$pb.TagNumber(46)
+  SingleChildScrollView get singleChildScrollView => $_getN(45);
+  @$pb.TagNumber(46)
+  set singleChildScrollView(SingleChildScrollView v) { setField(46, v); }
+  @$pb.TagNumber(46)
+  $core.bool hasSingleChildScrollView() => $_has(45);
+  @$pb.TagNumber(46)
+  void clearSingleChildScrollView() => clearField(46);
+  @$pb.TagNumber(46)
+  SingleChildScrollView ensureSingleChildScrollView() => $_ensure(45);
 }
 
 /// Widget implementations
@@ -876,6 +894,7 @@ class Scaffold extends $pb.GeneratedMessage {
   factory Scaffold({
     Widget? appBar,
     Widget? body,
+    Widget? bottomNavigationBar,
   }) {
     final $result = create();
     if (appBar != null) {
@@ -883,6 +902,9 @@ class Scaffold extends $pb.GeneratedMessage {
     }
     if (body != null) {
       $result.body = body;
+    }
+    if (bottomNavigationBar != null) {
+      $result.bottomNavigationBar = bottomNavigationBar;
     }
     return $result;
   }
@@ -893,6 +915,7 @@ class Scaffold extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Scaffold', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.widgets'), createEmptyInstance: create)
     ..aOM<Widget>(1, _omitFieldNames ? '' : 'appBar', subBuilder: Widget.create)
     ..aOM<Widget>(2, _omitFieldNames ? '' : 'body', subBuilder: Widget.create)
+    ..aOM<Widget>(3, _omitFieldNames ? '' : 'bottomNavigationBar', subBuilder: Widget.create)
     ..hasRequiredFields = false
   ;
 
@@ -938,6 +961,17 @@ class Scaffold extends $pb.GeneratedMessage {
   void clearBody() => clearField(2);
   @$pb.TagNumber(2)
   Widget ensureBody() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  Widget get bottomNavigationBar => $_getN(2);
+  @$pb.TagNumber(3)
+  set bottomNavigationBar(Widget v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasBottomNavigationBar() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearBottomNavigationBar() => clearField(3);
+  @$pb.TagNumber(3)
+  Widget ensureBottomNavigationBar() => $_ensure(2);
 }
 
 class AppBar extends $pb.GeneratedMessage {
@@ -7262,6 +7296,116 @@ class NavigationBar extends $pb.GeneratedMessage {
   void clearOverlayColor() => clearField(12);
   @$pb.TagNumber(12)
   $0.OverlayVisibilityVariant ensureOverlayColor() => $_ensure(11);
+}
+
+class NavigationDestination extends $pb.GeneratedMessage {
+  factory NavigationDestination({
+    Widget? icon,
+    Widget? selectedIcon,
+    $core.String? label,
+    $core.String? tooltip,
+    $core.bool? enabled,
+  }) {
+    final $result = create();
+    if (icon != null) {
+      $result.icon = icon;
+    }
+    if (selectedIcon != null) {
+      $result.selectedIcon = selectedIcon;
+    }
+    if (label != null) {
+      $result.label = label;
+    }
+    if (tooltip != null) {
+      $result.tooltip = tooltip;
+    }
+    if (enabled != null) {
+      $result.enabled = enabled;
+    }
+    return $result;
+  }
+  NavigationDestination._() : super();
+  factory NavigationDestination.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory NavigationDestination.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'NavigationDestination', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.widgets'), createEmptyInstance: create)
+    ..aOM<Widget>(1, _omitFieldNames ? '' : 'icon', subBuilder: Widget.create)
+    ..aOM<Widget>(2, _omitFieldNames ? '' : 'selectedIcon', subBuilder: Widget.create)
+    ..aOS(3, _omitFieldNames ? '' : 'label')
+    ..aOS(4, _omitFieldNames ? '' : 'tooltip')
+    ..aOB(5, _omitFieldNames ? '' : 'enabled')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  NavigationDestination clone() => NavigationDestination()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  NavigationDestination copyWith(void Function(NavigationDestination) updates) => super.copyWith((message) => updates(message as NavigationDestination)) as NavigationDestination;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static NavigationDestination create() => NavigationDestination._();
+  NavigationDestination createEmptyInstance() => create();
+  static $pb.PbList<NavigationDestination> createRepeated() => $pb.PbList<NavigationDestination>();
+  @$core.pragma('dart2js:noInline')
+  static NavigationDestination getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<NavigationDestination>(create);
+  static NavigationDestination? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  Widget get icon => $_getN(0);
+  @$pb.TagNumber(1)
+  set icon(Widget v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasIcon() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIcon() => clearField(1);
+  @$pb.TagNumber(1)
+  Widget ensureIcon() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  Widget get selectedIcon => $_getN(1);
+  @$pb.TagNumber(2)
+  set selectedIcon(Widget v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSelectedIcon() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSelectedIcon() => clearField(2);
+  @$pb.TagNumber(2)
+  Widget ensureSelectedIcon() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.String get label => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set label($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasLabel() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearLabel() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get tooltip => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set tooltip($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasTooltip() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTooltip() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.bool get enabled => $_getBF(4);
+  @$pb.TagNumber(5)
+  set enabled($core.bool v) { $_setBool(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasEnabled() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearEnabled() => clearField(5);
 }
 
 class ListTile extends $pb.GeneratedMessage {

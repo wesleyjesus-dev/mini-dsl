@@ -1,3 +1,4 @@
+import 'package:app_engine/interpreter/widget_builders/handlers_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
@@ -12,6 +13,7 @@ import 'widget_builders/display_widget_builder.dart' as display;
 import 'widget_builders/interactive_widget_builder.dart' as interactive;
 import 'widget_builders/scrollable_widget_builder.dart' as scrollable;
 import 'widget_builders/navigation_widget_builder.dart' as navigation;
+import 'package:dio/dio.dart';
 
 class WidgetInterpreter extends StatefulWidget {
   WidgetInterpreter({super.key, required this.service, required this.name, this.param});
@@ -380,6 +382,9 @@ Future<void> _handleRefresh() async {
         case pb.Widget_WidgetData.navigationBar:
           return navigation.NavigationWidgetBuilder.buildNavigationBar(
             pbWidget.navigationBar, context, interpretWidget, executeHandler);
+        case pb.Widget_WidgetData.navigationDestination:
+          return navigation.NavigationWidgetBuilder.buildNavigationDestination(
+            pbWidget.navigationDestination, context, interpretWidget);
 
         default:
           return SizedBox.shrink();
@@ -390,7 +395,7 @@ Future<void> _handleRefresh() async {
     }
   }
 
-  void executeHandler(handlers.Handler handler, BuildContext context) {
+  Future<void> executeHandler(handlers.Handler handler, BuildContext context) async {
     // Track evento do interpreter
     _analytics.trackInterpreterEvent(
       eventName: 'handler_executed',
@@ -483,6 +488,12 @@ Future<void> _handleRefresh() async {
         for (final action in compositeHandler.actions) {
           executeHandler(action, context);
         }
+        break;
+
+      case handlers.Handler_HandlerData.fetchHandler:
+        final fetchHandler = handler.fetchHandler;
+        final response = await HandlersBuilder.fetchHandler(fetchHandler, null, null);
+        print("####### response service: ${response}");
         break;
         
       default:

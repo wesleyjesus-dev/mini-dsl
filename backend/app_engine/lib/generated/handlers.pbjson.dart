@@ -18,11 +18,12 @@ const Handler$json = {
   '1': 'Handler',
   '2': [
     {'1': 'type', '3': 1, '4': 1, '5': 9, '10': 'type'},
-    {'1': 'go_handler', '3': 2, '4': 1, '5': 11, '6': '.interpreter.GoHandler', '9': 0, '10': 'goHandler'},
-    {'1': 'set_state_handler', '3': 3, '4': 1, '5': 11, '6': '.interpreter.SetStateHandler', '9': 0, '10': 'setStateHandler'},
-    {'1': 'composite_handler', '3': 4, '4': 1, '5': 11, '6': '.interpreter.CompositeHandler', '9': 0, '10': 'compositeHandler'},
-    {'1': 'print_handler', '3': 5, '4': 1, '5': 11, '6': '.interpreter.PrintHandler', '9': 0, '10': 'printHandler'},
-    {'1': 'set_state_handler_with_value', '3': 6, '4': 1, '5': 11, '6': '.interpreter.SetStateHandlerWithValue', '9': 0, '10': 'setStateHandlerWithValue'},
+    {'1': 'go_handler', '3': 2, '4': 1, '5': 11, '6': '.interpreter.handlers.GoHandler', '9': 0, '10': 'goHandler'},
+    {'1': 'set_state_handler', '3': 3, '4': 1, '5': 11, '6': '.interpreter.handlers.SetStateHandler', '9': 0, '10': 'setStateHandler'},
+    {'1': 'composite_handler', '3': 4, '4': 1, '5': 11, '6': '.interpreter.handlers.CompositeHandler', '9': 0, '10': 'compositeHandler'},
+    {'1': 'print_handler', '3': 5, '4': 1, '5': 11, '6': '.interpreter.handlers.PrintHandler', '9': 0, '10': 'printHandler'},
+    {'1': 'set_state_handler_with_value', '3': 6, '4': 1, '5': 11, '6': '.interpreter.handlers.SetStateHandlerWithValue', '9': 0, '10': 'setStateHandlerWithValue'},
+    {'1': 'fetch_handler', '3': 7, '4': 1, '5': 11, '6': '.interpreter.handlers.FetchHandler', '9': 0, '10': 'fetchHandler'},
   ],
   '8': [
     {'1': 'handler_data'},
@@ -31,14 +32,16 @@ const Handler$json = {
 
 /// Descriptor for `Handler`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List handlerDescriptor = $convert.base64Decode(
-    'CgdIYW5kbGVyEhIKBHR5cGUYASABKAlSBHR5cGUSNwoKZ29faGFuZGxlchgCIAEoCzIWLmludG'
-    'VycHJldGVyLkdvSGFuZGxlckgAUglnb0hhbmRsZXISSgoRc2V0X3N0YXRlX2hhbmRsZXIYAyAB'
-    'KAsyHC5pbnRlcnByZXRlci5TZXRTdGF0ZUhhbmRsZXJIAFIPc2V0U3RhdGVIYW5kbGVyEkwKEW'
-    'NvbXBvc2l0ZV9oYW5kbGVyGAQgASgLMh0uaW50ZXJwcmV0ZXIuQ29tcG9zaXRlSGFuZGxlckgA'
-    'UhBjb21wb3NpdGVIYW5kbGVyEkAKDXByaW50X2hhbmRsZXIYBSABKAsyGS5pbnRlcnByZXRlci'
-    '5QcmludEhhbmRsZXJIAFIMcHJpbnRIYW5kbGVyEmcKHHNldF9zdGF0ZV9oYW5kbGVyX3dpdGhf'
-    'dmFsdWUYBiABKAsyJS5pbnRlcnByZXRlci5TZXRTdGF0ZUhhbmRsZXJXaXRoVmFsdWVIAFIYc2'
-    'V0U3RhdGVIYW5kbGVyV2l0aFZhbHVlQg4KDGhhbmRsZXJfZGF0YQ==');
+    'CgdIYW5kbGVyEhIKBHR5cGUYASABKAlSBHR5cGUSQAoKZ29faGFuZGxlchgCIAEoCzIfLmludG'
+    'VycHJldGVyLmhhbmRsZXJzLkdvSGFuZGxlckgAUglnb0hhbmRsZXISUwoRc2V0X3N0YXRlX2hh'
+    'bmRsZXIYAyABKAsyJS5pbnRlcnByZXRlci5oYW5kbGVycy5TZXRTdGF0ZUhhbmRsZXJIAFIPc2'
+    'V0U3RhdGVIYW5kbGVyElUKEWNvbXBvc2l0ZV9oYW5kbGVyGAQgASgLMiYuaW50ZXJwcmV0ZXIu'
+    'aGFuZGxlcnMuQ29tcG9zaXRlSGFuZGxlckgAUhBjb21wb3NpdGVIYW5kbGVyEkkKDXByaW50X2'
+    'hhbmRsZXIYBSABKAsyIi5pbnRlcnByZXRlci5oYW5kbGVycy5QcmludEhhbmRsZXJIAFIMcHJp'
+    'bnRIYW5kbGVyEnAKHHNldF9zdGF0ZV9oYW5kbGVyX3dpdGhfdmFsdWUYBiABKAsyLi5pbnRlcn'
+    'ByZXRlci5oYW5kbGVycy5TZXRTdGF0ZUhhbmRsZXJXaXRoVmFsdWVIAFIYc2V0U3RhdGVIYW5k'
+    'bGVyV2l0aFZhbHVlEkkKDWZldGNoX2hhbmRsZXIYByABKAsyIi5pbnRlcnByZXRlci5oYW5kbG'
+    'Vycy5GZXRjaEhhbmRsZXJIAFIMZmV0Y2hIYW5kbGVyQg4KDGhhbmRsZXJfZGF0YQ==');
 
 @$core.Deprecated('Use goHandlerDescriptor instead')
 const GoHandler$json = {
@@ -70,14 +73,14 @@ final $typed_data.Uint8List setStateHandlerDescriptor = $convert.base64Decode(
 const CompositeHandler$json = {
   '1': 'CompositeHandler',
   '2': [
-    {'1': 'actions', '3': 1, '4': 3, '5': 11, '6': '.interpreter.Handler', '10': 'actions'},
+    {'1': 'actions', '3': 1, '4': 3, '5': 11, '6': '.interpreter.handlers.Handler', '10': 'actions'},
   ],
 };
 
 /// Descriptor for `CompositeHandler`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List compositeHandlerDescriptor = $convert.base64Decode(
-    'ChBDb21wb3NpdGVIYW5kbGVyEi4KB2FjdGlvbnMYASADKAsyFC5pbnRlcnByZXRlci5IYW5kbG'
-    'VyUgdhY3Rpb25z');
+    'ChBDb21wb3NpdGVIYW5kbGVyEjcKB2FjdGlvbnMYASADKAsyHS5pbnRlcnByZXRlci5oYW5kbG'
+    'Vycy5IYW5kbGVyUgdhY3Rpb25z');
 
 @$core.Deprecated('Use printHandlerDescriptor instead')
 const PrintHandler$json = {
@@ -104,4 +107,35 @@ const SetStateHandlerWithValue$json = {
 final $typed_data.Uint8List setStateHandlerWithValueDescriptor = $convert.base64Decode(
     'ChhTZXRTdGF0ZUhhbmRsZXJXaXRoVmFsdWUSEAoDa2V5GAEgASgJUgNrZXkSFAoFdmFsdWUYAi'
     'ABKAlSBXZhbHVl');
+
+@$core.Deprecated('Use fetchHandlerDescriptor instead')
+const FetchHandler$json = {
+  '1': 'FetchHandler',
+  '2': [
+    {'1': 'endpoint', '3': 1, '4': 1, '5': 9, '10': 'endpoint'},
+    {'1': 'path', '3': 2, '4': 1, '5': 9, '10': 'path'},
+    {'1': 'verb', '3': 3, '4': 1, '5': 9, '10': 'verb'},
+    {'1': 'headers', '3': 4, '4': 3, '5': 11, '6': '.interpreter.handlers.FetchHeader', '10': 'headers'},
+    {'1': 'body', '3': 5, '4': 1, '5': 9, '10': 'body'},
+  ],
+};
+
+/// Descriptor for `FetchHandler`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List fetchHandlerDescriptor = $convert.base64Decode(
+    'CgxGZXRjaEhhbmRsZXISGgoIZW5kcG9pbnQYASABKAlSCGVuZHBvaW50EhIKBHBhdGgYAiABKA'
+    'lSBHBhdGgSEgoEdmVyYhgDIAEoCVIEdmVyYhI7CgdoZWFkZXJzGAQgAygLMiEuaW50ZXJwcmV0'
+    'ZXIuaGFuZGxlcnMuRmV0Y2hIZWFkZXJSB2hlYWRlcnMSEgoEYm9keRgFIAEoCVIEYm9keQ==');
+
+@$core.Deprecated('Use fetchHeaderDescriptor instead')
+const FetchHeader$json = {
+  '1': 'FetchHeader',
+  '2': [
+    {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
+    {'1': 'value', '3': 2, '4': 1, '5': 9, '10': 'value'},
+  ],
+};
+
+/// Descriptor for `FetchHeader`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List fetchHeaderDescriptor = $convert.base64Decode(
+    'CgtGZXRjaEhlYWRlchIQCgNrZXkYASABKAlSA2tleRIUCgV2YWx1ZRgCIAEoCVIFdmFsdWU=');
 

@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'dart:typed_data';
-import '../lib/interpreter/cache_service.dart';
-import '../lib/interpreter/cache_config.dart';
+import 'package:app_engine/interpreter/cache_service.dart';
+import 'package:app_engine/interpreter/cache_config.dart';
 
 void main() {
   group('CacheService Tests', () {

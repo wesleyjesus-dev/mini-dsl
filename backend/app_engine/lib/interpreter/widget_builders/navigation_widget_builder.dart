@@ -94,4 +94,20 @@ class NavigationWidgetBuilder {
           : null,
     );
   }
+
+  static Widget buildNavigationDestination(
+    pb.NavigationDestination navigationDestination,
+    BuildContext context,
+    Widget Function(pb.Widget, BuildContext) interpretWidget,
+  ) {
+    return NavigationDestination(
+      icon: interpretWidget(navigationDestination.icon, context),
+      selectedIcon: navigationDestination.hasSelectedIcon()
+          ? interpretWidget(navigationDestination.selectedIcon, context)
+          : null,
+      label: navigationDestination.label,
+      tooltip: navigationDestination.hasTooltip() ? navigationDestination.tooltip : null,
+      enabled: navigationDestination.hasEnabled() ? navigationDestination.enabled : true,
+    );
+  }
 }

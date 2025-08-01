@@ -53,7 +53,7 @@ class TValue extends $pb.GeneratedMessage {
     4 : TValue_ValueData.tString,
     0 : TValue_ValueData.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TValue', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TValue', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..oo(0, [4])
     ..aOS(1, _omitFieldNames ? '' : 'key')
     ..aOS(2, _omitFieldNames ? '' : 'type')
@@ -139,7 +139,7 @@ class TString extends $pb.GeneratedMessage {
   factory TString.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory TString.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TString', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TString', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'key')
     ..hasRequiredFields = false
   ;
@@ -189,7 +189,7 @@ class Color extends $pb.GeneratedMessage {
   factory Color.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory Color.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Color', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Color', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'value', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -251,7 +251,7 @@ class EdgeInsets extends $pb.GeneratedMessage {
   factory EdgeInsets.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory EdgeInsets.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'EdgeInsets', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'EdgeInsets', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.double>(1, _omitFieldNames ? '' : 'left', $pb.PbFieldType.OD)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'top', $pb.PbFieldType.OD)
     ..a<$core.double>(3, _omitFieldNames ? '' : 'right', $pb.PbFieldType.OD)
@@ -359,7 +359,7 @@ class BoxDecoration extends $pb.GeneratedMessage {
   factory BoxDecoration.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory BoxDecoration.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BoxDecoration', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BoxDecoration', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOM<Color>(1, _omitFieldNames ? '' : 'color', subBuilder: Color.create)
     ..aOM<DecorationImage>(2, _omitFieldNames ? '' : 'image', subBuilder: DecorationImage.create)
     ..aOM<Border>(3, _omitFieldNames ? '' : 'border', subBuilder: Border.create)
@@ -487,7 +487,7 @@ class AlignmentGeometry extends $pb.GeneratedMessage {
   factory AlignmentGeometry.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory AlignmentGeometry.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AlignmentGeometry', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AlignmentGeometry', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.double>(1, _omitFieldNames ? '' : 'x', $pb.PbFieldType.OD)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'y', $pb.PbFieldType.OD)
     ..hasRequiredFields = false
@@ -551,7 +551,7 @@ class ScrollPhysics extends $pb.GeneratedMessage {
   factory ScrollPhysics.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory ScrollPhysics.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ScrollPhysics', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ScrollPhysics', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'bouncing')
     ..aOB(2, _omitFieldNames ? '' : 'clamping')
     ..hasRequiredFields = false
@@ -623,7 +623,7 @@ class SliverGridDelegate extends $pb.GeneratedMessage {
   factory SliverGridDelegate.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SliverGridDelegate.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SliverGridDelegate', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SliverGridDelegate', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'crossAxisCount', $pb.PbFieldType.O3)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'mainAxisSpacing', $pb.PbFieldType.OD)
     ..a<$core.double>(3, _omitFieldNames ? '' : 'crossAxisSpacing', $pb.PbFieldType.OD)
@@ -703,7 +703,7 @@ class ShapeBorder extends $pb.GeneratedMessage {
   factory ShapeBorder.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory ShapeBorder.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ShapeBorder', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ShapeBorder', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOM<BorderSide>(1, _omitFieldNames ? '' : 'side', subBuilder: BorderSide.create)
     ..hasRequiredFields = false
   ;
@@ -767,7 +767,7 @@ class IconData extends $pb.GeneratedMessage {
   factory IconData.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory IconData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'IconData', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'IconData', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'codePoint', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'fontFamily')
     ..aOS(3, _omitFieldNames ? '' : 'fontPackage')
@@ -943,7 +943,7 @@ class TextStyle extends $pb.GeneratedMessage {
   factory TextStyle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory TextStyle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextStyle', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextStyle', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'inherit')
     ..aOM<Color>(2, _omitFieldNames ? '' : 'color', subBuilder: Color.create)
     ..aOM<Color>(3, _omitFieldNames ? '' : 'backgroundColor', subBuilder: Color.create)
@@ -1235,7 +1235,7 @@ class BorderSide extends $pb.GeneratedMessage {
   factory BorderSide.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory BorderSide.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BorderSide', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BorderSide', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOM<Color>(1, _omitFieldNames ? '' : 'color', subBuilder: Color.create)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'width', $pb.PbFieldType.OD)
     ..e<BorderStyle>(3, _omitFieldNames ? '' : 'style', $pb.PbFieldType.OE, defaultOrMaker: BorderStyle.NONE_BORDER, valueOf: BorderStyle.valueOf, enumValues: BorderStyle.values)
@@ -1317,7 +1317,7 @@ class OutlinedBorder extends $pb.GeneratedMessage {
   factory OutlinedBorder.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory OutlinedBorder.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'OutlinedBorder', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'OutlinedBorder', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOM<BorderSide>(1, _omitFieldNames ? '' : 'side', subBuilder: BorderSide.create)
     ..hasRequiredFields = false
   ;
@@ -1373,7 +1373,7 @@ class VisualDensity extends $pb.GeneratedMessage {
   factory VisualDensity.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory VisualDensity.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'VisualDensity', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'VisualDensity', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.double>(1, _omitFieldNames ? '' : 'horizontal', $pb.PbFieldType.OD)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'vertical', $pb.PbFieldType.OD)
     ..hasRequiredFields = false
@@ -1433,7 +1433,7 @@ class MaterialStateProperty extends $pb.GeneratedMessage {
   factory MaterialStateProperty.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory MaterialStateProperty.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MaterialStateProperty', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MaterialStateProperty', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOM<TValue>(1, _omitFieldNames ? '' : 'value', subBuilder: TValue.create)
     ..hasRequiredFields = false
   ;
@@ -1485,7 +1485,7 @@ class ImageProvider extends $pb.GeneratedMessage {
   factory ImageProvider.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory ImageProvider.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ImageProvider', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ImageProvider', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'url')
     ..hasRequiredFields = false
   ;
@@ -1547,7 +1547,7 @@ class BoxConstraints extends $pb.GeneratedMessage {
   factory BoxConstraints.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory BoxConstraints.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BoxConstraints', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BoxConstraints', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.double>(1, _omitFieldNames ? '' : 'minWidth', $pb.PbFieldType.OD)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'maxWidth', $pb.PbFieldType.OD)
     ..a<$core.double>(3, _omitFieldNames ? '' : 'minHeight', $pb.PbFieldType.OD)
@@ -1631,7 +1631,7 @@ class Size extends $pb.GeneratedMessage {
   factory Size.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory Size.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Size', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Size', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.double>(1, _omitFieldNames ? '' : 'width', $pb.PbFieldType.OD)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'height', $pb.PbFieldType.OD)
     ..hasRequiredFields = false
@@ -1699,7 +1699,7 @@ class AnimationController extends $pb.GeneratedMessage {
   factory AnimationController.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory AnimationController.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AnimationController', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AnimationController', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.double>(1, _omitFieldNames ? '' : 'value', $pb.PbFieldType.OD)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'lowerBound', $pb.PbFieldType.OD)
     ..a<$core.double>(3, _omitFieldNames ? '' : 'upperBound', $pb.PbFieldType.OD)
@@ -1773,7 +1773,7 @@ class TabController extends $pb.GeneratedMessage {
   factory TabController.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory TabController.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TabController', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TabController', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'index', $pb.PbFieldType.O3)
     ..a<$core.int>(2, _omitFieldNames ? '' : 'length', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
@@ -1833,7 +1833,7 @@ class Decoration extends $pb.GeneratedMessage {
   factory Decoration.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory Decoration.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Decoration', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Decoration', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOM<Color>(1, _omitFieldNames ? '' : 'color', subBuilder: Color.create)
     ..hasRequiredFields = false
   ;
@@ -1885,7 +1885,7 @@ class TextScaler extends $pb.GeneratedMessage {
   factory TextScaler.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory TextScaler.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextScaler', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextScaler', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.double>(1, _omitFieldNames ? '' : 'scaleFactor', $pb.PbFieldType.OD)
     ..hasRequiredFields = false
   ;
@@ -1935,7 +1935,7 @@ class InteractiveInkFeatureFactory extends $pb.GeneratedMessage {
   factory InteractiveInkFeatureFactory.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory InteractiveInkFeatureFactory.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InteractiveInkFeatureFactory', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InteractiveInkFeatureFactory', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'name')
     ..hasRequiredFields = false
   ;
@@ -1985,7 +1985,7 @@ class OverlayVisibilityVariant extends $pb.GeneratedMessage {
   factory OverlayVisibilityVariant.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory OverlayVisibilityVariant.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'OverlayVisibilityVariant', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'OverlayVisibilityVariant', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'visible')
     ..hasRequiredFields = false
   ;
@@ -2047,7 +2047,7 @@ class BorderRadius extends $pb.GeneratedMessage {
   factory BorderRadius.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory BorderRadius.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BorderRadius', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BorderRadius', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.double>(1, _omitFieldNames ? '' : 'topLeft', $pb.PbFieldType.OD)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'topRight', $pb.PbFieldType.OD)
     ..a<$core.double>(3, _omitFieldNames ? '' : 'bottomLeft', $pb.PbFieldType.OD)
@@ -2127,7 +2127,7 @@ class MaterialStatesController extends $pb.GeneratedMessage {
   factory MaterialStatesController.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory MaterialStatesController.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MaterialStatesController', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MaterialStatesController', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..pc<MaterialState>(1, _omitFieldNames ? '' : 'states', $pb.PbFieldType.KE, valueOf: MaterialState.valueOf, enumValues: MaterialState.values, defaultEnumValue: MaterialState.HOVERED)
     ..hasRequiredFields = false
   ;
@@ -2171,7 +2171,7 @@ class Set extends $pb.GeneratedMessage {
   factory Set.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory Set.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Set', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Set', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..pc<TValue>(1, _omitFieldNames ? '' : 'values', $pb.PbFieldType.PM, subBuilder: TValue.create)
     ..hasRequiredFields = false
   ;
@@ -2219,7 +2219,7 @@ class ScrollController extends $pb.GeneratedMessage {
   factory ScrollController.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory ScrollController.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ScrollController', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ScrollController', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..a<$core.double>(1, _omitFieldNames ? '' : 'initialScrollOffset', $pb.PbFieldType.OD)
     ..aOB(2, _omitFieldNames ? '' : 'keepScrollOffset')
     ..hasRequiredFields = false
@@ -2296,7 +2296,7 @@ class DecorationImage extends $pb.GeneratedMessage {
   factory DecorationImage.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory DecorationImage.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DecorationImage', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DecorationImage', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOM<ImageProvider>(1, _omitFieldNames ? '' : 'image', subBuilder: ImageProvider.create)
     ..e<BoxFit>(2, _omitFieldNames ? '' : 'fit', $pb.PbFieldType.OE, defaultOrMaker: BoxFit.FILL, valueOf: BoxFit.valueOf, enumValues: BoxFit.values)
     ..aOM<AlignmentGeometry>(3, _omitFieldNames ? '' : 'alignment', subBuilder: AlignmentGeometry.create)
@@ -2404,7 +2404,7 @@ class Border extends $pb.GeneratedMessage {
   factory Border.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory Border.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Border', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Border', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOM<BorderSide>(1, _omitFieldNames ? '' : 'top', subBuilder: BorderSide.create)
     ..aOM<BorderSide>(2, _omitFieldNames ? '' : 'right', subBuilder: BorderSide.create)
     ..aOM<BorderSide>(3, _omitFieldNames ? '' : 'bottom', subBuilder: BorderSide.create)
@@ -2508,7 +2508,7 @@ class BoxShadow extends $pb.GeneratedMessage {
   factory BoxShadow.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory BoxShadow.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BoxShadow', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BoxShadow', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOM<Color>(1, _omitFieldNames ? '' : 'color', subBuilder: Color.create)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'blurRadius', $pb.PbFieldType.OD)
     ..a<$core.double>(3, _omitFieldNames ? '' : 'spreadRadius', $pb.PbFieldType.OD)
@@ -2604,7 +2604,7 @@ class Gradient extends $pb.GeneratedMessage {
   factory Gradient.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory Gradient.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Gradient', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Gradient', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..pc<Color>(1, _omitFieldNames ? '' : 'colors', $pb.PbFieldType.PM, subBuilder: Color.create)
     ..p<$core.double>(2, _omitFieldNames ? '' : 'stops', $pb.PbFieldType.KD)
     ..hasRequiredFields = false
@@ -2656,7 +2656,7 @@ class Locale extends $pb.GeneratedMessage {
   factory Locale.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory Locale.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Locale', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Locale', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'languageCode')
     ..aOS(2, _omitFieldNames ? '' : 'countryCode')
     ..hasRequiredFields = false
@@ -2716,7 +2716,7 @@ class Paint extends $pb.GeneratedMessage {
   factory Paint.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory Paint.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Paint', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Paint', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOM<Color>(1, _omitFieldNames ? '' : 'color', subBuilder: Color.create)
     ..hasRequiredFields = false
   ;
@@ -2780,7 +2780,7 @@ class Shadow extends $pb.GeneratedMessage {
   factory Shadow.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory Shadow.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Shadow', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Shadow', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOM<Color>(1, _omitFieldNames ? '' : 'color', subBuilder: Color.create)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'blurRadius', $pb.PbFieldType.OD)
     ..a<$core.double>(3, _omitFieldNames ? '' : 'dx', $pb.PbFieldType.OD)
@@ -2866,7 +2866,7 @@ class FontFeature extends $pb.GeneratedMessage {
   factory FontFeature.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory FontFeature.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FontFeature', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FontFeature', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'feature')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'value', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
@@ -2930,7 +2930,7 @@ class FontVariation extends $pb.GeneratedMessage {
   factory FontVariation.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory FontVariation.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FontVariation', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FontVariation', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'axis')
     ..a<$core.double>(2, _omitFieldNames ? '' : 'value', $pb.PbFieldType.OD)
     ..hasRequiredFields = false
@@ -2998,7 +2998,7 @@ class TextDecoration extends $pb.GeneratedMessage {
   factory TextDecoration.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory TextDecoration.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextDecoration', package: const $pb.PackageName(_omitMessageNames ? '' : 'IRNet.Widgets'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextDecoration', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'underline')
     ..aOB(2, _omitFieldNames ? '' : 'overline')
     ..aOB(3, _omitFieldNames ? '' : 'lineThrough')

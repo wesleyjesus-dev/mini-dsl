@@ -1,5 +1,9 @@
 using Google.Protobuf;
+using IRNet.Widgets;
+using Microsoft.AspNetCore.Mvc;
 using Route = Microsoft.AspNetCore.Routing.Route;
+using IRNet.Models;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,11 +33,142 @@ app.MapGet("/routes", () =>
         Routes = { 
             // new IRNet.Widgets.RouteWidget() { Name = "protobuf", Path = "/", Service = "10.0.2.2:5221" },
             // new IRNet.Widgets.RouteWidget() { Name = "catalog", Path = "/catalog", Service = "10.0.2.2:5221" }
-            new IRNet.Widgets.RouteWidget() { Name = "catalog", Path = "/", Service = "10.0.2.2:5221" },
+            new IRNet.Widgets.RouteWidget() { Name = "catalog", Path = "/catalog", Service = "10.0.2.2:5221" },
             new IRNet.Widgets.RouteWidget() { Name = "product", Path = "/product/:id", Service = "10.0.2.2:5221" },
+            new IRNet.Widgets.RouteWidget() { Name = "login", Path = "/", Service = "10.0.2.2:5221" },
         } 
     };
     var bytes = routes.ToByteArray();
+    return Results.Bytes(bytes, "application/x-protobuf");
+});
+
+// Login endpoint
+app.MapGet("/login", () =>
+{
+    // Create title
+    var titleText = new IRNet.Widgets.Text { Value = "Login" };
+    var titleWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Text",
+        Text = titleText
+    };
+
+    // Create AppBar
+    var appBar = new IRNet.Widgets.AppBar { Title = titleWidget };
+    var appBarWidget = new IRNet.Widgets.Widget
+    {
+        Type = "AppBar",
+        AppBar = appBar
+    };
+
+    // Create username text field
+    var usernameField = new IRNet.Widgets.TextField
+    {
+        Placeholder = "Username",
+        ObscureText = false
+    };
+    var usernameFieldWidget = new IRNet.Widgets.Widget
+    {
+        Type = "TextField",
+        TextField = usernameField
+    };
+
+    // Create password text field
+    var passwordField = new IRNet.Widgets.TextField
+    {
+        Placeholder = "Password",
+        ObscureText = true
+    };
+    var passwordFieldWidget = new IRNet.Widgets.Widget
+    {
+        Type = "TextField",
+        TextField = passwordField
+    };
+
+    // Create login button
+    var loginButtonText = new IRNet.Widgets.Text { Value = "Login" };
+    var loginButtonTextWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Text",
+        Text = loginButtonText
+    };
+
+    var loginHandler = new IRNet.Widgets.Handler
+    {
+        Type = "Go",
+        GoHandler = new IRNet.Widgets.GoHandler { Route = "/catalog" }
+    };
+    var loginButton = new IRNet.Widgets.Button
+    {
+        Text = loginButtonTextWidget,
+        Handler = loginHandler
+    };
+    var loginButtonWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Button",
+        Button = loginButton
+    };
+
+    // Create spacing between elements
+    var spacer1 = new IRNet.Widgets.Widget
+    {
+        Type = "SizedBox",
+        SizedBox = new IRNet.Widgets.SizedBox { Height = 20 }
+    };
+    
+    var spacer2 = new IRNet.Widgets.Widget
+    {
+        Type = "SizedBox",
+        SizedBox = new IRNet.Widgets.SizedBox { Height = 20 }
+    };
+    
+    var spacer3 = new IRNet.Widgets.Widget
+    {
+        Type = "SizedBox",
+        SizedBox = new IRNet.Widgets.SizedBox { Height = 30 }
+    };
+
+    // Create column with form elements
+    var loginColumn = new IRNet.Widgets.Column();
+    loginColumn.ChildrenExprs.Add(usernameFieldWidget);
+    loginColumn.ChildrenExprs.Add(spacer1);
+    loginColumn.ChildrenExprs.Add(passwordFieldWidget);
+    loginColumn.ChildrenExprs.Add(spacer2);
+    loginColumn.ChildrenExprs.Add(loginButtonWidget);
+
+    var loginColumnWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Column",
+        Column = loginColumn
+    };
+
+    // Create container with padding
+    var loginContainerWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Container",
+        Container = new IRNet.Widgets.Container
+        {
+            Child = loginColumnWidget,
+            Padding = new IRNet.Widgets.EdgeInsets { Left = 32, Top = 50, Right = 32, Bottom = 32 }
+        }
+    };
+
+    // Create scaffold
+    var scaffold = new IRNet.Widgets.Scaffold
+    {
+        AppBar = appBarWidget,
+        Body = loginContainerWidget
+    };
+
+    var scaffoldWidget = new IRNet.Widgets.Widget
+    {
+        Type = "Scaffold",
+        Scaffold = scaffold
+    };
+
+    // Serialize to protobuf bytes
+    var bytes = scaffoldWidget.ToByteArray();
+
     return Results.Bytes(bytes, "application/x-protobuf");
 });
 
@@ -47,6 +182,18 @@ app.MapGet("/product/{id}", (string id) =>
         "2" => new { Name = "Gaming Laptop Ultra", Price = "$1,499.99", Description = "High-performance gaming laptop with RTX graphics and fast SSD storage.", Image = "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop" },
         "3" => new { Name = "Wireless Headphones", Price = "$299.99", Description = "Premium noise-canceling wireless headphones with superior sound quality.", Image = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop" },
         _ => new { Name = "Product Not Found", Price = "N/A", Description = "The requested product could not be found.", Image = "" }
+    };
+
+    var addProductHandler = new IRNet.Widgets.Handler
+    {
+        Type = "FetchHandler",
+        FetchHandler = new IRNet.Widgets.FetchHandler
+        {
+            Endpoint = "http://10.0.2.2:5221",
+            Path = "/cart",
+            Verb = "POST",
+            Body = JsonSerializer.Serialize(new CartItem { Id = 1, Name = productData.Name, Price = 999.99m }),
+        }
     };
     
     // Create AppBar for product page
@@ -118,7 +265,7 @@ app.MapGet("/product/{id}", (string id) =>
     var backButton = new IRNet.Widgets.Button
     {
         Text = backButtonTextWidget,
-        Handler = backHandler
+        Handler = backHandler//addProductHandler//backHandler
     };
     var backButtonWidget = new IRNet.Widgets.Widget
     {
@@ -514,11 +661,63 @@ app.MapGet("/catalog", () =>
         listViewWidget.ListView.Children.Add(card);
     }
     
-    // Create scaffold
+    // Create navigation destinations
+    var catalogDestination = new IRNet.Widgets.Widget
+    {
+        Type = "NavigationDestination",
+        NavigationDestination = new IRNet.Widgets.NavigationDestination
+        {
+            Icon = new IRNet.Widgets.Widget
+            {
+                Type = "Icon",
+                Icon = new IRNet.Widgets.Icon { }
+            },
+            Label = "Catalog",
+            Enabled = true
+        }
+    };
+    
+    var loginDestination = new IRNet.Widgets.Widget
+    {
+        Type = "NavigationDestination",
+        NavigationDestination = new IRNet.Widgets.NavigationDestination
+        {
+            Icon = new IRNet.Widgets.Widget
+            {
+                Type = "Icon",
+                Icon = new IRNet.Widgets.Icon { }
+            },
+            Label = "Login",
+            Enabled = true
+        }
+    };
+    
+    // Create navigation bar
+    var navigationBar = new IRNet.Widgets.NavigationBar
+    {
+        SelectedIndex = 0,
+        OnDestinationSelected = new IRNet.Widgets.Handler
+        {
+            Type = "Print",
+            PrintHandler = new IRNet.Widgets.PrintHandler { Message = "Navigation item selected" }
+        }
+    };
+    
+    navigationBar.Destinations.Add(catalogDestination);
+    navigationBar.Destinations.Add(loginDestination);
+    
+    var navigationBarWidget = new IRNet.Widgets.Widget
+    {
+        Type = "NavigationBar",
+        NavigationBar = navigationBar
+    };
+    
+    // Create scaffold with bottom navigation bar
     var scaffold = new IRNet.Widgets.Scaffold
     {
         AppBar = appBarWidget,
-        Body = listViewWidget
+        Body = listViewWidget,
+        BottomNavigationBar = navigationBarWidget
     };
     
     var scaffoldWidget = new IRNet.Widgets.Widget
@@ -531,6 +730,23 @@ app.MapGet("/catalog", () =>
     var bytes = scaffoldWidget.ToByteArray();
     
     return Results.Bytes(bytes, "application/x-protobuf");
+});
+
+app.MapGet("/products/{category}", (string category) =>
+{
+    return Results.Ok(new {
+        Products = new[]
+        {
+            new { Id = 1, Name = "Gaming Laptop Ultra", Price = 1499.99 },
+            new { Id = 2, Name = "Wireless Headphones", Price = 299.99 }
+        }
+    });
+});
+
+app.MapPost("/cart", ([FromBody] CartItem cartItem) =>
+{
+    Console.WriteLine($"${cartItem.Id}, {cartItem.Name}, ${cartItem.Price}");
+    return Results.Ok();
 });
 
 app.Run();

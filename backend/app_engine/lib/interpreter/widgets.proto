@@ -49,11 +49,12 @@ message Widget {
     TabBar tab_bar = 38;
     TabBarView tab_bar_view = 39;
     NavigationBar navigation_bar = 40;
-    ListTile list_tile = 41;
-    InkWell ink_well = 42;
-    GestureDetector gesture_detector = 43;
-    SafeArea safe_area = 44;
-    SingleChildScrollView single_child_scroll_view = 45;
+    NavigationDestination navigation_destination = 41;
+    ListTile list_tile = 42;
+    InkWell ink_well = 43;
+    GestureDetector gesture_detector = 44;
+    SafeArea safe_area = 45;
+    SingleChildScrollView single_child_scroll_view = 46;
   }
 }
 
@@ -61,6 +62,7 @@ message Widget {
 message Scaffold {
   Widget app_bar = 1;
   Widget body = 2;
+  Widget bottom_navigation_bar = 3;
 }
 
 message AppBar {
@@ -513,6 +515,14 @@ message NavigationBar {
   double height = 10;
   interpreter.types.NavigationDestinationLabelBehavior label_behavior = 11;
   interpreter.types.OverlayVisibilityVariant overlay_color = 12;
+}
+
+message NavigationDestination {
+  Widget icon = 1;
+  Widget selected_icon = 2;
+  string label = 3;
+  string tooltip = 4;
+  bool enabled = 5;
 }
 
 message ListTile {

@@ -17,14 +17,14 @@ import 'dart:typed_data' as $typed_data;
 const Router$json = {
   '1': 'Router',
   '2': [
-    {'1': 'routes', '3': 1, '4': 3, '5': 11, '6': '.interpreter.RouteWidget', '10': 'routes'},
+    {'1': 'routes', '3': 1, '4': 3, '5': 11, '6': '.interpreter.router.RouteWidget', '10': 'routes'},
   ],
 };
 
 /// Descriptor for `Router`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List routerDescriptor = $convert.base64Decode(
-    'CgZSb3V0ZXISMAoGcm91dGVzGAEgAygLMhguaW50ZXJwcmV0ZXIuUm91dGVXaWRnZXRSBnJvdX'
-    'Rlcw==');
+    'CgZSb3V0ZXISNwoGcm91dGVzGAEgAygLMh8uaW50ZXJwcmV0ZXIucm91dGVyLlJvdXRlV2lkZ2'
+    'V0UgZyb3V0ZXM=');
 
 @$core.Deprecated('Use routeWidgetDescriptor instead')
 const RouteWidget$json = {

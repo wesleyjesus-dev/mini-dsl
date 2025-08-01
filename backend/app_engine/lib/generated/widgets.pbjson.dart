@@ -57,11 +57,12 @@ const Widget$json = {
     {'1': 'tab_bar', '3': 38, '4': 1, '5': 11, '6': '.interpreter.widgets.TabBar', '9': 0, '10': 'tabBar'},
     {'1': 'tab_bar_view', '3': 39, '4': 1, '5': 11, '6': '.interpreter.widgets.TabBarView', '9': 0, '10': 'tabBarView'},
     {'1': 'navigation_bar', '3': 40, '4': 1, '5': 11, '6': '.interpreter.widgets.NavigationBar', '9': 0, '10': 'navigationBar'},
-    {'1': 'list_tile', '3': 41, '4': 1, '5': 11, '6': '.interpreter.widgets.ListTile', '9': 0, '10': 'listTile'},
-    {'1': 'ink_well', '3': 42, '4': 1, '5': 11, '6': '.interpreter.widgets.InkWell', '9': 0, '10': 'inkWell'},
-    {'1': 'gesture_detector', '3': 43, '4': 1, '5': 11, '6': '.interpreter.widgets.GestureDetector', '9': 0, '10': 'gestureDetector'},
-    {'1': 'safe_area', '3': 44, '4': 1, '5': 11, '6': '.interpreter.widgets.SafeArea', '9': 0, '10': 'safeArea'},
-    {'1': 'single_child_scroll_view', '3': 45, '4': 1, '5': 11, '6': '.interpreter.widgets.SingleChildScrollView', '9': 0, '10': 'singleChildScrollView'},
+    {'1': 'navigation_destination', '3': 41, '4': 1, '5': 11, '6': '.interpreter.widgets.NavigationDestination', '9': 0, '10': 'navigationDestination'},
+    {'1': 'list_tile', '3': 42, '4': 1, '5': 11, '6': '.interpreter.widgets.ListTile', '9': 0, '10': 'listTile'},
+    {'1': 'ink_well', '3': 43, '4': 1, '5': 11, '6': '.interpreter.widgets.InkWell', '9': 0, '10': 'inkWell'},
+    {'1': 'gesture_detector', '3': 44, '4': 1, '5': 11, '6': '.interpreter.widgets.GestureDetector', '9': 0, '10': 'gestureDetector'},
+    {'1': 'safe_area', '3': 45, '4': 1, '5': 11, '6': '.interpreter.widgets.SafeArea', '9': 0, '10': 'safeArea'},
+    {'1': 'single_child_scroll_view', '3': 46, '4': 1, '5': 11, '6': '.interpreter.widgets.SingleChildScrollView', '9': 0, '10': 'singleChildScrollView'},
   ],
   '8': [
     {'1': 'widget_data'},
@@ -114,14 +115,16 @@ final $typed_data.Uint8List widgetDescriptor = $convert.base64Decode(
     'oHdGFiX2JhchgmIAEoCzIbLmludGVycHJldGVyLndpZGdldHMuVGFiQmFySABSBnRhYkJhchJD'
     'Cgx0YWJfYmFyX3ZpZXcYJyABKAsyHy5pbnRlcnByZXRlci53aWRnZXRzLlRhYkJhclZpZXdIAF'
     'IKdGFiQmFyVmlldxJLCg5uYXZpZ2F0aW9uX2JhchgoIAEoCzIiLmludGVycHJldGVyLndpZGdl'
-    'dHMuTmF2aWdhdGlvbkJhckgAUg1uYXZpZ2F0aW9uQmFyEjwKCWxpc3RfdGlsZRgpIAEoCzIdLm'
-    'ludGVycHJldGVyLndpZGdldHMuTGlzdFRpbGVIAFIIbGlzdFRpbGUSOQoIaW5rX3dlbGwYKiAB'
-    'KAsyHC5pbnRlcnByZXRlci53aWRnZXRzLklua1dlbGxIAFIHaW5rV2VsbBJRChBnZXN0dXJlX2'
-    'RldGVjdG9yGCsgASgLMiQuaW50ZXJwcmV0ZXIud2lkZ2V0cy5HZXN0dXJlRGV0ZWN0b3JIAFIP'
-    'Z2VzdHVyZURldGVjdG9yEjwKCXNhZmVfYXJlYRgsIAEoCzIdLmludGVycHJldGVyLndpZGdldH'
-    'MuU2FmZUFyZWFIAFIIc2FmZUFyZWESZQoYc2luZ2xlX2NoaWxkX3Njcm9sbF92aWV3GC0gASgL'
-    'MiouaW50ZXJwcmV0ZXIud2lkZ2V0cy5TaW5nbGVDaGlsZFNjcm9sbFZpZXdIAFIVc2luZ2xlQ2'
-    'hpbGRTY3JvbGxWaWV3Qg0KC3dpZGdldF9kYXRh');
+    'dHMuTmF2aWdhdGlvbkJhckgAUg1uYXZpZ2F0aW9uQmFyEmMKFm5hdmlnYXRpb25fZGVzdGluYX'
+    'Rpb24YKSABKAsyKi5pbnRlcnByZXRlci53aWRnZXRzLk5hdmlnYXRpb25EZXN0aW5hdGlvbkgA'
+    'UhVuYXZpZ2F0aW9uRGVzdGluYXRpb24SPAoJbGlzdF90aWxlGCogASgLMh0uaW50ZXJwcmV0ZX'
+    'Iud2lkZ2V0cy5MaXN0VGlsZUgAUghsaXN0VGlsZRI5Cghpbmtfd2VsbBgrIAEoCzIcLmludGVy'
+    'cHJldGVyLndpZGdldHMuSW5rV2VsbEgAUgdpbmtXZWxsElEKEGdlc3R1cmVfZGV0ZWN0b3IYLC'
+    'ABKAsyJC5pbnRlcnByZXRlci53aWRnZXRzLkdlc3R1cmVEZXRlY3RvckgAUg9nZXN0dXJlRGV0'
+    'ZWN0b3ISPAoJc2FmZV9hcmVhGC0gASgLMh0uaW50ZXJwcmV0ZXIud2lkZ2V0cy5TYWZlQXJlYU'
+    'gAUghzYWZlQXJlYRJlChhzaW5nbGVfY2hpbGRfc2Nyb2xsX3ZpZXcYLiABKAsyKi5pbnRlcnBy'
+    'ZXRlci53aWRnZXRzLlNpbmdsZUNoaWxkU2Nyb2xsVmlld0gAUhVzaW5nbGVDaGlsZFNjcm9sbF'
+    'ZpZXdCDQoLd2lkZ2V0X2RhdGE=');
 
 @$core.Deprecated('Use scaffoldDescriptor instead')
 const Scaffold$json = {
@@ -129,6 +132,7 @@ const Scaffold$json = {
   '2': [
     {'1': 'app_bar', '3': 1, '4': 1, '5': 11, '6': '.interpreter.widgets.Widget', '10': 'appBar'},
     {'1': 'body', '3': 2, '4': 1, '5': 11, '6': '.interpreter.widgets.Widget', '10': 'body'},
+    {'1': 'bottom_navigation_bar', '3': 3, '4': 1, '5': 11, '6': '.interpreter.widgets.Widget', '10': 'bottomNavigationBar'},
   ],
 };
 
@@ -136,7 +140,8 @@ const Scaffold$json = {
 final $typed_data.Uint8List scaffoldDescriptor = $convert.base64Decode(
     'CghTY2FmZm9sZBI0CgdhcHBfYmFyGAEgASgLMhsuaW50ZXJwcmV0ZXIud2lkZ2V0cy5XaWRnZX'
     'RSBmFwcEJhchIvCgRib2R5GAIgASgLMhsuaW50ZXJwcmV0ZXIud2lkZ2V0cy5XaWRnZXRSBGJv'
-    'ZHk=');
+    'ZHkSTwoVYm90dG9tX25hdmlnYXRpb25fYmFyGAMgASgLMhsuaW50ZXJwcmV0ZXIud2lkZ2V0cy'
+    '5XaWRnZXRSE2JvdHRvbU5hdmlnYXRpb25CYXI=');
 
 @$core.Deprecated('Use appBarDescriptor instead')
 const AppBar$json = {
@@ -1209,6 +1214,25 @@ final $typed_data.Uint8List navigationBarDescriptor = $convert.base64Decode(
     'b25MYWJlbEJlaGF2aW9yUg1sYWJlbEJlaGF2aW9yElAKDW92ZXJsYXlfY29sb3IYDCABKAsyKy'
     '5pbnRlcnByZXRlci50eXBlcy5PdmVybGF5VmlzaWJpbGl0eVZhcmlhbnRSDG92ZXJsYXlDb2xv'
     'cg==');
+
+@$core.Deprecated('Use navigationDestinationDescriptor instead')
+const NavigationDestination$json = {
+  '1': 'NavigationDestination',
+  '2': [
+    {'1': 'icon', '3': 1, '4': 1, '5': 11, '6': '.interpreter.widgets.Widget', '10': 'icon'},
+    {'1': 'selected_icon', '3': 2, '4': 1, '5': 11, '6': '.interpreter.widgets.Widget', '10': 'selectedIcon'},
+    {'1': 'label', '3': 3, '4': 1, '5': 9, '10': 'label'},
+    {'1': 'tooltip', '3': 4, '4': 1, '5': 9, '10': 'tooltip'},
+    {'1': 'enabled', '3': 5, '4': 1, '5': 8, '10': 'enabled'},
+  ],
+};
+
+/// Descriptor for `NavigationDestination`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List navigationDestinationDescriptor = $convert.base64Decode(
+    'ChVOYXZpZ2F0aW9uRGVzdGluYXRpb24SLwoEaWNvbhgBIAEoCzIbLmludGVycHJldGVyLndpZG'
+    'dldHMuV2lkZ2V0UgRpY29uEkAKDXNlbGVjdGVkX2ljb24YAiABKAsyGy5pbnRlcnByZXRlci53'
+    'aWRnZXRzLldpZGdldFIMc2VsZWN0ZWRJY29uEhQKBWxhYmVsGAMgASgJUgVsYWJlbBIYCgd0b2'
+    '9sdGlwGAQgASgJUgd0b29sdGlwEhgKB2VuYWJsZWQYBSABKAhSB2VuYWJsZWQ=');
 
 @$core.Deprecated('Use listTileDescriptor instead')
 const ListTile$json = {

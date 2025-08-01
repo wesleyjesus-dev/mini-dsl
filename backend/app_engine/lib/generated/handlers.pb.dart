@@ -19,6 +19,7 @@ enum Handler_HandlerData {
   compositeHandler, 
   printHandler, 
   setStateHandlerWithValue, 
+  fetchHandler, 
   notSet
 }
 
@@ -31,6 +32,7 @@ class Handler extends $pb.GeneratedMessage {
     CompositeHandler? compositeHandler,
     PrintHandler? printHandler,
     SetStateHandlerWithValue? setStateHandlerWithValue,
+    FetchHandler? fetchHandler,
   }) {
     final $result = create();
     if (type != null) {
@@ -51,6 +53,9 @@ class Handler extends $pb.GeneratedMessage {
     if (setStateHandlerWithValue != null) {
       $result.setStateHandlerWithValue = setStateHandlerWithValue;
     }
+    if (fetchHandler != null) {
+      $result.fetchHandler = fetchHandler;
+    }
     return $result;
   }
   Handler._() : super();
@@ -63,16 +68,18 @@ class Handler extends $pb.GeneratedMessage {
     4 : Handler_HandlerData.compositeHandler,
     5 : Handler_HandlerData.printHandler,
     6 : Handler_HandlerData.setStateHandlerWithValue,
+    7 : Handler_HandlerData.fetchHandler,
     0 : Handler_HandlerData.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Handler', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter'), createEmptyInstance: create)
-    ..oo(0, [2, 3, 4, 5, 6])
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Handler', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.handlers'), createEmptyInstance: create)
+    ..oo(0, [2, 3, 4, 5, 6, 7])
     ..aOS(1, _omitFieldNames ? '' : 'type')
     ..aOM<GoHandler>(2, _omitFieldNames ? '' : 'goHandler', subBuilder: GoHandler.create)
     ..aOM<SetStateHandler>(3, _omitFieldNames ? '' : 'setStateHandler', subBuilder: SetStateHandler.create)
     ..aOM<CompositeHandler>(4, _omitFieldNames ? '' : 'compositeHandler', subBuilder: CompositeHandler.create)
     ..aOM<PrintHandler>(5, _omitFieldNames ? '' : 'printHandler', subBuilder: PrintHandler.create)
     ..aOM<SetStateHandlerWithValue>(6, _omitFieldNames ? '' : 'setStateHandlerWithValue', subBuilder: SetStateHandlerWithValue.create)
+    ..aOM<FetchHandler>(7, _omitFieldNames ? '' : 'fetchHandler', subBuilder: FetchHandler.create)
     ..hasRequiredFields = false
   ;
 
@@ -163,6 +170,17 @@ class Handler extends $pb.GeneratedMessage {
   void clearSetStateHandlerWithValue() => clearField(6);
   @$pb.TagNumber(6)
   SetStateHandlerWithValue ensureSetStateHandlerWithValue() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  FetchHandler get fetchHandler => $_getN(6);
+  @$pb.TagNumber(7)
+  set fetchHandler(FetchHandler v) { setField(7, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasFetchHandler() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearFetchHandler() => clearField(7);
+  @$pb.TagNumber(7)
+  FetchHandler ensureFetchHandler() => $_ensure(6);
 }
 
 /// Handler implementations
@@ -180,7 +198,7 @@ class GoHandler extends $pb.GeneratedMessage {
   factory GoHandler.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GoHandler.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GoHandler', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GoHandler', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.handlers'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'route')
     ..hasRequiredFields = false
   ;
@@ -234,7 +252,7 @@ class SetStateHandler extends $pb.GeneratedMessage {
   factory SetStateHandler.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SetStateHandler.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetStateHandler', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetStateHandler', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.handlers'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'key')
     ..aOS(2, _omitFieldNames ? '' : 'value')
     ..hasRequiredFields = false
@@ -294,7 +312,7 @@ class CompositeHandler extends $pb.GeneratedMessage {
   factory CompositeHandler.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CompositeHandler.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CompositeHandler', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CompositeHandler', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.handlers'), createEmptyInstance: create)
     ..pc<Handler>(1, _omitFieldNames ? '' : 'actions', $pb.PbFieldType.PM, subBuilder: Handler.create)
     ..hasRequiredFields = false
   ;
@@ -338,7 +356,7 @@ class PrintHandler extends $pb.GeneratedMessage {
   factory PrintHandler.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory PrintHandler.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PrintHandler', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PrintHandler', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.handlers'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'message')
     ..hasRequiredFields = false
   ;
@@ -392,7 +410,7 @@ class SetStateHandlerWithValue extends $pb.GeneratedMessage {
   factory SetStateHandlerWithValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SetStateHandlerWithValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetStateHandlerWithValue', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetStateHandlerWithValue', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.handlers'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'key')
     ..aOS(2, _omitFieldNames ? '' : 'value')
     ..hasRequiredFields = false
@@ -418,6 +436,170 @@ class SetStateHandlerWithValue extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SetStateHandlerWithValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SetStateHandlerWithValue>(create);
   static SetStateHandlerWithValue? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get key => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set key($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearKey() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get value => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set value($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasValue() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearValue() => clearField(2);
+}
+
+class FetchHandler extends $pb.GeneratedMessage {
+  factory FetchHandler({
+    $core.String? endpoint,
+    $core.String? path,
+    $core.String? verb,
+    $core.Iterable<FetchHeader>? headers,
+    $core.String? body,
+  }) {
+    final $result = create();
+    if (endpoint != null) {
+      $result.endpoint = endpoint;
+    }
+    if (path != null) {
+      $result.path = path;
+    }
+    if (verb != null) {
+      $result.verb = verb;
+    }
+    if (headers != null) {
+      $result.headers.addAll(headers);
+    }
+    if (body != null) {
+      $result.body = body;
+    }
+    return $result;
+  }
+  FetchHandler._() : super();
+  factory FetchHandler.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory FetchHandler.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FetchHandler', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.handlers'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'endpoint')
+    ..aOS(2, _omitFieldNames ? '' : 'path')
+    ..aOS(3, _omitFieldNames ? '' : 'verb')
+    ..pc<FetchHeader>(4, _omitFieldNames ? '' : 'headers', $pb.PbFieldType.PM, subBuilder: FetchHeader.create)
+    ..aOS(5, _omitFieldNames ? '' : 'body')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  FetchHandler clone() => FetchHandler()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  FetchHandler copyWith(void Function(FetchHandler) updates) => super.copyWith((message) => updates(message as FetchHandler)) as FetchHandler;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static FetchHandler create() => FetchHandler._();
+  FetchHandler createEmptyInstance() => create();
+  static $pb.PbList<FetchHandler> createRepeated() => $pb.PbList<FetchHandler>();
+  @$core.pragma('dart2js:noInline')
+  static FetchHandler getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FetchHandler>(create);
+  static FetchHandler? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get endpoint => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set endpoint($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasEndpoint() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearEndpoint() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get path => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set path($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasPath() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPath() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get verb => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set verb($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasVerb() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearVerb() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.List<FetchHeader> get headers => $_getList(3);
+
+  @$pb.TagNumber(5)
+  $core.String get body => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set body($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasBody() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearBody() => clearField(5);
+}
+
+class FetchHeader extends $pb.GeneratedMessage {
+  factory FetchHeader({
+    $core.String? key,
+    $core.String? value,
+  }) {
+    final $result = create();
+    if (key != null) {
+      $result.key = key;
+    }
+    if (value != null) {
+      $result.value = value;
+    }
+    return $result;
+  }
+  FetchHeader._() : super();
+  factory FetchHeader.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory FetchHeader.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FetchHeader', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.handlers'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'key')
+    ..aOS(2, _omitFieldNames ? '' : 'value')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  FetchHeader clone() => FetchHeader()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  FetchHeader copyWith(void Function(FetchHeader) updates) => super.copyWith((message) => updates(message as FetchHeader)) as FetchHeader;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static FetchHeader create() => FetchHeader._();
+  FetchHeader createEmptyInstance() => create();
+  static $pb.PbList<FetchHeader> createRepeated() => $pb.PbList<FetchHeader>();
+  @$core.pragma('dart2js:noInline')
+  static FetchHeader getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FetchHeader>(create);
+  static FetchHeader? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get key => $_getSZ(0);

@@ -17,6 +17,9 @@ class LayoutWidgetBuilder {
           children: [interpretWidget(scaffold.body, context)],
         ),
       ),
+      bottomNavigationBar: scaffold.hasBottomNavigationBar()
+          ? interpretWidget(scaffold.bottomNavigationBar, context)
+          : null,
     );
   }
 
