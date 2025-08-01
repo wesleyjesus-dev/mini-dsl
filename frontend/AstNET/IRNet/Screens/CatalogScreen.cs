@@ -6,11 +6,11 @@ namespace IRNet.Screens
     {
         public static RouteGroupBuilder MapCatalogScreens(this RouteGroupBuilder group)
         {
-            group.MapGet("/catalog", GetCatalogAsync);
+            group.MapGet("/catalog", async (CancellationToken cancellationToken) => await GetCatalogAsync(cancellationToken));
             return group;
         }
 
-        public static async Task<IResult> GetCatalogAsync()
+        public static async Task<IResult> GetCatalogAsync(CancellationToken cancellationToken)
         {
             // Create AppBar for catalog
             var appBarText = new IRNet.Widgets.Text { Value = "Product Catalog" };

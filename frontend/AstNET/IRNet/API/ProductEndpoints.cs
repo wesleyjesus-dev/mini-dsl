@@ -7,7 +7,7 @@ namespace IRNet.API
     {
         public static RouteGroupBuilder MapProductEndpoints(this RouteGroupBuilder group)
         {
-            group.MapGet("/product/{id}", GetProduct);
+            group.MapGet("/product/{id}", async (int id, IProductService productService, CancellationToken cancellationToken) => await GetProduct(id, productService, cancellationToken));
             return group;
         }
 

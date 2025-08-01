@@ -15,8 +15,8 @@ namespace IRNet.Screens
         public static async Task<IResult> GetLoginScreenAsync(IAuthService authService, CancellationToken cancellationToken)
         {
             // Create title
-            var titleText = new IRNet.Widgets.Text { Value = "Login" };
-            var titleWidget = new IRNet.Widgets.Widget
+            var titleText = new Text { Value = "Login" };
+            var titleWidget = new Widget
             {
                 Type = "Text",
                 Text = titleText
@@ -65,7 +65,7 @@ namespace IRNet.Screens
             var loginHandler = new IRNet.Widgets.Handler
             {
                 Type = "Go",
-                GoHandler = new IRNet.Widgets.GoHandler { Route = "/catalog" }
+                GoHandler = new IRNet.Widgets.GoHandler { Route = "/screen/catalog" }
             };
             var loginButton = new IRNet.Widgets.Button
             {

@@ -9,11 +9,11 @@ namespace IRNet.Screens
     {
         public static RouteGroupBuilder MapProductScreens(this RouteGroupBuilder group)
         {
-            group.MapGet("/product/{id}", GetProductScreenAsync);
+            group.MapGet("/product/{id}", async (string id, CancellationToken cancellationToken) => await GetProductScreenAsync(id, cancellationToken));
             return group;
         }
 
-        public static async Task<IResult> GetProductScreenAsync(string id)
+        public static async Task<IResult> GetProductScreenAsync(string id, CancellationToken cancellationToken)
         {
             // Sample product data based on ID
             var productData = id switch
@@ -30,7 +30,7 @@ namespace IRNet.Screens
                 FetchHandler = new IRNet.Widgets.FetchHandler
                 {
                     Endpoint = "http://10.0.2.2:5221",
-                    Path = "/cart",
+                    Path = "/api/cart",
                     Verb = "POST",
                     Body = JsonSerializer.Serialize(new CartItem { Id = 1, Name = productData.Name, Price = 999.99m }),
                 }
