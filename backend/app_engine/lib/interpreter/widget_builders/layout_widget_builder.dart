@@ -8,9 +8,16 @@ class LayoutWidgetBuilder {
     Widget Function(pb.Widget, BuildContext) interpretWidget,
     Future<void> Function() onRefresh,
   ) {
+    PreferredSizeWidget? appBar;
+    if (scaffold.hasAppBar()) {
+      final appBarWidget = interpretWidget(scaffold.appBar, context);
+      if (appBarWidget is PreferredSizeWidget) {
+        appBar = appBarWidget;
+      }
+    }
+    
     return Scaffold(
-      appBar: interpretWidget(scaffold.appBar, context)
-          as PreferredSizeWidget,
+      appBar: appBar,
       body: RefreshIndicator(
         onRefresh: onRefresh,
         child: ListView(

@@ -45,7 +45,7 @@ app.MapGet("/routes", () =>
             new RouteWidget() { Name = "catalog", Path = "/screen/catalog", Service = "10.0.2.2:5221" },
             new RouteWidget() { Name = "product", Path = "/screen/product/:id", Service = "10.0.2.2:5221" },
             new RouteWidget() { Name = "cart", Path = "/screen/cart", Service = "10.0.2.2:5221" },
-            new RouteWidget() { Name = "login", Path = "/screen/auth/login", Service = "10.0.2.2:5221" },
+            new RouteWidget() { Name = "screen/auth/login", Path = "/screen/auth/login", Service = "10.0.2.2:5221" },
             new RouteWidget() { Name = "splash-screen", Path = "/", Service = "10.0.2.2:5221"}
         } 
     };
