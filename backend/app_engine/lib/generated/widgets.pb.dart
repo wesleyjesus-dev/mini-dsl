@@ -2430,6 +2430,7 @@ class FloatingActionButton extends $pb.GeneratedMessage {
 
 class TextField extends $pb.GeneratedMessage {
   factory TextField({
+    $0.InputDecoration? decoration,
     $core.String? initialValue,
     $core.String? placeholder,
     $core.bool? obscureText,
@@ -2453,6 +2454,9 @@ class TextField extends $pb.GeneratedMessage {
     $1.Handler? onTap,
   }) {
     final $result = create();
+    if (decoration != null) {
+      $result.decoration = decoration;
+    }
     if (initialValue != null) {
       $result.initialValue = initialValue;
     }
@@ -2523,27 +2527,28 @@ class TextField extends $pb.GeneratedMessage {
   factory TextField.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextField', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.widgets'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'initialValue')
-    ..aOS(2, _omitFieldNames ? '' : 'placeholder')
-    ..aOB(3, _omitFieldNames ? '' : 'obscureText')
-    ..aOB(4, _omitFieldNames ? '' : 'enabled')
-    ..aOB(5, _omitFieldNames ? '' : 'readOnly')
-    ..a<$core.int>(6, _omitFieldNames ? '' : 'maxLines', $pb.PbFieldType.O3)
-    ..a<$core.int>(7, _omitFieldNames ? '' : 'minLines', $pb.PbFieldType.O3)
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'maxLength', $pb.PbFieldType.O3)
-    ..e<$0.TextInputType>(9, _omitFieldNames ? '' : 'keyboardType', $pb.PbFieldType.OE, defaultOrMaker: $0.TextInputType.TEXT, valueOf: $0.TextInputType.valueOf, enumValues: $0.TextInputType.values)
-    ..e<$0.TextInputAction>(10, _omitFieldNames ? '' : 'textInputAction', $pb.PbFieldType.OE, defaultOrMaker: $0.TextInputAction.NONE_ACTION, valueOf: $0.TextInputAction.valueOf, enumValues: $0.TextInputAction.values)
-    ..e<$0.TextCapitalization>(11, _omitFieldNames ? '' : 'textCapitalization', $pb.PbFieldType.OE, defaultOrMaker: $0.TextCapitalization.NONE_CAP, valueOf: $0.TextCapitalization.valueOf, enumValues: $0.TextCapitalization.values)
-    ..e<$0.TextAlign>(12, _omitFieldNames ? '' : 'textAlign', $pb.PbFieldType.OE, defaultOrMaker: $0.TextAlign.LEFT, valueOf: $0.TextAlign.valueOf, enumValues: $0.TextAlign.values)
-    ..e<$0.TextAlignVertical>(13, _omitFieldNames ? '' : 'textAlignVertical', $pb.PbFieldType.OE, defaultOrMaker: $0.TextAlignVertical.TOP, valueOf: $0.TextAlignVertical.valueOf, enumValues: $0.TextAlignVertical.values)
-    ..e<$0.TextDirection>(14, _omitFieldNames ? '' : 'textDirection', $pb.PbFieldType.OE, defaultOrMaker: $0.TextDirection.TEXT_DIRECTION_LTR, valueOf: $0.TextDirection.valueOf, enumValues: $0.TextDirection.values)
-    ..aOB(15, _omitFieldNames ? '' : 'autoFocus')
-    ..aOB(16, _omitFieldNames ? '' : 'autoCorrect')
-    ..aOB(17, _omitFieldNames ? '' : 'enableSuggestions')
-    ..aOM<$1.Handler>(18, _omitFieldNames ? '' : 'onChanged', subBuilder: $1.Handler.create)
-    ..aOM<$1.Handler>(19, _omitFieldNames ? '' : 'onSubmitted', subBuilder: $1.Handler.create)
-    ..aOM<$1.Handler>(20, _omitFieldNames ? '' : 'onEditingComplete', subBuilder: $1.Handler.create)
-    ..aOM<$1.Handler>(21, _omitFieldNames ? '' : 'onTap', subBuilder: $1.Handler.create)
+    ..aOM<$0.InputDecoration>(1, _omitFieldNames ? '' : 'decoration', subBuilder: $0.InputDecoration.create)
+    ..aOS(2, _omitFieldNames ? '' : 'initialValue')
+    ..aOS(3, _omitFieldNames ? '' : 'placeholder')
+    ..aOB(4, _omitFieldNames ? '' : 'obscureText')
+    ..aOB(5, _omitFieldNames ? '' : 'enabled')
+    ..aOB(6, _omitFieldNames ? '' : 'readOnly')
+    ..a<$core.int>(7, _omitFieldNames ? '' : 'maxLines', $pb.PbFieldType.O3)
+    ..a<$core.int>(8, _omitFieldNames ? '' : 'minLines', $pb.PbFieldType.O3)
+    ..a<$core.int>(9, _omitFieldNames ? '' : 'maxLength', $pb.PbFieldType.O3)
+    ..e<$0.TextInputType>(10, _omitFieldNames ? '' : 'keyboardType', $pb.PbFieldType.OE, defaultOrMaker: $0.TextInputType.TEXT, valueOf: $0.TextInputType.valueOf, enumValues: $0.TextInputType.values)
+    ..e<$0.TextInputAction>(11, _omitFieldNames ? '' : 'textInputAction', $pb.PbFieldType.OE, defaultOrMaker: $0.TextInputAction.NONE_ACTION, valueOf: $0.TextInputAction.valueOf, enumValues: $0.TextInputAction.values)
+    ..e<$0.TextCapitalization>(12, _omitFieldNames ? '' : 'textCapitalization', $pb.PbFieldType.OE, defaultOrMaker: $0.TextCapitalization.NONE_CAP, valueOf: $0.TextCapitalization.valueOf, enumValues: $0.TextCapitalization.values)
+    ..e<$0.TextAlign>(13, _omitFieldNames ? '' : 'textAlign', $pb.PbFieldType.OE, defaultOrMaker: $0.TextAlign.LEFT, valueOf: $0.TextAlign.valueOf, enumValues: $0.TextAlign.values)
+    ..e<$0.TextAlignVertical>(14, _omitFieldNames ? '' : 'textAlignVertical', $pb.PbFieldType.OE, defaultOrMaker: $0.TextAlignVertical.TOP, valueOf: $0.TextAlignVertical.valueOf, enumValues: $0.TextAlignVertical.values)
+    ..e<$0.TextDirection>(15, _omitFieldNames ? '' : 'textDirection', $pb.PbFieldType.OE, defaultOrMaker: $0.TextDirection.TEXT_DIRECTION_LTR, valueOf: $0.TextDirection.valueOf, enumValues: $0.TextDirection.values)
+    ..aOB(16, _omitFieldNames ? '' : 'autoFocus')
+    ..aOB(17, _omitFieldNames ? '' : 'autoCorrect')
+    ..aOB(18, _omitFieldNames ? '' : 'enableSuggestions')
+    ..aOM<$1.Handler>(19, _omitFieldNames ? '' : 'onChanged', subBuilder: $1.Handler.create)
+    ..aOM<$1.Handler>(20, _omitFieldNames ? '' : 'onSubmitted', subBuilder: $1.Handler.create)
+    ..aOM<$1.Handler>(21, _omitFieldNames ? '' : 'onEditingComplete', subBuilder: $1.Handler.create)
+    ..aOM<$1.Handler>(22, _omitFieldNames ? '' : 'onTap', subBuilder: $1.Handler.create)
     ..hasRequiredFields = false
   ;
 
@@ -2569,201 +2574,212 @@ class TextField extends $pb.GeneratedMessage {
   static TextField? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get initialValue => $_getSZ(0);
+  $0.InputDecoration get decoration => $_getN(0);
   @$pb.TagNumber(1)
-  set initialValue($core.String v) { $_setString(0, v); }
+  set decoration($0.InputDecoration v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasInitialValue() => $_has(0);
+  $core.bool hasDecoration() => $_has(0);
   @$pb.TagNumber(1)
-  void clearInitialValue() => clearField(1);
+  void clearDecoration() => clearField(1);
+  @$pb.TagNumber(1)
+  $0.InputDecoration ensureDecoration() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.String get placeholder => $_getSZ(1);
+  $core.String get initialValue => $_getSZ(1);
   @$pb.TagNumber(2)
-  set placeholder($core.String v) { $_setString(1, v); }
+  set initialValue($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasPlaceholder() => $_has(1);
+  $core.bool hasInitialValue() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPlaceholder() => clearField(2);
+  void clearInitialValue() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.bool get obscureText => $_getBF(2);
+  $core.String get placeholder => $_getSZ(2);
   @$pb.TagNumber(3)
-  set obscureText($core.bool v) { $_setBool(2, v); }
+  set placeholder($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasObscureText() => $_has(2);
+  $core.bool hasPlaceholder() => $_has(2);
   @$pb.TagNumber(3)
-  void clearObscureText() => clearField(3);
+  void clearPlaceholder() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.bool get enabled => $_getBF(3);
+  $core.bool get obscureText => $_getBF(3);
   @$pb.TagNumber(4)
-  set enabled($core.bool v) { $_setBool(3, v); }
+  set obscureText($core.bool v) { $_setBool(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasEnabled() => $_has(3);
+  $core.bool hasObscureText() => $_has(3);
   @$pb.TagNumber(4)
-  void clearEnabled() => clearField(4);
+  void clearObscureText() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.bool get readOnly => $_getBF(4);
+  $core.bool get enabled => $_getBF(4);
   @$pb.TagNumber(5)
-  set readOnly($core.bool v) { $_setBool(4, v); }
+  set enabled($core.bool v) { $_setBool(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasReadOnly() => $_has(4);
+  $core.bool hasEnabled() => $_has(4);
   @$pb.TagNumber(5)
-  void clearReadOnly() => clearField(5);
+  void clearEnabled() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.int get maxLines => $_getIZ(5);
+  $core.bool get readOnly => $_getBF(5);
   @$pb.TagNumber(6)
-  set maxLines($core.int v) { $_setSignedInt32(5, v); }
+  set readOnly($core.bool v) { $_setBool(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasMaxLines() => $_has(5);
+  $core.bool hasReadOnly() => $_has(5);
   @$pb.TagNumber(6)
-  void clearMaxLines() => clearField(6);
+  void clearReadOnly() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.int get minLines => $_getIZ(6);
+  $core.int get maxLines => $_getIZ(6);
   @$pb.TagNumber(7)
-  set minLines($core.int v) { $_setSignedInt32(6, v); }
+  set maxLines($core.int v) { $_setSignedInt32(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasMinLines() => $_has(6);
+  $core.bool hasMaxLines() => $_has(6);
   @$pb.TagNumber(7)
-  void clearMinLines() => clearField(7);
+  void clearMaxLines() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.int get maxLength => $_getIZ(7);
+  $core.int get minLines => $_getIZ(7);
   @$pb.TagNumber(8)
-  set maxLength($core.int v) { $_setSignedInt32(7, v); }
+  set minLines($core.int v) { $_setSignedInt32(7, v); }
   @$pb.TagNumber(8)
-  $core.bool hasMaxLength() => $_has(7);
+  $core.bool hasMinLines() => $_has(7);
   @$pb.TagNumber(8)
-  void clearMaxLength() => clearField(8);
+  void clearMinLines() => clearField(8);
 
   @$pb.TagNumber(9)
-  $0.TextInputType get keyboardType => $_getN(8);
+  $core.int get maxLength => $_getIZ(8);
   @$pb.TagNumber(9)
-  set keyboardType($0.TextInputType v) { setField(9, v); }
+  set maxLength($core.int v) { $_setSignedInt32(8, v); }
   @$pb.TagNumber(9)
-  $core.bool hasKeyboardType() => $_has(8);
+  $core.bool hasMaxLength() => $_has(8);
   @$pb.TagNumber(9)
-  void clearKeyboardType() => clearField(9);
+  void clearMaxLength() => clearField(9);
 
   @$pb.TagNumber(10)
-  $0.TextInputAction get textInputAction => $_getN(9);
+  $0.TextInputType get keyboardType => $_getN(9);
   @$pb.TagNumber(10)
-  set textInputAction($0.TextInputAction v) { setField(10, v); }
+  set keyboardType($0.TextInputType v) { setField(10, v); }
   @$pb.TagNumber(10)
-  $core.bool hasTextInputAction() => $_has(9);
+  $core.bool hasKeyboardType() => $_has(9);
   @$pb.TagNumber(10)
-  void clearTextInputAction() => clearField(10);
+  void clearKeyboardType() => clearField(10);
 
   @$pb.TagNumber(11)
-  $0.TextCapitalization get textCapitalization => $_getN(10);
+  $0.TextInputAction get textInputAction => $_getN(10);
   @$pb.TagNumber(11)
-  set textCapitalization($0.TextCapitalization v) { setField(11, v); }
+  set textInputAction($0.TextInputAction v) { setField(11, v); }
   @$pb.TagNumber(11)
-  $core.bool hasTextCapitalization() => $_has(10);
+  $core.bool hasTextInputAction() => $_has(10);
   @$pb.TagNumber(11)
-  void clearTextCapitalization() => clearField(11);
+  void clearTextInputAction() => clearField(11);
 
   @$pb.TagNumber(12)
-  $0.TextAlign get textAlign => $_getN(11);
+  $0.TextCapitalization get textCapitalization => $_getN(11);
   @$pb.TagNumber(12)
-  set textAlign($0.TextAlign v) { setField(12, v); }
+  set textCapitalization($0.TextCapitalization v) { setField(12, v); }
   @$pb.TagNumber(12)
-  $core.bool hasTextAlign() => $_has(11);
+  $core.bool hasTextCapitalization() => $_has(11);
   @$pb.TagNumber(12)
-  void clearTextAlign() => clearField(12);
+  void clearTextCapitalization() => clearField(12);
 
   @$pb.TagNumber(13)
-  $0.TextAlignVertical get textAlignVertical => $_getN(12);
+  $0.TextAlign get textAlign => $_getN(12);
   @$pb.TagNumber(13)
-  set textAlignVertical($0.TextAlignVertical v) { setField(13, v); }
+  set textAlign($0.TextAlign v) { setField(13, v); }
   @$pb.TagNumber(13)
-  $core.bool hasTextAlignVertical() => $_has(12);
+  $core.bool hasTextAlign() => $_has(12);
   @$pb.TagNumber(13)
-  void clearTextAlignVertical() => clearField(13);
+  void clearTextAlign() => clearField(13);
 
   @$pb.TagNumber(14)
-  $0.TextDirection get textDirection => $_getN(13);
+  $0.TextAlignVertical get textAlignVertical => $_getN(13);
   @$pb.TagNumber(14)
-  set textDirection($0.TextDirection v) { setField(14, v); }
+  set textAlignVertical($0.TextAlignVertical v) { setField(14, v); }
   @$pb.TagNumber(14)
-  $core.bool hasTextDirection() => $_has(13);
+  $core.bool hasTextAlignVertical() => $_has(13);
   @$pb.TagNumber(14)
-  void clearTextDirection() => clearField(14);
+  void clearTextAlignVertical() => clearField(14);
 
   @$pb.TagNumber(15)
-  $core.bool get autoFocus => $_getBF(14);
+  $0.TextDirection get textDirection => $_getN(14);
   @$pb.TagNumber(15)
-  set autoFocus($core.bool v) { $_setBool(14, v); }
+  set textDirection($0.TextDirection v) { setField(15, v); }
   @$pb.TagNumber(15)
-  $core.bool hasAutoFocus() => $_has(14);
+  $core.bool hasTextDirection() => $_has(14);
   @$pb.TagNumber(15)
-  void clearAutoFocus() => clearField(15);
+  void clearTextDirection() => clearField(15);
 
   @$pb.TagNumber(16)
-  $core.bool get autoCorrect => $_getBF(15);
+  $core.bool get autoFocus => $_getBF(15);
   @$pb.TagNumber(16)
-  set autoCorrect($core.bool v) { $_setBool(15, v); }
+  set autoFocus($core.bool v) { $_setBool(15, v); }
   @$pb.TagNumber(16)
-  $core.bool hasAutoCorrect() => $_has(15);
+  $core.bool hasAutoFocus() => $_has(15);
   @$pb.TagNumber(16)
-  void clearAutoCorrect() => clearField(16);
+  void clearAutoFocus() => clearField(16);
 
   @$pb.TagNumber(17)
-  $core.bool get enableSuggestions => $_getBF(16);
+  $core.bool get autoCorrect => $_getBF(16);
   @$pb.TagNumber(17)
-  set enableSuggestions($core.bool v) { $_setBool(16, v); }
+  set autoCorrect($core.bool v) { $_setBool(16, v); }
   @$pb.TagNumber(17)
-  $core.bool hasEnableSuggestions() => $_has(16);
+  $core.bool hasAutoCorrect() => $_has(16);
   @$pb.TagNumber(17)
-  void clearEnableSuggestions() => clearField(17);
+  void clearAutoCorrect() => clearField(17);
 
   @$pb.TagNumber(18)
-  $1.Handler get onChanged => $_getN(17);
+  $core.bool get enableSuggestions => $_getBF(17);
   @$pb.TagNumber(18)
-  set onChanged($1.Handler v) { setField(18, v); }
+  set enableSuggestions($core.bool v) { $_setBool(17, v); }
   @$pb.TagNumber(18)
-  $core.bool hasOnChanged() => $_has(17);
+  $core.bool hasEnableSuggestions() => $_has(17);
   @$pb.TagNumber(18)
-  void clearOnChanged() => clearField(18);
-  @$pb.TagNumber(18)
-  $1.Handler ensureOnChanged() => $_ensure(17);
+  void clearEnableSuggestions() => clearField(18);
 
   @$pb.TagNumber(19)
-  $1.Handler get onSubmitted => $_getN(18);
+  $1.Handler get onChanged => $_getN(18);
   @$pb.TagNumber(19)
-  set onSubmitted($1.Handler v) { setField(19, v); }
+  set onChanged($1.Handler v) { setField(19, v); }
   @$pb.TagNumber(19)
-  $core.bool hasOnSubmitted() => $_has(18);
+  $core.bool hasOnChanged() => $_has(18);
   @$pb.TagNumber(19)
-  void clearOnSubmitted() => clearField(19);
+  void clearOnChanged() => clearField(19);
   @$pb.TagNumber(19)
-  $1.Handler ensureOnSubmitted() => $_ensure(18);
+  $1.Handler ensureOnChanged() => $_ensure(18);
 
   @$pb.TagNumber(20)
-  $1.Handler get onEditingComplete => $_getN(19);
+  $1.Handler get onSubmitted => $_getN(19);
   @$pb.TagNumber(20)
-  set onEditingComplete($1.Handler v) { setField(20, v); }
+  set onSubmitted($1.Handler v) { setField(20, v); }
   @$pb.TagNumber(20)
-  $core.bool hasOnEditingComplete() => $_has(19);
+  $core.bool hasOnSubmitted() => $_has(19);
   @$pb.TagNumber(20)
-  void clearOnEditingComplete() => clearField(20);
+  void clearOnSubmitted() => clearField(20);
   @$pb.TagNumber(20)
-  $1.Handler ensureOnEditingComplete() => $_ensure(19);
+  $1.Handler ensureOnSubmitted() => $_ensure(19);
 
   @$pb.TagNumber(21)
-  $1.Handler get onTap => $_getN(20);
+  $1.Handler get onEditingComplete => $_getN(20);
   @$pb.TagNumber(21)
-  set onTap($1.Handler v) { setField(21, v); }
+  set onEditingComplete($1.Handler v) { setField(21, v); }
   @$pb.TagNumber(21)
-  $core.bool hasOnTap() => $_has(20);
+  $core.bool hasOnEditingComplete() => $_has(20);
   @$pb.TagNumber(21)
-  void clearOnTap() => clearField(21);
+  void clearOnEditingComplete() => clearField(21);
   @$pb.TagNumber(21)
-  $1.Handler ensureOnTap() => $_ensure(20);
+  $1.Handler ensureOnEditingComplete() => $_ensure(20);
+
+  @$pb.TagNumber(22)
+  $1.Handler get onTap => $_getN(21);
+  @$pb.TagNumber(22)
+  set onTap($1.Handler v) { setField(22, v); }
+  @$pb.TagNumber(22)
+  $core.bool hasOnTap() => $_has(21);
+  @$pb.TagNumber(22)
+  void clearOnTap() => clearField(22);
+  @$pb.TagNumber(22)
+  $1.Handler ensureOnTap() => $_ensure(21);
 }
 
 class Image extends $pb.GeneratedMessage {

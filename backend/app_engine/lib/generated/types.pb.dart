@@ -3054,6 +3054,306 @@ class TextDecoration extends $pb.GeneratedMessage {
   void clearLineThrough() => clearField(3);
 }
 
+class EdgeInsetsGeometry extends $pb.GeneratedMessage {
+  factory EdgeInsetsGeometry({
+    $core.double? left,
+    $core.double? top,
+    $core.double? right,
+    $core.double? bottom,
+  }) {
+    final $result = create();
+    if (left != null) {
+      $result.left = left;
+    }
+    if (top != null) {
+      $result.top = top;
+    }
+    if (right != null) {
+      $result.right = right;
+    }
+    if (bottom != null) {
+      $result.bottom = bottom;
+    }
+    return $result;
+  }
+  EdgeInsetsGeometry._() : super();
+  factory EdgeInsetsGeometry.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory EdgeInsetsGeometry.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'EdgeInsetsGeometry', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
+    ..a<$core.double>(1, _omitFieldNames ? '' : 'left', $pb.PbFieldType.OD)
+    ..a<$core.double>(2, _omitFieldNames ? '' : 'top', $pb.PbFieldType.OD)
+    ..a<$core.double>(3, _omitFieldNames ? '' : 'right', $pb.PbFieldType.OD)
+    ..a<$core.double>(4, _omitFieldNames ? '' : 'bottom', $pb.PbFieldType.OD)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  EdgeInsetsGeometry clone() => EdgeInsetsGeometry()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  EdgeInsetsGeometry copyWith(void Function(EdgeInsetsGeometry) updates) => super.copyWith((message) => updates(message as EdgeInsetsGeometry)) as EdgeInsetsGeometry;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EdgeInsetsGeometry create() => EdgeInsetsGeometry._();
+  EdgeInsetsGeometry createEmptyInstance() => create();
+  static $pb.PbList<EdgeInsetsGeometry> createRepeated() => $pb.PbList<EdgeInsetsGeometry>();
+  @$core.pragma('dart2js:noInline')
+  static EdgeInsetsGeometry getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EdgeInsetsGeometry>(create);
+  static EdgeInsetsGeometry? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.double get left => $_getN(0);
+  @$pb.TagNumber(1)
+  set left($core.double v) { $_setDouble(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasLeft() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLeft() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.double get top => $_getN(1);
+  @$pb.TagNumber(2)
+  set top($core.double v) { $_setDouble(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasTop() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearTop() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.double get right => $_getN(2);
+  @$pb.TagNumber(3)
+  set right($core.double v) { $_setDouble(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasRight() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRight() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.double get bottom => $_getN(3);
+  @$pb.TagNumber(4)
+  set bottom($core.double v) { $_setDouble(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasBottom() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearBottom() => clearField(4);
+}
+
+class InputDecoration extends $pb.GeneratedMessage {
+  factory InputDecoration({
+    $core.String? hintText,
+    $core.String? labelText,
+    $core.String? prefixText,
+    $core.String? suffixText,
+    $core.String? helperText,
+    $core.String? errorText,
+    $core.bool? isDense,
+    EdgeInsetsGeometry? padding,
+    EdgeInsetsGeometry? margin,
+    $core.double? enabledBorderWidth,
+    $core.double? focusedBorderWidth,
+    $core.double? disabledBorderWidth,
+  }) {
+    final $result = create();
+    if (hintText != null) {
+      $result.hintText = hintText;
+    }
+    if (labelText != null) {
+      $result.labelText = labelText;
+    }
+    if (prefixText != null) {
+      $result.prefixText = prefixText;
+    }
+    if (suffixText != null) {
+      $result.suffixText = suffixText;
+    }
+    if (helperText != null) {
+      $result.helperText = helperText;
+    }
+    if (errorText != null) {
+      $result.errorText = errorText;
+    }
+    if (isDense != null) {
+      $result.isDense = isDense;
+    }
+    if (padding != null) {
+      $result.padding = padding;
+    }
+    if (margin != null) {
+      $result.margin = margin;
+    }
+    if (enabledBorderWidth != null) {
+      $result.enabledBorderWidth = enabledBorderWidth;
+    }
+    if (focusedBorderWidth != null) {
+      $result.focusedBorderWidth = focusedBorderWidth;
+    }
+    if (disabledBorderWidth != null) {
+      $result.disabledBorderWidth = disabledBorderWidth;
+    }
+    return $result;
+  }
+  InputDecoration._() : super();
+  factory InputDecoration.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory InputDecoration.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InputDecoration', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'hintText')
+    ..aOS(2, _omitFieldNames ? '' : 'labelText')
+    ..aOS(3, _omitFieldNames ? '' : 'prefixText')
+    ..aOS(4, _omitFieldNames ? '' : 'suffixText')
+    ..aOS(5, _omitFieldNames ? '' : 'helperText')
+    ..aOS(6, _omitFieldNames ? '' : 'errorText')
+    ..aOB(7, _omitFieldNames ? '' : 'isDense')
+    ..aOM<EdgeInsetsGeometry>(8, _omitFieldNames ? '' : 'padding', subBuilder: EdgeInsetsGeometry.create)
+    ..aOM<EdgeInsetsGeometry>(9, _omitFieldNames ? '' : 'margin', subBuilder: EdgeInsetsGeometry.create)
+    ..a<$core.double>(10, _omitFieldNames ? '' : 'enabledBorderWidth', $pb.PbFieldType.OD)
+    ..a<$core.double>(11, _omitFieldNames ? '' : 'focusedBorderWidth', $pb.PbFieldType.OD)
+    ..a<$core.double>(12, _omitFieldNames ? '' : 'disabledBorderWidth', $pb.PbFieldType.OD)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  InputDecoration clone() => InputDecoration()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  InputDecoration copyWith(void Function(InputDecoration) updates) => super.copyWith((message) => updates(message as InputDecoration)) as InputDecoration;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static InputDecoration create() => InputDecoration._();
+  InputDecoration createEmptyInstance() => create();
+  static $pb.PbList<InputDecoration> createRepeated() => $pb.PbList<InputDecoration>();
+  @$core.pragma('dart2js:noInline')
+  static InputDecoration getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<InputDecoration>(create);
+  static InputDecoration? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get hintText => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set hintText($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasHintText() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearHintText() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get labelText => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set labelText($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasLabelText() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLabelText() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get prefixText => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set prefixText($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPrefixText() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPrefixText() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get suffixText => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set suffixText($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasSuffixText() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearSuffixText() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get helperText => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set helperText($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasHelperText() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearHelperText() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get errorText => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set errorText($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasErrorText() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearErrorText() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.bool get isDense => $_getBF(6);
+  @$pb.TagNumber(7)
+  set isDense($core.bool v) { $_setBool(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasIsDense() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearIsDense() => clearField(7);
+
+  @$pb.TagNumber(8)
+  EdgeInsetsGeometry get padding => $_getN(7);
+  @$pb.TagNumber(8)
+  set padding(EdgeInsetsGeometry v) { setField(8, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasPadding() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearPadding() => clearField(8);
+  @$pb.TagNumber(8)
+  EdgeInsetsGeometry ensurePadding() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  EdgeInsetsGeometry get margin => $_getN(8);
+  @$pb.TagNumber(9)
+  set margin(EdgeInsetsGeometry v) { setField(9, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasMargin() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearMargin() => clearField(9);
+  @$pb.TagNumber(9)
+  EdgeInsetsGeometry ensureMargin() => $_ensure(8);
+
+  @$pb.TagNumber(10)
+  $core.double get enabledBorderWidth => $_getN(9);
+  @$pb.TagNumber(10)
+  set enabledBorderWidth($core.double v) { $_setDouble(9, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasEnabledBorderWidth() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearEnabledBorderWidth() => clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.double get focusedBorderWidth => $_getN(10);
+  @$pb.TagNumber(11)
+  set focusedBorderWidth($core.double v) { $_setDouble(10, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasFocusedBorderWidth() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearFocusedBorderWidth() => clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.double get disabledBorderWidth => $_getN(11);
+  @$pb.TagNumber(12)
+  set disabledBorderWidth($core.double v) { $_setDouble(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasDisabledBorderWidth() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearDisabledBorderWidth() => clearField(12);
+}
+
 
 const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
 const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');

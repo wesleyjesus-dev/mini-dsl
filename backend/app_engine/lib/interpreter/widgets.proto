@@ -177,27 +177,28 @@ message FloatingActionButton {
 }
 
 message TextField {
-  string initial_value = 1;
-  string placeholder = 2;
-  bool obscure_text = 3;
-  bool enabled = 4;
-  bool read_only = 5;
-  int32 max_lines = 6;
-  int32 min_lines = 7;
-  int32 max_length = 8;
-  interpreter.types.TextInputType keyboard_type = 9;
-  interpreter.types.TextInputAction text_input_action = 10;
-  interpreter.types.TextCapitalization text_capitalization = 11;
-  interpreter.types.TextAlign text_align = 12;
-  interpreter.types.TextAlignVertical text_align_vertical = 13;
-  interpreter.types.TextDirection text_direction = 14;
-  bool auto_focus = 15;
-  bool auto_correct = 16;
-  bool enable_suggestions = 17;
-  interpreter.handlers.Handler on_changed = 18;
-  interpreter.handlers.Handler on_submitted = 19;
-  interpreter.handlers.Handler on_editing_complete = 20;
-  interpreter.handlers.Handler on_tap = 21;
+  interpreter.types.InputDecoration decoration = 1;
+  string initial_value = 2;
+  string placeholder = 3;
+  bool obscure_text = 4;
+  bool enabled = 5;
+  bool read_only = 6;
+  int32 max_lines = 7;
+  int32 min_lines = 8;
+  int32 max_length = 9;
+  interpreter.types.TextInputType keyboard_type = 10;
+  interpreter.types.TextInputAction text_input_action = 11;
+  interpreter.types.TextCapitalization text_capitalization = 12;
+  interpreter.types.TextAlign text_align = 13;
+  interpreter.types.TextAlignVertical text_align_vertical = 14;
+  interpreter.types.TextDirection text_direction = 15;
+  bool auto_focus = 16;
+  bool auto_correct = 17;
+  bool enable_suggestions = 18;
+  interpreter.handlers.Handler on_changed = 19;
+  interpreter.handlers.Handler on_submitted = 20;
+  interpreter.handlers.Handler on_editing_complete = 21;
+  interpreter.handlers.Handler on_tap = 22;
 }
 
 message Image {

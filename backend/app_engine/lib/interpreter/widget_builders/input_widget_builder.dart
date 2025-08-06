@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../generated/widgets.pb.dart' as pb;
 import '../../generated/handlers.pb.dart' as handlers;
+import '../../generated/types.pb.dart' as types;
 
 class InputWidgetBuilder {
   static Widget buildTextField(
@@ -9,9 +10,11 @@ class InputWidgetBuilder {
     void Function(handlers.Handler, BuildContext) executeHandler,
   ) {
     return TextField(
-      decoration: InputDecoration(
-        hintText: textField.hasPlaceholder() ? textField.placeholder : null,
-      ),
+      decoration: textField.hasDecoration()
+          ? _buildInputDecoration(textField.decoration)
+          : InputDecoration(
+              hintText: textField.hasPlaceholder() ? textField.placeholder : null,
+            ),
       obscureText: textField.hasObscureText() ? textField.obscureText : false,
       enabled: textField.hasEnabled() ? textField.enabled : true,
       readOnly: textField.hasReadOnly() ? textField.readOnly : false,
@@ -19,6 +22,28 @@ class InputWidgetBuilder {
       onChanged: textField.hasOnChanged()
           ? (value) => executeHandler(textField.onChanged, context)
           : null,
+    );
+  }
+
+  static InputDecoration _buildInputDecoration(types.InputDecoration decoration) {
+    return InputDecoration(
+      hintText: decoration.hasHintText() ? decoration.hintText : null,
+      labelText: decoration.hasLabelText() ? decoration.labelText : null,
+      prefixText: decoration.hasPrefixText() ? decoration.prefixText : null,
+      suffixText: decoration.hasSuffixText() ? decoration.suffixText : null,
+      helperText: decoration.hasHelperText() ? decoration.helperText : null,
+      errorText: decoration.hasErrorText() ? decoration.errorText : null,
+      isDense: decoration.hasIsDense() ? decoration.isDense : null,
+      contentPadding: decoration.hasPadding() ? _buildEdgeInsets(decoration.padding) : null,
+    );
+  }
+
+  static EdgeInsets _buildEdgeInsets(types.EdgeInsetsGeometry edgeInsets) {
+    return EdgeInsets.only(
+      left: edgeInsets.hasLeft() ? edgeInsets.left : 0.0,
+      top: edgeInsets.hasTop() ? edgeInsets.top : 0.0,
+      right: edgeInsets.hasRight() ? edgeInsets.right : 0.0,
+      bottom: edgeInsets.hasBottom() ? edgeInsets.bottom : 0.0,
     );
   }
 

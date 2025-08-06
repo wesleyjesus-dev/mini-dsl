@@ -1279,3 +1279,51 @@ final $typed_data.Uint8List textDecorationDescriptor = $convert.base64Decode(
     'Cg5UZXh0RGVjb3JhdGlvbhIcCgl1bmRlcmxpbmUYASABKAhSCXVuZGVybGluZRIaCghvdmVybG'
     'luZRgCIAEoCFIIb3ZlcmxpbmUSIQoMbGluZV90aHJvdWdoGAMgASgIUgtsaW5lVGhyb3VnaA==');
 
+@$core.Deprecated('Use edgeInsetsGeometryDescriptor instead')
+const EdgeInsetsGeometry$json = {
+  '1': 'EdgeInsetsGeometry',
+  '2': [
+    {'1': 'left', '3': 1, '4': 1, '5': 1, '10': 'left'},
+    {'1': 'top', '3': 2, '4': 1, '5': 1, '10': 'top'},
+    {'1': 'right', '3': 3, '4': 1, '5': 1, '10': 'right'},
+    {'1': 'bottom', '3': 4, '4': 1, '5': 1, '10': 'bottom'},
+  ],
+};
+
+/// Descriptor for `EdgeInsetsGeometry`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List edgeInsetsGeometryDescriptor = $convert.base64Decode(
+    'ChJFZGdlSW5zZXRzR2VvbWV0cnkSEgoEbGVmdBgBIAEoAVIEbGVmdBIQCgN0b3AYAiABKAFSA3'
+    'RvcBIUCgVyaWdodBgDIAEoAVIFcmlnaHQSFgoGYm90dG9tGAQgASgBUgZib3R0b20=');
+
+@$core.Deprecated('Use inputDecorationDescriptor instead')
+const InputDecoration$json = {
+  '1': 'InputDecoration',
+  '2': [
+    {'1': 'hint_text', '3': 1, '4': 1, '5': 9, '10': 'hintText'},
+    {'1': 'label_text', '3': 2, '4': 1, '5': 9, '10': 'labelText'},
+    {'1': 'prefix_text', '3': 3, '4': 1, '5': 9, '10': 'prefixText'},
+    {'1': 'suffix_text', '3': 4, '4': 1, '5': 9, '10': 'suffixText'},
+    {'1': 'helper_text', '3': 5, '4': 1, '5': 9, '10': 'helperText'},
+    {'1': 'error_text', '3': 6, '4': 1, '5': 9, '10': 'errorText'},
+    {'1': 'is_dense', '3': 7, '4': 1, '5': 8, '10': 'isDense'},
+    {'1': 'padding', '3': 8, '4': 1, '5': 11, '6': '.interpreter.types.EdgeInsetsGeometry', '10': 'padding'},
+    {'1': 'margin', '3': 9, '4': 1, '5': 11, '6': '.interpreter.types.EdgeInsetsGeometry', '10': 'margin'},
+    {'1': 'enabled_border_width', '3': 10, '4': 1, '5': 1, '10': 'enabledBorderWidth'},
+    {'1': 'focused_border_width', '3': 11, '4': 1, '5': 1, '10': 'focusedBorderWidth'},
+    {'1': 'disabled_border_width', '3': 12, '4': 1, '5': 1, '10': 'disabledBorderWidth'},
+  ],
+};
+
+/// Descriptor for `InputDecoration`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List inputDecorationDescriptor = $convert.base64Decode(
+    'Cg9JbnB1dERlY29yYXRpb24SGwoJaGludF90ZXh0GAEgASgJUghoaW50VGV4dBIdCgpsYWJlbF'
+    '90ZXh0GAIgASgJUglsYWJlbFRleHQSHwoLcHJlZml4X3RleHQYAyABKAlSCnByZWZpeFRleHQS'
+    'HwoLc3VmZml4X3RleHQYBCABKAlSCnN1ZmZpeFRleHQSHwoLaGVscGVyX3RleHQYBSABKAlSCm'
+    'hlbHBlclRleHQSHQoKZXJyb3JfdGV4dBgGIAEoCVIJZXJyb3JUZXh0EhkKCGlzX2RlbnNlGAcg'
+    'ASgIUgdpc0RlbnNlEj8KB3BhZGRpbmcYCCABKAsyJS5pbnRlcnByZXRlci50eXBlcy5FZGdlSW'
+    '5zZXRzR2VvbWV0cnlSB3BhZGRpbmcSPQoGbWFyZ2luGAkgASgLMiUuaW50ZXJwcmV0ZXIudHlw'
+    'ZXMuRWRnZUluc2V0c0dlb21ldHJ5UgZtYXJnaW4SMAoUZW5hYmxlZF9ib3JkZXJfd2lkdGgYCi'
+    'ABKAFSEmVuYWJsZWRCb3JkZXJXaWR0aBIwChRmb2N1c2VkX2JvcmRlcl93aWR0aBgLIAEoAVIS'
+    'Zm9jdXNlZEJvcmRlcldpZHRoEjIKFWRpc2FibGVkX2JvcmRlcl93aWR0aBgMIAEoAVITZGlzYW'
+    'JsZWRCb3JkZXJXaWR0aA==');
+

@@ -428,52 +428,54 @@ final $typed_data.Uint8List floatingActionButtonDescriptor = $convert.base64Deco
 const TextField$json = {
   '1': 'TextField',
   '2': [
-    {'1': 'initial_value', '3': 1, '4': 1, '5': 9, '10': 'initialValue'},
-    {'1': 'placeholder', '3': 2, '4': 1, '5': 9, '10': 'placeholder'},
-    {'1': 'obscure_text', '3': 3, '4': 1, '5': 8, '10': 'obscureText'},
-    {'1': 'enabled', '3': 4, '4': 1, '5': 8, '10': 'enabled'},
-    {'1': 'read_only', '3': 5, '4': 1, '5': 8, '10': 'readOnly'},
-    {'1': 'max_lines', '3': 6, '4': 1, '5': 5, '10': 'maxLines'},
-    {'1': 'min_lines', '3': 7, '4': 1, '5': 5, '10': 'minLines'},
-    {'1': 'max_length', '3': 8, '4': 1, '5': 5, '10': 'maxLength'},
-    {'1': 'keyboard_type', '3': 9, '4': 1, '5': 14, '6': '.interpreter.types.TextInputType', '10': 'keyboardType'},
-    {'1': 'text_input_action', '3': 10, '4': 1, '5': 14, '6': '.interpreter.types.TextInputAction', '10': 'textInputAction'},
-    {'1': 'text_capitalization', '3': 11, '4': 1, '5': 14, '6': '.interpreter.types.TextCapitalization', '10': 'textCapitalization'},
-    {'1': 'text_align', '3': 12, '4': 1, '5': 14, '6': '.interpreter.types.TextAlign', '10': 'textAlign'},
-    {'1': 'text_align_vertical', '3': 13, '4': 1, '5': 14, '6': '.interpreter.types.TextAlignVertical', '10': 'textAlignVertical'},
-    {'1': 'text_direction', '3': 14, '4': 1, '5': 14, '6': '.interpreter.types.TextDirection', '10': 'textDirection'},
-    {'1': 'auto_focus', '3': 15, '4': 1, '5': 8, '10': 'autoFocus'},
-    {'1': 'auto_correct', '3': 16, '4': 1, '5': 8, '10': 'autoCorrect'},
-    {'1': 'enable_suggestions', '3': 17, '4': 1, '5': 8, '10': 'enableSuggestions'},
-    {'1': 'on_changed', '3': 18, '4': 1, '5': 11, '6': '.interpreter.handlers.Handler', '10': 'onChanged'},
-    {'1': 'on_submitted', '3': 19, '4': 1, '5': 11, '6': '.interpreter.handlers.Handler', '10': 'onSubmitted'},
-    {'1': 'on_editing_complete', '3': 20, '4': 1, '5': 11, '6': '.interpreter.handlers.Handler', '10': 'onEditingComplete'},
-    {'1': 'on_tap', '3': 21, '4': 1, '5': 11, '6': '.interpreter.handlers.Handler', '10': 'onTap'},
+    {'1': 'decoration', '3': 1, '4': 1, '5': 11, '6': '.interpreter.types.InputDecoration', '10': 'decoration'},
+    {'1': 'initial_value', '3': 2, '4': 1, '5': 9, '10': 'initialValue'},
+    {'1': 'placeholder', '3': 3, '4': 1, '5': 9, '10': 'placeholder'},
+    {'1': 'obscure_text', '3': 4, '4': 1, '5': 8, '10': 'obscureText'},
+    {'1': 'enabled', '3': 5, '4': 1, '5': 8, '10': 'enabled'},
+    {'1': 'read_only', '3': 6, '4': 1, '5': 8, '10': 'readOnly'},
+    {'1': 'max_lines', '3': 7, '4': 1, '5': 5, '10': 'maxLines'},
+    {'1': 'min_lines', '3': 8, '4': 1, '5': 5, '10': 'minLines'},
+    {'1': 'max_length', '3': 9, '4': 1, '5': 5, '10': 'maxLength'},
+    {'1': 'keyboard_type', '3': 10, '4': 1, '5': 14, '6': '.interpreter.types.TextInputType', '10': 'keyboardType'},
+    {'1': 'text_input_action', '3': 11, '4': 1, '5': 14, '6': '.interpreter.types.TextInputAction', '10': 'textInputAction'},
+    {'1': 'text_capitalization', '3': 12, '4': 1, '5': 14, '6': '.interpreter.types.TextCapitalization', '10': 'textCapitalization'},
+    {'1': 'text_align', '3': 13, '4': 1, '5': 14, '6': '.interpreter.types.TextAlign', '10': 'textAlign'},
+    {'1': 'text_align_vertical', '3': 14, '4': 1, '5': 14, '6': '.interpreter.types.TextAlignVertical', '10': 'textAlignVertical'},
+    {'1': 'text_direction', '3': 15, '4': 1, '5': 14, '6': '.interpreter.types.TextDirection', '10': 'textDirection'},
+    {'1': 'auto_focus', '3': 16, '4': 1, '5': 8, '10': 'autoFocus'},
+    {'1': 'auto_correct', '3': 17, '4': 1, '5': 8, '10': 'autoCorrect'},
+    {'1': 'enable_suggestions', '3': 18, '4': 1, '5': 8, '10': 'enableSuggestions'},
+    {'1': 'on_changed', '3': 19, '4': 1, '5': 11, '6': '.interpreter.handlers.Handler', '10': 'onChanged'},
+    {'1': 'on_submitted', '3': 20, '4': 1, '5': 11, '6': '.interpreter.handlers.Handler', '10': 'onSubmitted'},
+    {'1': 'on_editing_complete', '3': 21, '4': 1, '5': 11, '6': '.interpreter.handlers.Handler', '10': 'onEditingComplete'},
+    {'1': 'on_tap', '3': 22, '4': 1, '5': 11, '6': '.interpreter.handlers.Handler', '10': 'onTap'},
   ],
 };
 
 /// Descriptor for `TextField`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List textFieldDescriptor = $convert.base64Decode(
-    'CglUZXh0RmllbGQSIwoNaW5pdGlhbF92YWx1ZRgBIAEoCVIMaW5pdGlhbFZhbHVlEiAKC3BsYW'
-    'NlaG9sZGVyGAIgASgJUgtwbGFjZWhvbGRlchIhCgxvYnNjdXJlX3RleHQYAyABKAhSC29ic2N1'
-    'cmVUZXh0EhgKB2VuYWJsZWQYBCABKAhSB2VuYWJsZWQSGwoJcmVhZF9vbmx5GAUgASgIUghyZW'
-    'FkT25seRIbCgltYXhfbGluZXMYBiABKAVSCG1heExpbmVzEhsKCW1pbl9saW5lcxgHIAEoBVII'
-    'bWluTGluZXMSHQoKbWF4X2xlbmd0aBgIIAEoBVIJbWF4TGVuZ3RoEkUKDWtleWJvYXJkX3R5cG'
-    'UYCSABKA4yIC5pbnRlcnByZXRlci50eXBlcy5UZXh0SW5wdXRUeXBlUgxrZXlib2FyZFR5cGUS'
-    'TgoRdGV4dF9pbnB1dF9hY3Rpb24YCiABKA4yIi5pbnRlcnByZXRlci50eXBlcy5UZXh0SW5wdX'
-    'RBY3Rpb25SD3RleHRJbnB1dEFjdGlvbhJWChN0ZXh0X2NhcGl0YWxpemF0aW9uGAsgASgOMiUu'
-    'aW50ZXJwcmV0ZXIudHlwZXMuVGV4dENhcGl0YWxpemF0aW9uUhJ0ZXh0Q2FwaXRhbGl6YXRpb2'
-    '4SOwoKdGV4dF9hbGlnbhgMIAEoDjIcLmludGVycHJldGVyLnR5cGVzLlRleHRBbGlnblIJdGV4'
-    'dEFsaWduElQKE3RleHRfYWxpZ25fdmVydGljYWwYDSABKA4yJC5pbnRlcnByZXRlci50eXBlcy'
-    '5UZXh0QWxpZ25WZXJ0aWNhbFIRdGV4dEFsaWduVmVydGljYWwSRwoOdGV4dF9kaXJlY3Rpb24Y'
-    'DiABKA4yIC5pbnRlcnByZXRlci50eXBlcy5UZXh0RGlyZWN0aW9uUg10ZXh0RGlyZWN0aW9uEh'
-    '0KCmF1dG9fZm9jdXMYDyABKAhSCWF1dG9Gb2N1cxIhCgxhdXRvX2NvcnJlY3QYECABKAhSC2F1'
-    'dG9Db3JyZWN0Ei0KEmVuYWJsZV9zdWdnZXN0aW9ucxgRIAEoCFIRZW5hYmxlU3VnZ2VzdGlvbn'
-    'MSPAoKb25fY2hhbmdlZBgSIAEoCzIdLmludGVycHJldGVyLmhhbmRsZXJzLkhhbmRsZXJSCW9u'
-    'Q2hhbmdlZBJACgxvbl9zdWJtaXR0ZWQYEyABKAsyHS5pbnRlcnByZXRlci5oYW5kbGVycy5IYW'
-    '5kbGVyUgtvblN1Ym1pdHRlZBJNChNvbl9lZGl0aW5nX2NvbXBsZXRlGBQgASgLMh0uaW50ZXJw'
-    'cmV0ZXIuaGFuZGxlcnMuSGFuZGxlclIRb25FZGl0aW5nQ29tcGxldGUSNAoGb25fdGFwGBUgAS'
-    'gLMh0uaW50ZXJwcmV0ZXIuaGFuZGxlcnMuSGFuZGxlclIFb25UYXA=');
+    'CglUZXh0RmllbGQSQgoKZGVjb3JhdGlvbhgBIAEoCzIiLmludGVycHJldGVyLnR5cGVzLklucH'
+    'V0RGVjb3JhdGlvblIKZGVjb3JhdGlvbhIjCg1pbml0aWFsX3ZhbHVlGAIgASgJUgxpbml0aWFs'
+    'VmFsdWUSIAoLcGxhY2Vob2xkZXIYAyABKAlSC3BsYWNlaG9sZGVyEiEKDG9ic2N1cmVfdGV4dB'
+    'gEIAEoCFILb2JzY3VyZVRleHQSGAoHZW5hYmxlZBgFIAEoCFIHZW5hYmxlZBIbCglyZWFkX29u'
+    'bHkYBiABKAhSCHJlYWRPbmx5EhsKCW1heF9saW5lcxgHIAEoBVIIbWF4TGluZXMSGwoJbWluX2'
+    'xpbmVzGAggASgFUghtaW5MaW5lcxIdCgptYXhfbGVuZ3RoGAkgASgFUgltYXhMZW5ndGgSRQoN'
+    'a2V5Ym9hcmRfdHlwZRgKIAEoDjIgLmludGVycHJldGVyLnR5cGVzLlRleHRJbnB1dFR5cGVSDG'
+    'tleWJvYXJkVHlwZRJOChF0ZXh0X2lucHV0X2FjdGlvbhgLIAEoDjIiLmludGVycHJldGVyLnR5'
+    'cGVzLlRleHRJbnB1dEFjdGlvblIPdGV4dElucHV0QWN0aW9uElYKE3RleHRfY2FwaXRhbGl6YX'
+    'Rpb24YDCABKA4yJS5pbnRlcnByZXRlci50eXBlcy5UZXh0Q2FwaXRhbGl6YXRpb25SEnRleHRD'
+    'YXBpdGFsaXphdGlvbhI7Cgp0ZXh0X2FsaWduGA0gASgOMhwuaW50ZXJwcmV0ZXIudHlwZXMuVG'
+    'V4dEFsaWduUgl0ZXh0QWxpZ24SVAoTdGV4dF9hbGlnbl92ZXJ0aWNhbBgOIAEoDjIkLmludGVy'
+    'cHJldGVyLnR5cGVzLlRleHRBbGlnblZlcnRpY2FsUhF0ZXh0QWxpZ25WZXJ0aWNhbBJHCg50ZX'
+    'h0X2RpcmVjdGlvbhgPIAEoDjIgLmludGVycHJldGVyLnR5cGVzLlRleHREaXJlY3Rpb25SDXRl'
+    'eHREaXJlY3Rpb24SHQoKYXV0b19mb2N1cxgQIAEoCFIJYXV0b0ZvY3VzEiEKDGF1dG9fY29ycm'
+    'VjdBgRIAEoCFILYXV0b0NvcnJlY3QSLQoSZW5hYmxlX3N1Z2dlc3Rpb25zGBIgASgIUhFlbmFi'
+    'bGVTdWdnZXN0aW9ucxI8Cgpvbl9jaGFuZ2VkGBMgASgLMh0uaW50ZXJwcmV0ZXIuaGFuZGxlcn'
+    'MuSGFuZGxlclIJb25DaGFuZ2VkEkAKDG9uX3N1Ym1pdHRlZBgUIAEoCzIdLmludGVycHJldGVy'
+    'LmhhbmRsZXJzLkhhbmRsZXJSC29uU3VibWl0dGVkEk0KE29uX2VkaXRpbmdfY29tcGxldGUYFS'
+    'ABKAsyHS5pbnRlcnByZXRlci5oYW5kbGVycy5IYW5kbGVyUhFvbkVkaXRpbmdDb21wbGV0ZRI0'
+    'CgZvbl90YXAYFiABKAsyHS5pbnRlcnByZXRlci5oYW5kbGVycy5IYW5kbGVyUgVvblRhcA==');
 
 @$core.Deprecated('Use imageDescriptor instead')
 const Image$json = {
