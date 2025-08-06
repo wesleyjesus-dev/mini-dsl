@@ -539,3 +539,25 @@ enum MaterialState {
   DISABLED = 6;
   ERROR = 7;
 }
+
+message EdgeInsetsGeometry {
+    double left = 1;
+    double top = 2;
+    double right = 3;
+    double bottom = 4;
+}
+
+message InputDecoration {
+    string hint_text = 1;
+    string label_text = 2;
+    string prefix_text = 3;
+    string suffix_text = 4;
+    string helper_text = 5;
+    string error_text = 6;
+    bool is_dense = 7;
+    EdgeInsetsGeometry padding = 8;
+    EdgeInsetsGeometry margin = 9;
+    double enabled_border_width = 10;
+    double focused_border_width = 11;
+    double disabled_border_width = 12;
+}

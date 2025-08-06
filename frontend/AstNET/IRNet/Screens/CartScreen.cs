@@ -1,6 +1,7 @@
 using IRNet.Services;
 using IRNet.Models;
 using Google.Protobuf;
+using IRNet.Screens.Components;
 
 namespace IRNet.Screens
 {
@@ -276,13 +277,14 @@ namespace IRNet.Screens
             var scaffold = new IRNet.Widgets.Scaffold
             {
                 AppBar = appBarWidget,
-                Body = contentColumnWidget
+                Body = contentColumnWidget,
+                BottomNavigationBar = NavigationBar.Build()
             };
 
             var scaffoldWidget = new IRNet.Widgets.Widget
             {
                 Type = "Scaffold",
-                Scaffold = scaffold
+                Scaffold = scaffold,
             };
 
             // Serialize to protobuf bytes

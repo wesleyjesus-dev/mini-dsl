@@ -2,6 +2,7 @@
 using Google.Protobuf;
 using System.Text.Json;
 using IRNet.Models;
+using IRNet.Screens.Components;
 
 namespace IRNet.Screens
 {
@@ -19,7 +20,7 @@ namespace IRNet.Screens
             var productData = id switch
             {
                 "1" => new { Name = "Smartphone Pro Max", Price = "$999.99", Description = "Latest flagship smartphone with advanced camera system and powerful processor.", Image = "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop" },
-                "2" => new { Name = "Gaming Laptop Ultra", Price = "$1,499.99", Description = "High-performance gaming laptop with RTX graphics and fast SSD storage.", Image = "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop" },
+                "2" => new { Name = "Gaming Laptop", Price = "$1,499.99", Description = "High-performance gaming laptop with RTX graphics and fast SSD storage.", Image = "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop" },
                 "3" => new { Name = "Wireless Headphones", Price = "$299.99", Description = "Premium noise-canceling wireless headphones with superior sound quality.", Image = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop" },
                 _ => new { Name = "Product Not Found", Price = "N/A", Description = "The requested product could not be found.", Image = "" }
             };
@@ -92,7 +93,7 @@ namespace IRNet.Screens
             var backHandler = new IRNet.Widgets.Handler
             {
                 Type = "Go",
-                GoHandler = new IRNet.Widgets.GoHandler { Route = "/cart" }
+                GoHandler = new IRNet.Widgets.GoHandler { Route = "/screen/cart" }
             };
 
             var backButtonText = new IRNet.Widgets.Text { Value = "Back to Catalog" };
@@ -142,7 +143,8 @@ namespace IRNet.Screens
             var scaffold = new IRNet.Widgets.Scaffold
             {
                 AppBar = appBarWidget,
-                Body = containerWidget
+                Body = containerWidget,
+                BottomNavigationBar = NavigationBar.Build()
             };
 
             var scaffoldWidget = new IRNet.Widgets.Widget

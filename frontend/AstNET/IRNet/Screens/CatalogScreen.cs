@@ -1,5 +1,7 @@
 
 using Google.Protobuf;
+using IRNet.Widgets;
+
 namespace IRNet.Screens
 {
     public static class CatalogScreen
@@ -108,7 +110,7 @@ namespace IRNet.Screens
                 }
             };
 
-            var product2Title = new IRNet.Widgets.Text { Value = "Gaming Laptop Ultra" };
+            var product2Title = new IRNet.Widgets.Text { Value = "Gaming" };
             var product2TitleWidget = new IRNet.Widgets.Widget
             {
                 Type = "Text",
@@ -240,79 +242,50 @@ namespace IRNet.Screens
                 listViewWidget.ListView.Children.Add(card);
             }
 
-            // Create navigation destinations
-            var catalogDestination = new IRNet.Widgets.Widget
+            //Text Field find
+            var textFieldFind = new IRNet.Widgets.Widget
             {
-                Type = "NavigationDestination",
-                NavigationDestination = new IRNet.Widgets.NavigationDestination
+                Type = "TextField",
+                TextField = new IRNet.Widgets.TextField
                 {
-                    Icon = new IRNet.Widgets.Widget
+                    Decoration = new IRNet.Widgets.InputDecoration
                     {
-                        Type = "Icon",
-                        Icon = new IRNet.Widgets.Icon { }
-                    },
-                    Label = "Catalog",
-                    Enabled = true
+                        HintText = "Search",
+                    }
                 }
             };
 
-            var cartDestination = new IRNet.Widgets.Widget
+
+
+            //Column
+            var columnWidget = new IRNet.Widgets.Widget
             {
-                Type = "NavigationDestination",
-                NavigationDestination = new IRNet.Widgets.NavigationDestination
+                Type = "Column",
+                Column = new IRNet.Widgets.Column
                 {
-                    Icon = new IRNet.Widgets.Widget
-                    {
-                        Type = "Icon",
-                        Icon = new IRNet.Widgets.Icon { }
-                    },
-                    Label = "Cart",
-                    Enabled = true
+                    ChildrenExprs  = {  
+                        textFieldFind
+                    }
                 }
             };
 
-            var loginDestination = new IRNet.Widgets.Widget
+                        //PAdding
+            var paddingBody = new IRNet.Widgets.Widget
             {
-                Type = "NavigationDestination",
-                NavigationDestination = new IRNet.Widgets.NavigationDestination
+                Type = "Padding",
+                Padding = new IRNet.Widgets.Padding
                 {
-                    Icon = new IRNet.Widgets.Widget
-                    {
-                        Type = "Icon",
-                        Icon = new IRNet.Widgets.Icon { }
-                    },
-                    Label = "Login",
-                    Enabled = true
+                    Padding_ = new IRNet.Widgets.EdgeInsets { Left = 16, Top = 16, Right = 16, Bottom = 16 },
+                    Child = columnWidget
                 }
-            };
-
-            // Create navigation bar
-            var navigationBar = new IRNet.Widgets.NavigationBar
-            {
-                SelectedIndex = 0,
-                OnDestinationSelected = new IRNet.Widgets.Handler
-                {
-                    Type = "Print",
-                    PrintHandler = new IRNet.Widgets.PrintHandler { Message = "Navigation item selected" }
-                }
-            };
-
-            navigationBar.Destinations.Add(catalogDestination);
-            navigationBar.Destinations.Add(cartDestination);
-            navigationBar.Destinations.Add(loginDestination);
-
-            var navigationBarWidget = new IRNet.Widgets.Widget
-            {
-                Type = "NavigationBar",
-                NavigationBar = navigationBar
             };
 
             // Create scaffold with bottom navigation bar
             var scaffold = new IRNet.Widgets.Scaffold
             {
                 AppBar = appBarWidget,
-                Body = listViewWidget,
-                BottomNavigationBar = navigationBarWidget
+                Body = paddingBody,
+                BottomNavigationBar = IRNet.Screens.Components.NavigationBar.Build()
             };
 
             var scaffoldWidget = new IRNet.Widgets.Widget
