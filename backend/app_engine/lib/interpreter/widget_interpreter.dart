@@ -13,6 +13,7 @@ import 'widget_builders/display_widget_builder.dart' as display;
 import 'widget_builders/interactive_widget_builder.dart' as interactive;
 import 'widget_builders/scrollable_widget_builder.dart' as scrollable;
 import 'widget_builders/navigation_widget_builder.dart' as navigation;
+import 'widget_builders/main_widget_interpreter.dart' as main;
 
 class WidgetInterpreter extends StatefulWidget {
   WidgetInterpreter({super.key, required this.service, required this.name, this.param});
@@ -32,6 +33,8 @@ class _WidgetInterpreterState extends State<WidgetInterpreter> {
   String? _error;
   final AnalyticService _analytics = AnalyticService();
   final CacheService _cache = CacheService();
+  //new alterations
+  late main.MainWidgetInterpreter? _interpreter;
 
   @override
   void initState() {
@@ -39,6 +42,7 @@ class _WidgetInterpreterState extends State<WidgetInterpreter> {
     // Initialize cache with default TTL
     _cache.setDefaultTtl(CacheConfig.defaultTtl);
     _loadService();
+    _interpreter = main.MainWidgetInterpreter(name: widget.name, service: widget.service);
   }
 
   /// Configures cache TTL using preset or custom duration
@@ -220,7 +224,9 @@ Future<void> _handleRefresh() async {
       );
     }
     
-    final widget = interpretWidget(_widgetData!, context);
+    //TODO: onde eu mudei
+    //final widget = interpretWidget(_widgetData!, context);
+    final widget = _interpreter!.interpretWidget(_widgetData!, context, _handleRefresh, setState);
     
     // Se o widget é um Scaffold, não envolvemos com RefreshIndicator
     if (widget is Scaffold) {
@@ -395,7 +401,7 @@ Future<void> _handleRefresh() async {
     }
   }
 
-  Future<void> executeHandler(handlers.Handler handler, BuildContext context) async {
+  Future<void> executeHandler(handlers.Handler handler, BuildContext context, void Function(VoidCallback) runCallback) async {
     // Track evento do interpreter
     _analytics.trackInterpreterEvent(
       eventName: 'handler_executed',
@@ -486,7 +492,7 @@ Future<void> _handleRefresh() async {
         );
         
         for (final action in compositeHandler.actions) {
-          executeHandler(action, context);
+          executeHandler(action, context, setState);
         }
         break;
 

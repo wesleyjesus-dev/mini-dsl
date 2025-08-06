@@ -257,6 +257,7 @@ namespace IRNet.Screens
 
 
 
+
             //Column
             var columnWidget = new IRNet.Widgets.Widget
             {
@@ -284,7 +285,7 @@ namespace IRNet.Screens
             var scaffold = new IRNet.Widgets.Scaffold
             {
                 AppBar = appBarWidget,
-                Body = paddingBody,
+                Body = listViewWidget,
                 BottomNavigationBar = IRNet.Screens.Components.NavigationBar.Build()
             };
 

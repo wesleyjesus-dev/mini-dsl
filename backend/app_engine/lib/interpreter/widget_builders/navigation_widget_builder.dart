@@ -25,11 +25,11 @@ class NavigationWidgetBuilder {
     pb.BottomSheet bottomSheet,
     BuildContext context,
     Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
   ) {
     return BottomSheet(
       onClosing: bottomSheet.hasOnClosing()
-          ? () => executeHandler(bottomSheet.onClosing, context)
+          ? () => executeHandler(bottomSheet.onClosing, context, (fn) => fn())
           : () {},
       builder: (context) => interpretWidget(bottomSheet.child, context),
     );
@@ -52,7 +52,7 @@ class NavigationWidgetBuilder {
     pb.TabBar tabBar,
     BuildContext context,
     Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
   ) {
     return TabBar(
       tabs: tabBar.tabs
@@ -60,7 +60,7 @@ class NavigationWidgetBuilder {
           .toList(),
       isScrollable: tabBar.hasIsScrollable() ? tabBar.isScrollable : false,
       onTap: tabBar.hasOnTap()
-          ? (index) => executeHandler(tabBar.onTap, context)
+          ? (index) => executeHandler(tabBar.onTap, context, (fn) => fn())
           : null,
     );
   }
@@ -81,7 +81,7 @@ class NavigationWidgetBuilder {
     pb.NavigationBar navigationBar,
     BuildContext context,
     Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback) setState) executeHandler,
   ) {
     return NavigationBar(
       destinations: navigationBar.destinations
@@ -90,7 +90,7 @@ class NavigationWidgetBuilder {
           .toList(),
       selectedIndex: navigationBar.hasSelectedIndex() ? navigationBar.selectedIndex : 0,
       onDestinationSelected: navigationBar.hasOnDestinationSelected()
-          ? (index) => executeHandler(navigationBar.onDestinationSelected, context)
+          ? (index) => executeHandler(navigationBar.onDestinationSelected, context, (fn) => fn())
           : null,
     );
   }

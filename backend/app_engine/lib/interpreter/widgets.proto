@@ -177,7 +177,7 @@ message FloatingActionButton {
 }
 
 message TextField {
-  interpreter.types.InputDecoration decoration = 1;
+  InputDecoration decoration = 1;
   string initial_value = 2;
   string placeholder = 3;
   bool obscure_text = 4;
@@ -672,4 +672,20 @@ message SingleChildScrollView {
   interpreter.types.Clip clip_behavior = 9;
   string restoration_id = 10;
   interpreter.types.ScrollViewKeyboardDismissBehavior keyboard_dismiss_behavior = 11;
+}
+
+message InputDecoration {
+    string hint_text = 1;
+    Widget prefix_icon = 2;
+    string label_text = 3;
+    string prefix_text = 4;
+    string suffix_text = 5;
+    string helper_text = 6;
+    string error_text = 7;
+    bool is_dense = 8;
+    interpreter.types.EdgeInsetsGeometry padding = 9;
+    interpreter.types.EdgeInsetsGeometry margin = 10;
+    double enabled_border_width = 11;
+    double focused_border_width = 12;
+    double disabled_border_width = 13;
 }

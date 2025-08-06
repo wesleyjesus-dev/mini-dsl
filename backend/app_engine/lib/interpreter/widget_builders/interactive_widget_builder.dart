@@ -8,7 +8,7 @@ class InteractiveWidgetBuilder {
     pb.Button button,
     BuildContext context,
     Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
     AnalyticService analytics,
     String screenName,
   ) {
@@ -24,7 +24,7 @@ class InteractiveWidgetBuilder {
           },
         );
 
-        executeHandler(button.handler, context);
+        executeHandler(button.handler, context, (fn) => fn());
       },
       child: interpretWidget(button.text, context),
     );
@@ -34,7 +34,7 @@ class InteractiveWidgetBuilder {
     pb.ElevatedButton elevatedButton,
     BuildContext context,
     Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
     AnalyticService analytics,
     String screenName,
   ) {
@@ -51,7 +51,7 @@ class InteractiveWidgetBuilder {
         );
 
         if (elevatedButton.hasOnPressedHandler()) {
-          executeHandler(elevatedButton.onPressedHandler, context);
+          executeHandler(elevatedButton.onPressedHandler, context, (fn) => fn());
         }
       },
       child: interpretWidget(elevatedButton.child, context),
@@ -62,11 +62,11 @@ class InteractiveWidgetBuilder {
     pb.FloatingActionButton fab,
     BuildContext context,
     Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
   ) {
     return FloatingActionButton(
       onPressed: fab.hasOnPressed()
-          ? () => executeHandler(fab.onPressed, context)
+          ? () => executeHandler(fab.onPressed, context, (fn) => fn())
           : null,
       tooltip: fab.hasTooltip() ? fab.tooltip : null,
       mini: fab.hasMini() ? fab.mini : false,
@@ -80,7 +80,7 @@ class InteractiveWidgetBuilder {
     pb.ListTile listTile,
     BuildContext context,
     Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
   ) {
     return ListTile(
       leading: listTile.hasLeading()
@@ -96,7 +96,7 @@ class InteractiveWidgetBuilder {
           ? interpretWidget(listTile.trailing, context)
           : null,
       onTap: listTile.hasOnTap()
-          ? () => executeHandler(listTile.onTap, context)
+          ? () => executeHandler(listTile.onTap, context, (fn) => fn())
           : null,
       selected: listTile.hasSelected() ? listTile.selected : false,
       enabled: listTile.hasEnabled() ? listTile.enabled : true,
@@ -107,17 +107,17 @@ class InteractiveWidgetBuilder {
     pb.InkWell inkWell,
     BuildContext context,
     Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
   ) {
     return InkWell(
       onTap: inkWell.hasOnTap()
-          ? () => executeHandler(inkWell.onTap, context)
+          ? () => executeHandler(inkWell.onTap, context, (fn) => fn())
           : null,
       onDoubleTap: inkWell.hasOnDoubleTap()
-          ? () => executeHandler(inkWell.onDoubleTap, context)
+          ? () => executeHandler(inkWell.onDoubleTap, context, (fn) => fn())
           : null,
       onLongPress: inkWell.hasOnLongPress()
-          ? () => executeHandler(inkWell.onLongPress, context)
+          ? () => executeHandler(inkWell.onLongPress, context, (fn) => fn())
           : null,
       child: interpretWidget(inkWell.child, context),
     );
@@ -127,17 +127,17 @@ class InteractiveWidgetBuilder {
     pb.GestureDetector gestureDetector,
     BuildContext context,
     Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
   ) {
     return GestureDetector(
       onTap: gestureDetector.hasOnTap()
-          ? () => executeHandler(gestureDetector.onTap, context)
+          ? () => executeHandler(gestureDetector.onTap, context, (fn) => fn())
           : null,
       onDoubleTap: gestureDetector.hasOnDoubleTap()
-          ? () => executeHandler(gestureDetector.onDoubleTap, context)
+          ? () => executeHandler(gestureDetector.onDoubleTap, context, (fn) => fn())
           : null,
       onLongPress: gestureDetector.hasOnLongPress()
-          ? () => executeHandler(gestureDetector.onLongPress, context)
+          ? () => executeHandler(gestureDetector.onLongPress, context, (fn) => fn())
           : null,
       child: interpretWidget(gestureDetector.child, context),
     );

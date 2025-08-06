@@ -428,7 +428,7 @@ final $typed_data.Uint8List floatingActionButtonDescriptor = $convert.base64Deco
 const TextField$json = {
   '1': 'TextField',
   '2': [
-    {'1': 'decoration', '3': 1, '4': 1, '5': 11, '6': '.interpreter.types.InputDecoration', '10': 'decoration'},
+    {'1': 'decoration', '3': 1, '4': 1, '5': 11, '6': '.interpreter.widgets.InputDecoration', '10': 'decoration'},
     {'1': 'initial_value', '3': 2, '4': 1, '5': 9, '10': 'initialValue'},
     {'1': 'placeholder', '3': 3, '4': 1, '5': 9, '10': 'placeholder'},
     {'1': 'obscure_text', '3': 4, '4': 1, '5': 8, '10': 'obscureText'},
@@ -455,27 +455,27 @@ const TextField$json = {
 
 /// Descriptor for `TextField`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List textFieldDescriptor = $convert.base64Decode(
-    'CglUZXh0RmllbGQSQgoKZGVjb3JhdGlvbhgBIAEoCzIiLmludGVycHJldGVyLnR5cGVzLklucH'
-    'V0RGVjb3JhdGlvblIKZGVjb3JhdGlvbhIjCg1pbml0aWFsX3ZhbHVlGAIgASgJUgxpbml0aWFs'
-    'VmFsdWUSIAoLcGxhY2Vob2xkZXIYAyABKAlSC3BsYWNlaG9sZGVyEiEKDG9ic2N1cmVfdGV4dB'
-    'gEIAEoCFILb2JzY3VyZVRleHQSGAoHZW5hYmxlZBgFIAEoCFIHZW5hYmxlZBIbCglyZWFkX29u'
-    'bHkYBiABKAhSCHJlYWRPbmx5EhsKCW1heF9saW5lcxgHIAEoBVIIbWF4TGluZXMSGwoJbWluX2'
-    'xpbmVzGAggASgFUghtaW5MaW5lcxIdCgptYXhfbGVuZ3RoGAkgASgFUgltYXhMZW5ndGgSRQoN'
-    'a2V5Ym9hcmRfdHlwZRgKIAEoDjIgLmludGVycHJldGVyLnR5cGVzLlRleHRJbnB1dFR5cGVSDG'
-    'tleWJvYXJkVHlwZRJOChF0ZXh0X2lucHV0X2FjdGlvbhgLIAEoDjIiLmludGVycHJldGVyLnR5'
-    'cGVzLlRleHRJbnB1dEFjdGlvblIPdGV4dElucHV0QWN0aW9uElYKE3RleHRfY2FwaXRhbGl6YX'
-    'Rpb24YDCABKA4yJS5pbnRlcnByZXRlci50eXBlcy5UZXh0Q2FwaXRhbGl6YXRpb25SEnRleHRD'
-    'YXBpdGFsaXphdGlvbhI7Cgp0ZXh0X2FsaWduGA0gASgOMhwuaW50ZXJwcmV0ZXIudHlwZXMuVG'
-    'V4dEFsaWduUgl0ZXh0QWxpZ24SVAoTdGV4dF9hbGlnbl92ZXJ0aWNhbBgOIAEoDjIkLmludGVy'
-    'cHJldGVyLnR5cGVzLlRleHRBbGlnblZlcnRpY2FsUhF0ZXh0QWxpZ25WZXJ0aWNhbBJHCg50ZX'
-    'h0X2RpcmVjdGlvbhgPIAEoDjIgLmludGVycHJldGVyLnR5cGVzLlRleHREaXJlY3Rpb25SDXRl'
-    'eHREaXJlY3Rpb24SHQoKYXV0b19mb2N1cxgQIAEoCFIJYXV0b0ZvY3VzEiEKDGF1dG9fY29ycm'
-    'VjdBgRIAEoCFILYXV0b0NvcnJlY3QSLQoSZW5hYmxlX3N1Z2dlc3Rpb25zGBIgASgIUhFlbmFi'
-    'bGVTdWdnZXN0aW9ucxI8Cgpvbl9jaGFuZ2VkGBMgASgLMh0uaW50ZXJwcmV0ZXIuaGFuZGxlcn'
-    'MuSGFuZGxlclIJb25DaGFuZ2VkEkAKDG9uX3N1Ym1pdHRlZBgUIAEoCzIdLmludGVycHJldGVy'
-    'LmhhbmRsZXJzLkhhbmRsZXJSC29uU3VibWl0dGVkEk0KE29uX2VkaXRpbmdfY29tcGxldGUYFS'
-    'ABKAsyHS5pbnRlcnByZXRlci5oYW5kbGVycy5IYW5kbGVyUhFvbkVkaXRpbmdDb21wbGV0ZRI0'
-    'CgZvbl90YXAYFiABKAsyHS5pbnRlcnByZXRlci5oYW5kbGVycy5IYW5kbGVyUgVvblRhcA==');
+    'CglUZXh0RmllbGQSRAoKZGVjb3JhdGlvbhgBIAEoCzIkLmludGVycHJldGVyLndpZGdldHMuSW'
+    '5wdXREZWNvcmF0aW9uUgpkZWNvcmF0aW9uEiMKDWluaXRpYWxfdmFsdWUYAiABKAlSDGluaXRp'
+    'YWxWYWx1ZRIgCgtwbGFjZWhvbGRlchgDIAEoCVILcGxhY2Vob2xkZXISIQoMb2JzY3VyZV90ZX'
+    'h0GAQgASgIUgtvYnNjdXJlVGV4dBIYCgdlbmFibGVkGAUgASgIUgdlbmFibGVkEhsKCXJlYWRf'
+    'b25seRgGIAEoCFIIcmVhZE9ubHkSGwoJbWF4X2xpbmVzGAcgASgFUghtYXhMaW5lcxIbCgltaW'
+    '5fbGluZXMYCCABKAVSCG1pbkxpbmVzEh0KCm1heF9sZW5ndGgYCSABKAVSCW1heExlbmd0aBJF'
+    'Cg1rZXlib2FyZF90eXBlGAogASgOMiAuaW50ZXJwcmV0ZXIudHlwZXMuVGV4dElucHV0VHlwZV'
+    'IMa2V5Ym9hcmRUeXBlEk4KEXRleHRfaW5wdXRfYWN0aW9uGAsgASgOMiIuaW50ZXJwcmV0ZXIu'
+    'dHlwZXMuVGV4dElucHV0QWN0aW9uUg90ZXh0SW5wdXRBY3Rpb24SVgoTdGV4dF9jYXBpdGFsaX'
+    'phdGlvbhgMIAEoDjIlLmludGVycHJldGVyLnR5cGVzLlRleHRDYXBpdGFsaXphdGlvblISdGV4'
+    'dENhcGl0YWxpemF0aW9uEjsKCnRleHRfYWxpZ24YDSABKA4yHC5pbnRlcnByZXRlci50eXBlcy'
+    '5UZXh0QWxpZ25SCXRleHRBbGlnbhJUChN0ZXh0X2FsaWduX3ZlcnRpY2FsGA4gASgOMiQuaW50'
+    'ZXJwcmV0ZXIudHlwZXMuVGV4dEFsaWduVmVydGljYWxSEXRleHRBbGlnblZlcnRpY2FsEkcKDn'
+    'RleHRfZGlyZWN0aW9uGA8gASgOMiAuaW50ZXJwcmV0ZXIudHlwZXMuVGV4dERpcmVjdGlvblIN'
+    'dGV4dERpcmVjdGlvbhIdCgphdXRvX2ZvY3VzGBAgASgIUglhdXRvRm9jdXMSIQoMYXV0b19jb3'
+    'JyZWN0GBEgASgIUgthdXRvQ29ycmVjdBItChJlbmFibGVfc3VnZ2VzdGlvbnMYEiABKAhSEWVu'
+    'YWJsZVN1Z2dlc3Rpb25zEjwKCm9uX2NoYW5nZWQYEyABKAsyHS5pbnRlcnByZXRlci5oYW5kbG'
+    'Vycy5IYW5kbGVyUglvbkNoYW5nZWQSQAoMb25fc3VibWl0dGVkGBQgASgLMh0uaW50ZXJwcmV0'
+    'ZXIuaGFuZGxlcnMuSGFuZGxlclILb25TdWJtaXR0ZWQSTQoTb25fZWRpdGluZ19jb21wbGV0ZR'
+    'gVIAEoCzIdLmludGVycHJldGVyLmhhbmRsZXJzLkhhbmRsZXJSEW9uRWRpdGluZ0NvbXBsZXRl'
+    'EjQKBm9uX3RhcBgWIAEoCzIdLmludGVycHJldGVyLmhhbmRsZXJzLkhhbmRsZXJSBW9uVGFw');
 
 @$core.Deprecated('Use imageDescriptor instead')
 const Image$json = {
@@ -1582,4 +1582,38 @@ final $typed_data.Uint8List singleChildScrollViewDescriptor = $convert.base64Dec
     'ZXN0b3JhdGlvbklkEnAKGWtleWJvYXJkX2Rpc21pc3NfYmVoYXZpb3IYCyABKA4yNC5pbnRlcn'
     'ByZXRlci50eXBlcy5TY3JvbGxWaWV3S2V5Ym9hcmREaXNtaXNzQmVoYXZpb3JSF2tleWJvYXJk'
     'RGlzbWlzc0JlaGF2aW9y');
+
+@$core.Deprecated('Use inputDecorationDescriptor instead')
+const InputDecoration$json = {
+  '1': 'InputDecoration',
+  '2': [
+    {'1': 'hint_text', '3': 1, '4': 1, '5': 9, '10': 'hintText'},
+    {'1': 'prefix_icon', '3': 2, '4': 1, '5': 11, '6': '.interpreter.widgets.Widget', '10': 'prefixIcon'},
+    {'1': 'label_text', '3': 3, '4': 1, '5': 9, '10': 'labelText'},
+    {'1': 'prefix_text', '3': 4, '4': 1, '5': 9, '10': 'prefixText'},
+    {'1': 'suffix_text', '3': 5, '4': 1, '5': 9, '10': 'suffixText'},
+    {'1': 'helper_text', '3': 6, '4': 1, '5': 9, '10': 'helperText'},
+    {'1': 'error_text', '3': 7, '4': 1, '5': 9, '10': 'errorText'},
+    {'1': 'is_dense', '3': 8, '4': 1, '5': 8, '10': 'isDense'},
+    {'1': 'padding', '3': 9, '4': 1, '5': 11, '6': '.interpreter.types.EdgeInsetsGeometry', '10': 'padding'},
+    {'1': 'margin', '3': 10, '4': 1, '5': 11, '6': '.interpreter.types.EdgeInsetsGeometry', '10': 'margin'},
+    {'1': 'enabled_border_width', '3': 11, '4': 1, '5': 1, '10': 'enabledBorderWidth'},
+    {'1': 'focused_border_width', '3': 12, '4': 1, '5': 1, '10': 'focusedBorderWidth'},
+    {'1': 'disabled_border_width', '3': 13, '4': 1, '5': 1, '10': 'disabledBorderWidth'},
+  ],
+};
+
+/// Descriptor for `InputDecoration`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List inputDecorationDescriptor = $convert.base64Decode(
+    'Cg9JbnB1dERlY29yYXRpb24SGwoJaGludF90ZXh0GAEgASgJUghoaW50VGV4dBI8CgtwcmVmaX'
+    'hfaWNvbhgCIAEoCzIbLmludGVycHJldGVyLndpZGdldHMuV2lkZ2V0UgpwcmVmaXhJY29uEh0K'
+    'CmxhYmVsX3RleHQYAyABKAlSCWxhYmVsVGV4dBIfCgtwcmVmaXhfdGV4dBgEIAEoCVIKcHJlZm'
+    'l4VGV4dBIfCgtzdWZmaXhfdGV4dBgFIAEoCVIKc3VmZml4VGV4dBIfCgtoZWxwZXJfdGV4dBgG'
+    'IAEoCVIKaGVscGVyVGV4dBIdCgplcnJvcl90ZXh0GAcgASgJUgllcnJvclRleHQSGQoIaXNfZG'
+    'Vuc2UYCCABKAhSB2lzRGVuc2USPwoHcGFkZGluZxgJIAEoCzIlLmludGVycHJldGVyLnR5cGVz'
+    'LkVkZ2VJbnNldHNHZW9tZXRyeVIHcGFkZGluZxI9CgZtYXJnaW4YCiABKAsyJS5pbnRlcnByZX'
+    'Rlci50eXBlcy5FZGdlSW5zZXRzR2VvbWV0cnlSBm1hcmdpbhIwChRlbmFibGVkX2JvcmRlcl93'
+    'aWR0aBgLIAEoAVISZW5hYmxlZEJvcmRlcldpZHRoEjAKFGZvY3VzZWRfYm9yZGVyX3dpZHRoGA'
+    'wgASgBUhJmb2N1c2VkQm9yZGVyV2lkdGgSMgoVZGlzYWJsZWRfYm9yZGVyX3dpZHRoGA0gASgB'
+    'UhNkaXNhYmxlZEJvcmRlcldpZHRo');
 

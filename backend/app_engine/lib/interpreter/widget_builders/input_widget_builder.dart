@@ -7,7 +7,7 @@ class InputWidgetBuilder {
   static Widget buildTextField(
     pb.TextField textField,
     BuildContext context,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
   ) {
     return TextField(
       decoration: textField.hasDecoration()
@@ -20,13 +20,14 @@ class InputWidgetBuilder {
       readOnly: textField.hasReadOnly() ? textField.readOnly : false,
       maxLines: textField.hasMaxLines() ? textField.maxLines : 1,
       onChanged: textField.hasOnChanged()
-          ? (value) => executeHandler(textField.onChanged, context)
+          ? (value) => executeHandler(textField.onChanged, context, (fn) => fn())
           : null,
     );
   }
 
-  static InputDecoration _buildInputDecoration(types.InputDecoration decoration) {
+  static InputDecoration _buildInputDecoration(pb.InputDecoration decoration) {
     return InputDecoration(
+      prefixIcon: decoration.hasPrefixIcon() ? Text('')/*_buildWidget(decoration.prefixIcon)*/ : null, //TODO: verificar se é necessário
       hintText: decoration.hasHintText() ? decoration.hintText : null,
       labelText: decoration.hasLabelText() ? decoration.labelText : null,
       prefixText: decoration.hasPrefixText() ? decoration.prefixText : null,
@@ -50,12 +51,12 @@ class InputWidgetBuilder {
   static Widget buildSwitch(
     pb.Switch switchWidget,
     BuildContext context,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
   ) {
     return Switch(
       value: switchWidget.hasValue() ? switchWidget.value : false,
       onChanged: switchWidget.hasOnChanged()
-          ? (value) => executeHandler(switchWidget.onChanged, context)
+          ? (value) => executeHandler(switchWidget.onChanged, context, (fn) => fn())
           : null,
     );
   }
@@ -63,13 +64,13 @@ class InputWidgetBuilder {
   static Widget buildCheckbox(
     pb.Checkbox checkbox,
     BuildContext context,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
   ) {
     return Checkbox(
       value: checkbox.hasValue() ? checkbox.value : false,
       tristate: checkbox.hasTristate() ? checkbox.tristate : false,
       onChanged: checkbox.hasOnChanged()
-          ? (value) => executeHandler(checkbox.onChanged, context)
+          ? (value) => executeHandler(checkbox.onChanged, context, (fn) => fn())
           : null,
     );
   }
@@ -77,13 +78,13 @@ class InputWidgetBuilder {
   static Widget buildRadio(
     pb.Radio radio,
     BuildContext context,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
   ) {
     return Radio<Object?>(
       value: radio.hasValue() ? radio.value : null,
       groupValue: radio.hasGroupValue() ? radio.groupValue : null,
       onChanged: radio.hasOnChanged()
-          ? (value) => executeHandler(radio.onChanged, context)
+          ? (value) => executeHandler(radio.onChanged, context, (fn) => fn())
           : null,
     );
   }
@@ -91,7 +92,7 @@ class InputWidgetBuilder {
   static Widget buildSlider(
     pb.Slider slider,
     BuildContext context,
-    void Function(handlers.Handler, BuildContext) executeHandler,
+    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
   ) {
     return Slider(
       value: slider.hasValue() ? slider.value : 0.0,
@@ -100,7 +101,7 @@ class InputWidgetBuilder {
       divisions: slider.hasDivisions() ? slider.divisions : null,
       label: slider.hasLabel() ? slider.label : null,
       onChanged: slider.hasOnChanged()
-          ? (value) => executeHandler(slider.onChanged, context)
+          ? (value) => executeHandler(slider.onChanged, context, (fn) => fn())
           : null,
     );
   }

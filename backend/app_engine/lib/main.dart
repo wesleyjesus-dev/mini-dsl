@@ -37,14 +37,47 @@ class MyApp extends StatelessWidget {
               routes.add(GoRoute(
                 name: router.name,
                 path: router.path,
-                builder: (BuildContext context, GoRouterState state) {
+                pageBuilder: (BuildContext context, GoRouterState state) {
                   print("params: ${state.pathParameters}");
-                  return WidgetInterpreter(service: router.service, name: router.name, param: state.pathParameters['id']);
+                  return CustomTransitionPage(
+                    key: state.pageKey,
+                    child: WidgetInterpreter(service: router.service, name: router.name, param: state.pathParameters['id']),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                      // Smooth slide transition from right to left
+                      const begin = Offset(1.0, 0.0);
+                      const end = Offset.zero;
+                      const curve = Curves.easeInOutCubic;
+                      
+                      var tween = Tween(begin: begin, end: end).chain(
+                        CurveTween(curve: curve),
+                      );
+                      
+                      var offsetAnimation = animation.drive(tween);
+                      
+                      // Add fade transition for smoother effect
+                      var fadeAnimation = Tween<double>(
+                        begin: 0.0,
+                        end: 1.0,
+                      ).animate(CurvedAnimation(
+                        parent: animation,
+                        curve: Curves.easeInOut,
+                      ));
+                      
+                      return FadeTransition(
+                        opacity: fadeAnimation,
+                        child: SlideTransition(
+                          position: offsetAnimation,
+                          child: child,
+                        ),
+                      );
+                    },
+                    transitionDuration: const Duration(milliseconds: 300),
+                    reverseTransitionDuration: const Duration(milliseconds: 250),
+                  );
                 },
               ));
             }
 
-            print("$routes");
             return MaterialApp.router(
               routerConfig: GoRouter(routes: routes),
             );

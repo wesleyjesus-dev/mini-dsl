@@ -2430,7 +2430,7 @@ class FloatingActionButton extends $pb.GeneratedMessage {
 
 class TextField extends $pb.GeneratedMessage {
   factory TextField({
-    $0.InputDecoration? decoration,
+    InputDecoration? decoration,
     $core.String? initialValue,
     $core.String? placeholder,
     $core.bool? obscureText,
@@ -2527,7 +2527,7 @@ class TextField extends $pb.GeneratedMessage {
   factory TextField.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TextField', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.widgets'), createEmptyInstance: create)
-    ..aOM<$0.InputDecoration>(1, _omitFieldNames ? '' : 'decoration', subBuilder: $0.InputDecoration.create)
+    ..aOM<InputDecoration>(1, _omitFieldNames ? '' : 'decoration', subBuilder: InputDecoration.create)
     ..aOS(2, _omitFieldNames ? '' : 'initialValue')
     ..aOS(3, _omitFieldNames ? '' : 'placeholder')
     ..aOB(4, _omitFieldNames ? '' : 'obscureText')
@@ -2574,15 +2574,15 @@ class TextField extends $pb.GeneratedMessage {
   static TextField? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.InputDecoration get decoration => $_getN(0);
+  InputDecoration get decoration => $_getN(0);
   @$pb.TagNumber(1)
-  set decoration($0.InputDecoration v) { setField(1, v); }
+  set decoration(InputDecoration v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasDecoration() => $_has(0);
   @$pb.TagNumber(1)
   void clearDecoration() => clearField(1);
   @$pb.TagNumber(1)
-  $0.InputDecoration ensureDecoration() => $_ensure(0);
+  InputDecoration ensureDecoration() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get initialValue => $_getSZ(1);
@@ -9670,6 +9670,230 @@ class SingleChildScrollView extends $pb.GeneratedMessage {
   $core.bool hasKeyboardDismissBehavior() => $_has(10);
   @$pb.TagNumber(11)
   void clearKeyboardDismissBehavior() => clearField(11);
+}
+
+class InputDecoration extends $pb.GeneratedMessage {
+  factory InputDecoration({
+    $core.String? hintText,
+    Widget? prefixIcon,
+    $core.String? labelText,
+    $core.String? prefixText,
+    $core.String? suffixText,
+    $core.String? helperText,
+    $core.String? errorText,
+    $core.bool? isDense,
+    $0.EdgeInsetsGeometry? padding,
+    $0.EdgeInsetsGeometry? margin,
+    $core.double? enabledBorderWidth,
+    $core.double? focusedBorderWidth,
+    $core.double? disabledBorderWidth,
+  }) {
+    final $result = create();
+    if (hintText != null) {
+      $result.hintText = hintText;
+    }
+    if (prefixIcon != null) {
+      $result.prefixIcon = prefixIcon;
+    }
+    if (labelText != null) {
+      $result.labelText = labelText;
+    }
+    if (prefixText != null) {
+      $result.prefixText = prefixText;
+    }
+    if (suffixText != null) {
+      $result.suffixText = suffixText;
+    }
+    if (helperText != null) {
+      $result.helperText = helperText;
+    }
+    if (errorText != null) {
+      $result.errorText = errorText;
+    }
+    if (isDense != null) {
+      $result.isDense = isDense;
+    }
+    if (padding != null) {
+      $result.padding = padding;
+    }
+    if (margin != null) {
+      $result.margin = margin;
+    }
+    if (enabledBorderWidth != null) {
+      $result.enabledBorderWidth = enabledBorderWidth;
+    }
+    if (focusedBorderWidth != null) {
+      $result.focusedBorderWidth = focusedBorderWidth;
+    }
+    if (disabledBorderWidth != null) {
+      $result.disabledBorderWidth = disabledBorderWidth;
+    }
+    return $result;
+  }
+  InputDecoration._() : super();
+  factory InputDecoration.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory InputDecoration.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InputDecoration', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.widgets'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'hintText')
+    ..aOM<Widget>(2, _omitFieldNames ? '' : 'prefixIcon', subBuilder: Widget.create)
+    ..aOS(3, _omitFieldNames ? '' : 'labelText')
+    ..aOS(4, _omitFieldNames ? '' : 'prefixText')
+    ..aOS(5, _omitFieldNames ? '' : 'suffixText')
+    ..aOS(6, _omitFieldNames ? '' : 'helperText')
+    ..aOS(7, _omitFieldNames ? '' : 'errorText')
+    ..aOB(8, _omitFieldNames ? '' : 'isDense')
+    ..aOM<$0.EdgeInsetsGeometry>(9, _omitFieldNames ? '' : 'padding', subBuilder: $0.EdgeInsetsGeometry.create)
+    ..aOM<$0.EdgeInsetsGeometry>(10, _omitFieldNames ? '' : 'margin', subBuilder: $0.EdgeInsetsGeometry.create)
+    ..a<$core.double>(11, _omitFieldNames ? '' : 'enabledBorderWidth', $pb.PbFieldType.OD)
+    ..a<$core.double>(12, _omitFieldNames ? '' : 'focusedBorderWidth', $pb.PbFieldType.OD)
+    ..a<$core.double>(13, _omitFieldNames ? '' : 'disabledBorderWidth', $pb.PbFieldType.OD)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  InputDecoration clone() => InputDecoration()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  InputDecoration copyWith(void Function(InputDecoration) updates) => super.copyWith((message) => updates(message as InputDecoration)) as InputDecoration;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static InputDecoration create() => InputDecoration._();
+  InputDecoration createEmptyInstance() => create();
+  static $pb.PbList<InputDecoration> createRepeated() => $pb.PbList<InputDecoration>();
+  @$core.pragma('dart2js:noInline')
+  static InputDecoration getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<InputDecoration>(create);
+  static InputDecoration? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get hintText => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set hintText($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasHintText() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearHintText() => clearField(1);
+
+  @$pb.TagNumber(2)
+  Widget get prefixIcon => $_getN(1);
+  @$pb.TagNumber(2)
+  set prefixIcon(Widget v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasPrefixIcon() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPrefixIcon() => clearField(2);
+  @$pb.TagNumber(2)
+  Widget ensurePrefixIcon() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.String get labelText => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set labelText($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasLabelText() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearLabelText() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get prefixText => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set prefixText($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasPrefixText() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearPrefixText() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get suffixText => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set suffixText($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasSuffixText() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearSuffixText() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get helperText => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set helperText($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasHelperText() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearHelperText() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get errorText => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set errorText($core.String v) { $_setString(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasErrorText() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearErrorText() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.bool get isDense => $_getBF(7);
+  @$pb.TagNumber(8)
+  set isDense($core.bool v) { $_setBool(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasIsDense() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearIsDense() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $0.EdgeInsetsGeometry get padding => $_getN(8);
+  @$pb.TagNumber(9)
+  set padding($0.EdgeInsetsGeometry v) { setField(9, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasPadding() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearPadding() => clearField(9);
+  @$pb.TagNumber(9)
+  $0.EdgeInsetsGeometry ensurePadding() => $_ensure(8);
+
+  @$pb.TagNumber(10)
+  $0.EdgeInsetsGeometry get margin => $_getN(9);
+  @$pb.TagNumber(10)
+  set margin($0.EdgeInsetsGeometry v) { setField(10, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasMargin() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearMargin() => clearField(10);
+  @$pb.TagNumber(10)
+  $0.EdgeInsetsGeometry ensureMargin() => $_ensure(9);
+
+  @$pb.TagNumber(11)
+  $core.double get enabledBorderWidth => $_getN(10);
+  @$pb.TagNumber(11)
+  set enabledBorderWidth($core.double v) { $_setDouble(10, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasEnabledBorderWidth() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearEnabledBorderWidth() => clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.double get focusedBorderWidth => $_getN(11);
+  @$pb.TagNumber(12)
+  set focusedBorderWidth($core.double v) { $_setDouble(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasFocusedBorderWidth() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearFocusedBorderWidth() => clearField(12);
+
+  @$pb.TagNumber(13)
+  $core.double get disabledBorderWidth => $_getN(12);
+  @$pb.TagNumber(13)
+  set disabledBorderWidth($core.double v) { $_setDouble(12, v); }
+  @$pb.TagNumber(13)
+  $core.bool hasDisabledBorderWidth() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearDisabledBorderWidth() => clearField(13);
 }
 
 
