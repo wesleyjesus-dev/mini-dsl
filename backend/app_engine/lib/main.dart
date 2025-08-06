@@ -33,11 +33,12 @@ class MyApp extends StatelessWidget {
           if (data.connectionState == ConnectionState.done) {
             final routes = List<RouteBase>.empty(growable: true);
             for (var router in data.requireData) {
-              print("route ${router.name}");
+              print("##### route ${router.name} ${router.path}");
               routes.add(GoRoute(
                 name: router.name,
                 path: router.path,
                 builder: (BuildContext context, GoRouterState state) {
+                  print("params: ${state.pathParameters}");
                   return WidgetInterpreter(service: router.service, name: router.name, param: state.pathParameters['id']);
                 },
               ));

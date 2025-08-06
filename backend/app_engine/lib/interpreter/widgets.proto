@@ -216,7 +216,7 @@ message Image {
 }
 
 message Icon {
-  interpreter.types.IconData icon = 1;
+  interpreter.types.IconData icon_data = 1;
   double size = 2;
   interpreter.types.Color color = 3;
   string semantic_label = 4;

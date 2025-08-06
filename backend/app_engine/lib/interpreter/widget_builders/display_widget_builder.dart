@@ -58,8 +58,20 @@ class DisplayWidgetBuilder {
     BuildContext context,
   ) {
     return Icon(
-      Icons.star, // Default icon, should be mapped from protobuf
+      buildIconData(icon), // Default icon, should be mapped from protobuf
       size: icon.hasSize() ? icon.size : null,
+    );
+  }
+
+//https://fonts.google.com/icons?selected=Material+Icons+Outlined:account_circle:&icon.size=24&icon.color=%23e3e3e3&icon.query=profile&icon.set=Material+Icons&icon.platform=flutter&query=sms
+//https://api.flutter.dev/flutter/material/Icons/account_circle_outlined-constant.html
+//https://api.flutter.dev/flutter/material/Icons-class.html?
+  static IconData buildIconData(pb.Icon icon) {
+    return IconData(
+      icon.iconData.codePoint, 
+      fontFamily: icon.iconData.fontFamily.isNotEmpty ? icon.iconData.fontFamily : 'MaterialIcons',
+      fontPackage: icon.iconData.fontPackage.isNotEmpty ? icon.iconData.fontPackage : null,
+      matchTextDirection: icon.iconData.matchTextDirection,
     );
   }
 

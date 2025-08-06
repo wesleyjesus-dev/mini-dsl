@@ -13,7 +13,6 @@ import 'widget_builders/display_widget_builder.dart' as display;
 import 'widget_builders/interactive_widget_builder.dart' as interactive;
 import 'widget_builders/scrollable_widget_builder.dart' as scrollable;
 import 'widget_builders/navigation_widget_builder.dart' as navigation;
-import 'package:dio/dio.dart';
 
 class WidgetInterpreter extends StatefulWidget {
   WidgetInterpreter({super.key, required this.service, required this.name, this.param});
@@ -202,6 +201,7 @@ Future<void> _handleRefresh() async {
 
   @override
   Widget build(BuildContext context) {
+    print('Widget build');
     if (_isLoading) {
       return Center(child: CircularProgressIndicator());
     }
@@ -422,7 +422,7 @@ Future<void> _handleRefresh() async {
         
       case handlers.Handler_HandlerData.goHandler:
         final goHandler = handler.goHandler;
-        
+        debugPrint('##### Navegando para: ${goHandler.route}');
         // Track navegação
         _analytics.trackScreenView(
           screenName: goHandler.route,

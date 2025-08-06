@@ -512,7 +512,7 @@ final $typed_data.Uint8List imageDescriptor = $convert.base64Decode(
 const Icon$json = {
   '1': 'Icon',
   '2': [
-    {'1': 'icon', '3': 1, '4': 1, '5': 11, '6': '.interpreter.types.IconData', '10': 'icon'},
+    {'1': 'icon_data', '3': 1, '4': 1, '5': 11, '6': '.interpreter.types.IconData', '10': 'iconData'},
     {'1': 'size', '3': 2, '4': 1, '5': 1, '10': 'size'},
     {'1': 'color', '3': 3, '4': 1, '5': 11, '6': '.interpreter.types.Color', '10': 'color'},
     {'1': 'semantic_label', '3': 4, '4': 1, '5': 9, '10': 'semanticLabel'},
@@ -522,11 +522,11 @@ const Icon$json = {
 
 /// Descriptor for `Icon`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List iconDescriptor = $convert.base64Decode(
-    'CgRJY29uEi8KBGljb24YASABKAsyGy5pbnRlcnByZXRlci50eXBlcy5JY29uRGF0YVIEaWNvbh'
-    'ISCgRzaXplGAIgASgBUgRzaXplEi4KBWNvbG9yGAMgASgLMhguaW50ZXJwcmV0ZXIudHlwZXMu'
-    'Q29sb3JSBWNvbG9yEiUKDnNlbWFudGljX2xhYmVsGAQgASgJUg1zZW1hbnRpY0xhYmVsEkcKDn'
-    'RleHRfZGlyZWN0aW9uGAUgASgOMiAuaW50ZXJwcmV0ZXIudHlwZXMuVGV4dERpcmVjdGlvblIN'
-    'dGV4dERpcmVjdGlvbg==');
+    'CgRJY29uEjgKCWljb25fZGF0YRgBIAEoCzIbLmludGVycHJldGVyLnR5cGVzLkljb25EYXRhUg'
+    'hpY29uRGF0YRISCgRzaXplGAIgASgBUgRzaXplEi4KBWNvbG9yGAMgASgLMhguaW50ZXJwcmV0'
+    'ZXIudHlwZXMuQ29sb3JSBWNvbG9yEiUKDnNlbWFudGljX2xhYmVsGAQgASgJUg1zZW1hbnRpY0'
+    'xhYmVsEkcKDnRleHRfZGlyZWN0aW9uGAUgASgOMiAuaW50ZXJwcmV0ZXIudHlwZXMuVGV4dERp'
+    'cmVjdGlvblINdGV4dERpcmVjdGlvbg==');
 
 @$core.Deprecated('Use dividerDescriptor instead')
 const Divider$json = {

@@ -60,7 +60,7 @@ namespace IRNet.Screens
             var product1Handler = new IRNet.Widgets.Handler
             {
                 Type = "Go",
-                GoHandler = new IRNet.Widgets.GoHandler { Route = "/product/1" }
+                GoHandler = new IRNet.Widgets.GoHandler { Route = "/screen/product/1" }
             };
 
             var product1Column = new IRNet.Widgets.Column();
@@ -125,7 +125,7 @@ namespace IRNet.Screens
             var product2Handler = new IRNet.Widgets.Handler
             {
                 Type = "Go",
-                GoHandler = new IRNet.Widgets.GoHandler { Route = "/product/2" }
+                GoHandler = new IRNet.Widgets.GoHandler { Route = "/screen/product/2" }
             };
 
             var product2Column = new IRNet.Widgets.Column();
@@ -190,7 +190,7 @@ namespace IRNet.Screens
             var product3Handler = new IRNet.Widgets.Handler
             {
                 Type = "Go",
-                GoHandler = new IRNet.Widgets.GoHandler { Route = "/product/3" }
+                GoHandler = new IRNet.Widgets.GoHandler { Route = "/screen/product/3" }
             };
 
             var product3Column = new IRNet.Widgets.Column();

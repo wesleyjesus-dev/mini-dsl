@@ -2976,15 +2976,15 @@ class Image extends $pb.GeneratedMessage {
 
 class Icon extends $pb.GeneratedMessage {
   factory Icon({
-    $0.IconData? icon,
+    $0.IconData? iconData,
     $core.double? size,
     $0.Color? color,
     $core.String? semanticLabel,
     $0.TextDirection? textDirection,
   }) {
     final $result = create();
-    if (icon != null) {
-      $result.icon = icon;
+    if (iconData != null) {
+      $result.iconData = iconData;
     }
     if (size != null) {
       $result.size = size;
@@ -3005,7 +3005,7 @@ class Icon extends $pb.GeneratedMessage {
   factory Icon.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Icon', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.widgets'), createEmptyInstance: create)
-    ..aOM<$0.IconData>(1, _omitFieldNames ? '' : 'icon', subBuilder: $0.IconData.create)
+    ..aOM<$0.IconData>(1, _omitFieldNames ? '' : 'iconData', subBuilder: $0.IconData.create)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'size', $pb.PbFieldType.OD)
     ..aOM<$0.Color>(3, _omitFieldNames ? '' : 'color', subBuilder: $0.Color.create)
     ..aOS(4, _omitFieldNames ? '' : 'semanticLabel')
@@ -3035,15 +3035,15 @@ class Icon extends $pb.GeneratedMessage {
   static Icon? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $0.IconData get icon => $_getN(0);
+  $0.IconData get iconData => $_getN(0);
   @$pb.TagNumber(1)
-  set icon($0.IconData v) { setField(1, v); }
+  set iconData($0.IconData v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasIcon() => $_has(0);
+  $core.bool hasIconData() => $_has(0);
   @$pb.TagNumber(1)
-  void clearIcon() => clearField(1);
+  void clearIconData() => clearField(1);
   @$pb.TagNumber(1)
-  $0.IconData ensureIcon() => $_ensure(0);
+  $0.IconData ensureIconData() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.double get size => $_getN(1);
