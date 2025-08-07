@@ -1,6 +1,6 @@
 /// Configuration class for cache settings
 class CacheConfig {
-  static const Duration defaultTtl = Duration(minutes: 5);
+  static const Duration defaultTtl = Duration(milliseconds: 0);
   static const Duration shortTtl = Duration(minutes: 1);
   static const Duration mediumTtl = Duration(minutes: 10);
   static const Duration longTtl = Duration(hours: 1);

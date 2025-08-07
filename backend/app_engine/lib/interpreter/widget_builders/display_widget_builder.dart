@@ -114,7 +114,7 @@ class DisplayWidgetBuilder {
     pb.Chip chip,
     BuildContext context,
     Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
+    void Function(handlers.Handler, BuildContext) executeHandler,
   ) {
     return Chip(
       label: chip.hasLabel()
@@ -124,7 +124,7 @@ class DisplayWidgetBuilder {
           ? interpretWidget(chip.avatar, context)
           : null,
       onDeleted: chip.hasOnDeleted()
-          ? () => executeHandler(chip.onDeleted, context, (fn) => fn())
+          ? () => executeHandler(chip.onDeleted, context)
           : null,
     );
   }

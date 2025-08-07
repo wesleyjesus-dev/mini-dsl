@@ -15,18 +15,19 @@ import 'scrollable_widget_builder.dart' as scrollable;
 import 'navigation_widget_builder.dart' as navigation;
 
 class MainWidgetInterpreter {
-  final Map<String, dynamic> state = {};
+  final Map<String, dynamic> state;
   final String name;
   final String service;
+  final void Function(VoidCallback) setState;
 
   final AnalyticService _analytics = AnalyticService();
   final CacheService _cache = CacheService();
 
-  MainWidgetInterpreter({required this.name, required this.service});
+  MainWidgetInterpreter({required this.name, required this.service, required this.state, required this.setState});
+  
 
   Widget interpretWidget(pb.Widget pbWidget, BuildContext context,
-      [Future<void> Function()? handleRefresh,
-      void Function(VoidCallback)? setState]) {
+      [Future<void> Function()? handleRefresh]) {
     try {
       switch (pbWidget.whichWidgetData()) {
         // Layout Widgets
@@ -190,7 +191,7 @@ class MainWidgetInterpreter {
               pbWidget.tabBarView, context, interpretWidget);
         case pb.Widget_WidgetData.navigationBar:
           return navigation.NavigationWidgetBuilder.buildNavigationBar(
-              pbWidget.navigationBar, context, interpretWidget, executeHandler);
+              pbWidget.navigationBar, context, interpretWidget, executeHandler, state, setState);
         case pb.Widget_WidgetData.navigationDestination:
           return navigation.NavigationWidgetBuilder.buildNavigationDestination(
               pbWidget.navigationDestination, context, interpretWidget);
@@ -205,8 +206,9 @@ class MainWidgetInterpreter {
   }
 
   Future<void> executeHandler(
-      handlers.Handler handler, BuildContext context, void Function(VoidCallback) setState) async {
+      handlers.Handler handler, BuildContext context) async {
     // Track evento do interpreter
+    
     _analytics.trackInterpreterEvent(
       eventName: 'handler_executed',
       handlerType: handler.whichHandlerData().toString(),
@@ -259,7 +261,7 @@ class MainWidgetInterpreter {
           },
         );
 
-        setState(() {
+        setState!(() {
           state[setStateHandler.key] = setStateHandler.value;
         });
         break;
@@ -278,7 +280,7 @@ class MainWidgetInterpreter {
           },
         );
 
-        setState(() {
+        setState!(() {
           state[setStateHandlerWithValue.key] =
               setStateHandlerWithValue.value;
         });
@@ -297,7 +299,7 @@ class MainWidgetInterpreter {
         );
 
         for (final action in compositeHandler.actions) {
-          executeHandler(action, context, setState);
+          executeHandler(action, context);
         }
         break;
 

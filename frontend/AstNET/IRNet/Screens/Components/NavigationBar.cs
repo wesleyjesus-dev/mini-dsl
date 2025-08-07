@@ -32,11 +32,15 @@ public static class NavigationBar
         // Create navigation bar
         var navigationBar = new IRNet.Widgets.NavigationBar
         {
-            SelectedIndex = 0,
-            OnDestinationSelected = new IRNet.Widgets.Handler
-            {
-                Type = "Print",
-                PrintHandler = new IRNet.Widgets.PrintHandler { Message = "Navigation item selected" }
+            OnDestinationSelected = new IRNet.Widgets.Handler{
+                CompositeHandler = new CompositeHandler{
+                    Actions = {
+                        new IRNet.Widgets.Handler{
+                            Type = "Print",
+                            PrintHandler = new IRNet.Widgets.PrintHandler { Message = "Navigation item selected" }
+                        }
+                    }
+                }
             }
         };
 

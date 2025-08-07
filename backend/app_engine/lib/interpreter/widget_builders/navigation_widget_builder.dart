@@ -25,11 +25,11 @@ class NavigationWidgetBuilder {
     pb.BottomSheet bottomSheet,
     BuildContext context,
     Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
+    void Function(handlers.Handler, BuildContext) executeHandler,
   ) {
     return BottomSheet(
       onClosing: bottomSheet.hasOnClosing()
-          ? () => executeHandler(bottomSheet.onClosing, context, (fn) => fn())
+          ? () => executeHandler(bottomSheet.onClosing, context)
           : () {},
       builder: (context) => interpretWidget(bottomSheet.child, context),
     );
@@ -41,9 +41,7 @@ class NavigationWidgetBuilder {
     Widget Function(pb.Widget, BuildContext) interpretWidget,
   ) {
     return Drawer(
-      child: drawer.hasChild()
-          ? interpretWidget(drawer.child, context)
-          : null,
+      child: drawer.hasChild() ? interpretWidget(drawer.child, context) : null,
       width: drawer.hasWidth() ? drawer.width : null,
     );
   }
@@ -52,15 +50,13 @@ class NavigationWidgetBuilder {
     pb.TabBar tabBar,
     BuildContext context,
     Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext, void Function(VoidCallback)) executeHandler,
+    void Function(handlers.Handler, BuildContext) executeHandler,
   ) {
     return TabBar(
-      tabs: tabBar.tabs
-          .map((tab) => interpretWidget(tab, context))
-          .toList(),
+      tabs: tabBar.tabs.map((tab) => interpretWidget(tab, context)).toList(),
       isScrollable: tabBar.hasIsScrollable() ? tabBar.isScrollable : false,
       onTap: tabBar.hasOnTap()
-          ? (index) => executeHandler(tabBar.onTap, context, (fn) => fn())
+          ? (index) => executeHandler(tabBar.onTap, context)
           : null,
     );
   }
@@ -78,19 +74,27 @@ class NavigationWidgetBuilder {
   }
 
   static Widget buildNavigationBar(
-    pb.NavigationBar navigationBar,
-    BuildContext context,
-    Widget Function(pb.Widget, BuildContext) interpretWidget,
-    void Function(handlers.Handler, BuildContext, void Function(VoidCallback) setState) executeHandler,
-  ) {
+      pb.NavigationBar navigationBar,
+      BuildContext context,
+      Widget Function(pb.Widget, BuildContext) interpretWidget,
+      void Function(handlers.Handler, BuildContext) executeHandler,
+      Map<String, dynamic> state,
+      void Function(VoidCallback)? setState) {
     return NavigationBar(
       destinations: navigationBar.destinations
           .map((destination) => interpretWidget(destination, context))
           .cast<NavigationDestination>()
           .toList(),
-      selectedIndex: navigationBar.hasSelectedIndex() ? navigationBar.selectedIndex : 0,
+      selectedIndex: state['selectedIndex'] ?? 0,
       onDestinationSelected: navigationBar.hasOnDestinationSelected()
-          ? (index) => executeHandler(navigationBar.onDestinationSelected, context, (fn) => fn())
+          ? (index) {
+              setState!(() {
+                state['selectedIndex'] = index;
+              });
+              print("####### selectedIndex: $index | $state");
+
+              executeHandler(navigationBar.onDestinationSelected, context);
+            }
           : null,
     );
   }
@@ -106,8 +110,12 @@ class NavigationWidgetBuilder {
           ? interpretWidget(navigationDestination.selectedIcon, context)
           : null,
       label: navigationDestination.label,
-      tooltip: navigationDestination.hasTooltip() ? navigationDestination.tooltip : null,
-      enabled: navigationDestination.hasEnabled() ? navigationDestination.enabled : true,
+      tooltip: navigationDestination.hasTooltip()
+          ? navigationDestination.tooltip
+          : null,
+      enabled: navigationDestination.hasEnabled()
+          ? navigationDestination.enabled
+          : true,
     );
   }
 }
