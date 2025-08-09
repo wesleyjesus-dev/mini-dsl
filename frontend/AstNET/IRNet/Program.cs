@@ -15,7 +15,8 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<IRNetDbContext>(options =>
 {
-    options.UseMySql(builder.Configuration.GetConnectionString("IRNetDbContext"), ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("IRNetDbContext")));
+    options.UseInMemoryDatabase("IRNetDb");
+    // options.UseMySql(builder.Configuration.GetConnectionString("IRNetDbContext"), ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("IRNetDbContext")));
 });
 
 builder.Services

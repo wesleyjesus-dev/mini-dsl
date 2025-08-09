@@ -1,18 +1,16 @@
 import 'package:app_engine/interpreter/widget_builders/handlers_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:http/http.dart' as http;
 import '../../generated/widgets.pb.dart' as pb;
 import '../../generated/handlers.pb.dart' as handlers;
-import '../AnalyticService.dart';
-import '../cache_service.dart';
-import '../cache_config.dart';
+import '../analytic_service.dart';
 import 'layout_widget_builder.dart' as layout;
 import 'input_widget_builder.dart' as input;
 import 'display_widget_builder.dart' as display;
 import 'interactive_widget_builder.dart' as interactive;
 import 'scrollable_widget_builder.dart' as scrollable;
 import 'navigation_widget_builder.dart' as navigation;
+import 'package:app_engine/dependency_injection.dart';
 
 class MainWidgetInterpreter {
   final Map<String, dynamic> state;
@@ -21,7 +19,6 @@ class MainWidgetInterpreter {
   final void Function(VoidCallback) setState;
 
   final AnalyticService _analytics = AnalyticService();
-  final CacheService _cache = CacheService();
 
   MainWidgetInterpreter({required this.name, required this.service, required this.state, required this.setState});
   
@@ -200,7 +197,7 @@ class MainWidgetInterpreter {
           return SizedBox.shrink();
       }
     } on Exception catch (e) {
-      print('Erro ao construir widget: $e');
+      logger.d('Erro ao construir widget: $e');
       return CircularProgressIndicator();
     }
   }
@@ -220,7 +217,7 @@ class MainWidgetInterpreter {
     switch (handler.whichHandlerData()) {
       case handlers.Handler_HandlerData.printHandler:
         final printHandler = handler.printHandler;
-        debugPrint(printHandler.message);
+        logger.d(printHandler.message);
 
         // Track print handler
         _analytics.trackInterpreterEvent(
@@ -234,7 +231,7 @@ class MainWidgetInterpreter {
 
       case handlers.Handler_HandlerData.goHandler:
         final goHandler = handler.goHandler;
-        debugPrint('##### Navegando para: ${goHandler.route}');
+        logger.d('##### Navegando para: ${goHandler.route}');
         // Track navegação
         _analytics.trackScreenView(
           screenName: goHandler.route,
@@ -261,7 +258,7 @@ class MainWidgetInterpreter {
           },
         );
 
-        setState!(() {
+        setState(() {
           state[setStateHandler.key] = setStateHandler.value;
         });
         break;
@@ -280,7 +277,7 @@ class MainWidgetInterpreter {
           },
         );
 
-        setState!(() {
+        setState(() {
           state[setStateHandlerWithValue.key] =
               setStateHandlerWithValue.value;
         });
@@ -307,11 +304,11 @@ class MainWidgetInterpreter {
         final fetchHandler = handler.fetchHandler;
         final response =
             await HandlersBuilder.fetchHandler(fetchHandler, null, null);
-        print("####### response service: ${response}");
+        logger.d("response service: $response");
         break;
 
       default:
-        print('Handler não reconhecido: ${handler.type}');
+        logger.d('Handler não reconhecido: ${handler.type}');
 
         // Track handler não reconhecido
         _analytics.trackError(

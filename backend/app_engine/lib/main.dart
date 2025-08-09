@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:app_engine/dependency_injection.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
+  
+  await DependencyInjection().setup();
+  
   runApp(const MyApp());
 }
 
@@ -21,7 +25,7 @@ class MyApp extends StatelessWidget {
       );
 
       final routes = pb.Router.fromBuffer(response.bodyBytes);
-      print("json result: $routes");
+      logger.d("json result: $routes");
       return routes.routes;
   }
 
@@ -33,12 +37,12 @@ class MyApp extends StatelessWidget {
           if (data.connectionState == ConnectionState.done) {
             final routes = List<RouteBase>.empty(growable: true);
             for (var router in data.requireData) {
-              print("##### route ${router.name} ${router.path}");
+              logger.d("##### route ${router.name} ${router.path}");
               routes.add(GoRoute(
                 name: router.name,
                 path: router.path,
                 pageBuilder: (BuildContext context, GoRouterState state) {
-                  print("params: ${state.pathParameters}");
+                  logger.d("params: ${state.pathParameters}");
                   return CustomTransitionPage(
                     key: state.pageKey,
                     child: WidgetInterpreter(service: router.service, name: router.name, param: state.pathParameters['id']),
@@ -72,7 +76,7 @@ class MyApp extends StatelessWidget {
                       );
                     },
                     transitionDuration: const Duration(milliseconds: 300),
-                    reverseTransitionDuration: const Duration(milliseconds: 250),
+                    reverseTransitionDuration: const Duration(milliseconds: 300),
                   );
                 },
               ));

@@ -1,38 +1,91 @@
-class AnalyticService {
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:app_engine/dependency_injection.dart';
+
+abstract class IAnalyticService {
+
+  Map<String, dynamic> eventToJson(Event event);
+
+  Future<void> trackInterpreterEvent({
+    required String eventName,
+    String? widgetType,
+    String? handlerType,
+    Map<String, dynamic>? interpreterProperties,
+  });
+  Future<void> trackScreenView({
+    required String screenName,
+    String? previousScreen,
+    Map<String, dynamic>? screenProperties,
+  });
+    Future<void> trackClick({
+    required String elementId,
+    String? elementType,
+    String? screenName,
+    Map<String, dynamic>? additionalProperties,
+  });
+  Future<void> trackUserAction({
+    required String actionName,
+    String? screenName,
+    Map<String, dynamic>? actionProperties,
+  });
+    Future<void> trackError({
+    required String errorMessage,
+    String? errorType,
+    String? stackTrace,
+    String? screenName,
+    Map<String, dynamic>? additionalProperties,
+  });
+   Future<void> trackPerformance({
+    required String metricName,
+    required num value,
+    String? unit,
+    String? screenName,
+    Map<String, dynamic>? additionalProperties,
+  });
+  Future<void> trackImpression({
+    required String elementId,
+    String? elementType,
+    String? screenName,
+    Duration? viewDuration,
+    Map<String, dynamic>? additionalProperties,
+  });
+  void setUserId(String userId);
+  void setGlobalProperties(Map<String, dynamic> properties);
+  Future<void> track(Event event);
+}
+class AnalyticService implements IAnalyticService {
   static final AnalyticService _instance = AnalyticService._internal();
   factory AnalyticService() => _instance;
   AnalyticService._internal();
 
   // Configurações do analytics
   String? _userId;
-  Map<String, dynamic> _globalProperties = {};
-  bool _isEnabled = true;
+  final Map<String, dynamic> _globalProperties = {};
+  final bool _isEnabled = dotenv.env['ANALYTIC_ENABLED'] == 'true';
 
   /// Configura o ID do usuário
+  @override
   void setUserId(String userId) {
     _userId = userId;
   }
 
   /// Define propriedades globais que serão incluídas em todos os eventos
+  @override
   void setGlobalProperties(Map<String, dynamic> properties) {
     _globalProperties.addAll(properties);
   }
 
-  /// Habilita ou desabilita o tracking
-  void setEnabled(bool enabled) {
-    _isEnabled = enabled;
-  }
-
   /// Método genérico para trackear qualquer evento
+  @override
   Future<void> track(Event event) async {
     if (!_isEnabled) return;
 
     final enrichedEvent = _enrichEvent(event);
-    print("### AnalyticService.track ${enrichedEvent.name}");
-    print("### AnalyticService.track ${enrichedEvent.properties}");
+    logger.d("AnalyticService.track ${enrichedEvent.name}");
+    logger.d("AnalyticService.track ${enrichedEvent.properties}");
   }
 
   /// Trackeia cliques em elementos da UI
+  @override
   Future<void> trackClick({
     required String elementId,
     String? elementType,
@@ -54,6 +107,7 @@ class AnalyticService {
   }
 
   /// Trackeia impressões de elementos na tela
+  @override
   Future<void> trackImpression({
     required String elementId,
     String? elementType,
@@ -77,6 +131,7 @@ class AnalyticService {
   }
 
   /// Trackeia navegação entre telas
+  @override
   Future<void> trackScreenView({
     required String screenName,
     String? previousScreen,
@@ -96,6 +151,7 @@ class AnalyticService {
   }
 
   /// Trackeia erros da aplicação
+  @override
   Future<void> trackError({
     required String errorMessage,
     String? errorType,
@@ -119,6 +175,7 @@ class AnalyticService {
   }
 
   /// Trackeia ações do usuário (como pull-to-refresh, swipe, etc.)
+  @override
   Future<void> trackUserAction({
     required String actionName,
     String? screenName,
@@ -138,6 +195,7 @@ class AnalyticService {
   }
 
   /// Trackeia eventos de performance
+  @override
   Future<void> trackPerformance({
     required String metricName,
     required num value,
@@ -161,6 +219,7 @@ class AnalyticService {
   }
 
   /// Trackeia eventos customizados do interpreter
+  @override
   Future<void> trackInterpreterEvent({
     required String eventName,
     String? widgetType,
@@ -202,6 +261,7 @@ class AnalyticService {
   }
 
   /// Converte evento para JSON para logging ou envio
+  @override
   Map<String, dynamic> eventToJson(Event event) {
     return {
       'event_name': event.name,

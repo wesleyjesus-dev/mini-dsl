@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../generated/widgets.pb.dart' as pb;
 import '../../generated/handlers.pb.dart' as handlers;
+import 'package:app_engine/dependency_injection.dart';
 
 class NavigationWidgetBuilder {
   static Widget buildAlertDialog(
@@ -41,8 +42,8 @@ class NavigationWidgetBuilder {
     Widget Function(pb.Widget, BuildContext) interpretWidget,
   ) {
     return Drawer(
-      child: drawer.hasChild() ? interpretWidget(drawer.child, context) : null,
       width: drawer.hasWidth() ? drawer.width : null,
+      child: drawer.hasChild() ? interpretWidget(drawer.child, context) : null,
     );
   }
 
@@ -91,7 +92,7 @@ class NavigationWidgetBuilder {
               setState!(() {
                 state['selectedIndex'] = index;
               });
-              print("####### selectedIndex: $index | $state");
+              logger.d("####### selectedIndex: $index | $state");
 
               executeHandler(navigationBar.onDestinationSelected, context);
             }

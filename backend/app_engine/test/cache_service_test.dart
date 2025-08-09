@@ -51,12 +51,12 @@ void main() {
 
     test('should generate correct cache keys', () {
       expect(
-        CacheService.generateKey('service1', 'name1', null),
+        cache.generateKey('service1', 'name1', null),
         equals('service1/name1'),
       );
       
       expect(
-        CacheService.generateKey('service1', 'name1', 'param1'),
+        cache.generateKey('service1', 'name1', 'param1'),
         equals('service1/name1/param1'),
       );
     });

@@ -190,11 +190,11 @@ class LayoutWidgetBuilder {
     Widget Function(pb.Widget, BuildContext) interpretWidget,
   ) {
     return Wrap(
+      spacing: wrap.hasSpacing() ? wrap.spacing : 0.0,
+      runSpacing: wrap.hasRunSpacing() ? wrap.runSpacing : 0.0,
       children: wrap.children
           .map((child) => interpretWidget(child, context))
           .toList(),
-      spacing: wrap.hasSpacing() ? wrap.spacing : 0.0,
-      runSpacing: wrap.hasRunSpacing() ? wrap.runSpacing : 0.0,
     );
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../generated/widgets.pb.dart' as pb;
 import '../../generated/handlers.pb.dart' as handlers;
-import '../AnalyticService.dart';
+import '../analytic_service.dart';
 
 class DisplayWidgetBuilder {
   static Widget buildText(

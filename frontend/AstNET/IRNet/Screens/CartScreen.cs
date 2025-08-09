@@ -231,8 +231,10 @@ namespace IRNet.Screens
 
             var checkoutHandler = new IRNet.Widgets.Handler
             {
-                Type = "Print",
-                PrintHandler = new IRNet.Widgets.PrintHandler { Message = "Checkout" }
+                // Type = "Print",
+                // PrintHandler = new IRNet.Widgets.PrintHandler { Message = "Checkout" }
+                Type = "Go",
+                GoHandler = new IRNet.Widgets.GoHandler { Route = "/screen/catalog" }
             };
 
             var checkoutButton = new IRNet.Widgets.Button
