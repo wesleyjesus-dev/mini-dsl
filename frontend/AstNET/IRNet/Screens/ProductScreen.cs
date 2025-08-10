@@ -11,11 +11,11 @@ namespace IRNet.Screens
     {
         public static RouteGroupBuilder MapProductScreens(this RouteGroupBuilder group)
         {
-            group.MapGet("/product/{id}", async (Guid id, IProductService productService, CancellationToken cancellationToken) => await GetProductScreenAsync(id, productService, cancellationToken));
+            group.MapGet("/product/{id}", async (Guid id, IProductService productService, IConfiguration configuration, CancellationToken cancellationToken) => await GetProductScreenAsync(id, productService, configuration, cancellationToken));
             return group;
         }
 
-        public static async Task<IResult> GetProductScreenAsync(Guid id, IProductService productService, CancellationToken cancellationToken)
+        public static async Task<IResult> GetProductScreenAsync(Guid id, IProductService productService, IConfiguration configuration, CancellationToken cancellationToken)
         {
             // Sample product data based on ID
             Console.WriteLine(id);
@@ -32,7 +32,7 @@ namespace IRNet.Screens
                 Type = "FetchHandler",
                 FetchHandler = new IRNet.Widgets.FetchHandler
                 {
-                    Endpoint = "http://192.168.31.201:5221",
+                    Endpoint = configuration["CartService:Endpoint"],
                     Path = "/api/cart",
                     Verb = "POST",
                     Body = JsonSerializer.Serialize(new CartItem { Id = productData.Id, Name = productData.Name, Price = 999.99m }),

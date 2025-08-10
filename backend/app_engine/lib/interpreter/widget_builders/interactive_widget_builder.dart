@@ -1,7 +1,9 @@
+import 'package:app_engine/generated/types.pb.dart' as types;
 import 'package:flutter/material.dart';
 import '../../generated/widgets.pb.dart' as pb;
 import '../../generated/handlers.pb.dart' as handlers;
 import '../analytic_service.dart';
+import 'styles_builder.dart';
 
 class InteractiveWidgetBuilder {
   static Widget buildButton(
@@ -57,7 +59,17 @@ class InteractiveWidgetBuilder {
           executeHandler(elevatedButton.onPressedHandler, context);
         }
       },
+      style: buildButtonStyle(elevatedButton.style),
       child: interpretWidget(elevatedButton.child, context),
+    );
+  }
+
+  static ButtonStyle buildButtonStyle(types.ButtonStyle style) {
+    return ElevatedButton.styleFrom(
+      backgroundColor: style.hasBackgroundColor()
+          ? Color(style.backgroundColor.value)
+          : Colors.blue,
+      textStyle: StylesBuilder.buildTextStyle(style.textStyle),
     );
   }
 
