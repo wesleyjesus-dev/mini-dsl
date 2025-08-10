@@ -9,7 +9,6 @@ public class AppBar
         return new Widget
         {
             Type = "AppBar",
-
             AppBar = new IRNet.Widgets.AppBar
             {
                 Title = new IRNet.Widgets.Widget

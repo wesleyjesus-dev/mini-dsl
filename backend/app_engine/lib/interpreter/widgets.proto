@@ -11,7 +11,6 @@ message Widget {
   oneof widget_data {
     Scaffold scaffold = 2;
     AppBar app_bar = 3;
-    Body body = 4;
     Text text = 5;
     TextFromState text_from_state = 6;
     Button button = 7;
@@ -62,17 +61,34 @@ message Widget {
 message Scaffold {
   Widget app_bar = 1;
   Widget body = 2;
-  Widget bottom_navigation_bar = 3;
+  Widget floating_action_button = 3;
+  interpreter.types.FloatingActionButtonLocation floating_action_button_location = 4;
+  // interpreter.types.FloatingActionButtonAnimator floating_action_button_animator = 5; TODO: implements floating_action_button_animator
+  repeated Widget persistent_footer_buttons = 6;
+  interpreter.types.AlignmentDirectional persistent_footer_alignment = 7;
+  Widget drawer = 8;
+  interpreter.handlers.Handler on_drawer_changed = 9;
+  Widget end_drawer = 10;
+  interpreter.handlers.Handler on_end_drawer_changed = 11;
+  Widget bottom_navigation_bar = 12;
+  Widget bottom_sheet = 13;
+  interpreter.types.Color background_color = 14;
+  bool resize_to_avoid_bottom_inset = 15;
+  bool primary = 16;
+  interpreter.types.DragStartBehavior drawer_drag_start_behavior = 17;
+  bool extend_body = 18;
+  bool extend_body_behind_app_bar = 19;
+  interpreter.types.Color drawer_scrim_color = 20;
+  double drawer_edge_drag_width = 21;
+  bool drawer_enable_open_drag_gesture = 22;
+  bool end_drawer_enable_open_drag_gesture = 23;
+  string restoration_id = 24;
 }
 
 message AppBar {
   Widget title = 1;
 }
 
-message Body {
-  Widget content = 1;
-  Widget button = 2;
-}
 
 message Text {
   string value = 1;

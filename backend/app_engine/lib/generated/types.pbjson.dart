@@ -678,6 +678,69 @@ final $typed_data.Uint8List iconAlignmentDescriptor = $convert.base64Decode(
     'Cg1JY29uQWxpZ25tZW50EhgKFFNUQVJUX0lDT05fQUxJR05NRU5UEAASFgoSRU5EX0lDT05fQU'
     'xJR05NRU5UEAE=');
 
+@$core.Deprecated('Use floatingActionButtonLocationDescriptor instead')
+const FloatingActionButtonLocation$json = {
+  '1': 'FloatingActionButtonLocation',
+  '2': [
+    {'1': 'START_TOP', '2': 0},
+    {'1': 'CENTER_TOP', '2': 1},
+    {'1': 'END_TOP', '2': 2},
+    {'1': 'MINI_START_TOP', '2': 3},
+    {'1': 'MINI_CENTER_TOP', '2': 4},
+    {'1': 'MINI_END_TOP', '2': 5},
+    {'1': 'START_DOCKED', '2': 6},
+    {'1': 'START_FLOAT', '2': 7},
+    {'1': 'CENTER_DOCKED', '2': 8},
+    {'1': 'CENTER_FLOAT', '2': 9},
+    {'1': 'END_CONTAINED', '2': 10},
+    {'1': 'END_DOCKED', '2': 11},
+    {'1': 'END_FLOAT', '2': 12},
+    {'1': 'MINI_START_DOCKED', '2': 13},
+    {'1': 'MINI_START_FLOAT', '2': 14},
+    {'1': 'MINI_CENTER_DOCKED', '2': 15},
+    {'1': 'MINI_CENTER_FLOAT', '2': 16},
+    {'1': 'MINI_END_DOCKED', '2': 17},
+    {'1': 'MINI_END_FLOAT', '2': 18},
+  ],
+};
+
+/// Descriptor for `FloatingActionButtonLocation`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List floatingActionButtonLocationDescriptor = $convert.base64Decode(
+    'ChxGbG9hdGluZ0FjdGlvbkJ1dHRvbkxvY2F0aW9uEg0KCVNUQVJUX1RPUBAAEg4KCkNFTlRFUl'
+    '9UT1AQARILCgdFTkRfVE9QEAISEgoOTUlOSV9TVEFSVF9UT1AQAxITCg9NSU5JX0NFTlRFUl9U'
+    'T1AQBBIQCgxNSU5JX0VORF9UT1AQBRIQCgxTVEFSVF9ET0NLRUQQBhIPCgtTVEFSVF9GTE9BVB'
+    'AHEhEKDUNFTlRFUl9ET0NLRUQQCBIQCgxDRU5URVJfRkxPQVQQCRIRCg1FTkRfQ09OVEFJTkVE'
+    'EAoSDgoKRU5EX0RPQ0tFRBALEg0KCUVORF9GTE9BVBAMEhUKEU1JTklfU1RBUlRfRE9DS0VEEA'
+    '0SFAoQTUlOSV9TVEFSVF9GTE9BVBAOEhYKEk1JTklfQ0VOVEVSX0RPQ0tFRBAPEhUKEU1JTklf'
+    'Q0VOVEVSX0ZMT0FUEBASEwoPTUlOSV9FTkRfRE9DS0VEEBESEgoOTUlOSV9FTkRfRkxPQVQQEg'
+    '==');
+
+@$core.Deprecated('Use alignmentDirectionalDescriptor instead')
+const AlignmentDirectional$json = {
+  '1': 'AlignmentDirectional',
+  '2': [
+    {'1': 'TOP_CENTER_ALIGNMENT_DIRECTIONAL', '2': 0},
+    {'1': 'TOP_END_ALIGNMENT_DIRECTIONAL', '2': 1},
+    {'1': 'CENTER_START_ALIGNMENT_DIRECTIONAL', '2': 2},
+    {'1': 'CENTER_ALIGNMENT_DIRECTIONAL', '2': 3},
+    {'1': 'CENTER_END_ALIGNMENT_DIRECTIONAL', '2': 4},
+    {'1': 'BOTTOM_START_ALIGNMENT_DIRECTIONAL', '2': 5},
+    {'1': 'BOTTOM_CENTER_ALIGNMENT_DIRECTIONAL', '2': 6},
+    {'1': 'BOTTOM_END_ALIGNMENT_DIRECTIONAL', '2': 7},
+    {'1': 'TOP_START_ALIGNMENT_DIRECTIONAL', '2': 8},
+  ],
+};
+
+/// Descriptor for `AlignmentDirectional`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List alignmentDirectionalDescriptor = $convert.base64Decode(
+    'ChRBbGlnbm1lbnREaXJlY3Rpb25hbBIkCiBUT1BfQ0VOVEVSX0FMSUdOTUVOVF9ESVJFQ1RJT0'
+    '5BTBAAEiEKHVRPUF9FTkRfQUxJR05NRU5UX0RJUkVDVElPTkFMEAESJgoiQ0VOVEVSX1NUQVJU'
+    'X0FMSUdOTUVOVF9ESVJFQ1RJT05BTBACEiAKHENFTlRFUl9BTElHTk1FTlRfRElSRUNUSU9OQU'
+    'wQAxIkCiBDRU5URVJfRU5EX0FMSUdOTUVOVF9ESVJFQ1RJT05BTBAEEiYKIkJPVFRPTV9TVEFS'
+    'VF9BTElHTk1FTlRfRElSRUNUSU9OQUwQBRInCiNCT1RUT01fQ0VOVEVSX0FMSUdOTUVOVF9ESV'
+    'JFQ1RJT05BTBAGEiQKIEJPVFRPTV9FTkRfQUxJR05NRU5UX0RJUkVDVElPTkFMEAcSIwofVE9Q'
+    'X1NUQVJUX0FMSUdOTUVOVF9ESVJFQ1RJT05BTBAI');
+
 @$core.Deprecated('Use tValueDescriptor instead')
 const TValue$json = {
   '1': 'TValue',

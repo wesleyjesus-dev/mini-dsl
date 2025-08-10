@@ -1,5 +1,10 @@
+import 'package:app_engine/generated/types.pbenum.dart' as types;
+import 'package:app_engine/interpreter/widget_builders/handlers_builder.dart';
+import 'package:app_engine/interpreter/widget_builders/styles_builder.dart';
 import 'package:flutter/material.dart';
 import '../../generated/widgets.pb.dart' as pb;
+import 'package:flutter/gestures.dart';
+
 
 class LayoutWidgetBuilder {
   static Widget buildScaffold(
@@ -17,17 +22,38 @@ class LayoutWidgetBuilder {
     }
     
     return Scaffold(
-      appBar: appBar,
-      body: RefreshIndicator(
-        onRefresh: onRefresh,
-        child: ListView(
-          children: [interpretWidget(scaffold.body, context)],
+        appBar: appBar,
+        body: RefreshIndicator(
+          onRefresh: onRefresh,
+          child: interpretWidget(scaffold.body, context),
         ),
-      ),
-      bottomNavigationBar: scaffold.hasBottomNavigationBar()
-          ? interpretWidget(scaffold.bottomNavigationBar, context)
-          : null,
-    );
+        floatingActionButton: scaffold.hasFloatingActionButton()
+            ? interpretWidget(scaffold.floatingActionButton, context)
+            : null,
+        floatingActionButtonLocation: scaffold.hasFloatingActionButtonLocation() ? buildFloatingActionButtonLocation(scaffold.floatingActionButtonLocation) : null,
+        floatingActionButtonAnimator: null,//scaffold.hasFloatingActionButtonAnimator(),
+        persistentFooterButtons: scaffold.persistentFooterButtons.isNotEmpty == true
+            ? scaffold.persistentFooterButtons.map((e) => interpretWidget(e, context)).toList()
+            : null,
+        persistentFooterAlignment: scaffold.hasPersistentFooterAlignment() ? buildAlignmentDirectional(scaffold.persistentFooterAlignment) : AlignmentDirectional.centerEnd,
+        drawer: scaffold.hasDrawer() ? interpretWidget(scaffold.drawer, context) : null,
+        onDrawerChanged: scaffold.hasOnDrawerChanged() ? HandlersBuilder.onBooleanCallback() : null,
+        endDrawer: scaffold.hasEndDrawer() ? interpretWidget(scaffold.endDrawer, context) : null,
+        onEndDrawerChanged: scaffold.hasOnEndDrawerChanged() ? HandlersBuilder.onBooleanCallback() : null,
+        bottomNavigationBar: scaffold.hasBottomNavigationBar() ? interpretWidget(scaffold.bottomNavigationBar, context) : null,
+        bottomSheet: scaffold.hasBottomSheet() ? interpretWidget(scaffold.bottomSheet, context) : null,
+        backgroundColor: scaffold.hasBackgroundColor() ? StylesBuilder.buildColor(scaffold.backgroundColor) : null,
+        resizeToAvoidBottomInset: scaffold.hasResizeToAvoidBottomInset() ? scaffold.resizeToAvoidBottomInset : true,
+        primary: scaffold.hasPrimary() ? scaffold.primary : true,
+        drawerDragStartBehavior: scaffold.hasDrawerDragStartBehavior() ? DragStartBehavior.values[scaffold.drawerDragStartBehavior.value] : DragStartBehavior.start,
+        extendBody: scaffold.hasExtendBody() ? scaffold.extendBody : false,
+        extendBodyBehindAppBar: scaffold.hasExtendBodyBehindAppBar() ? scaffold.extendBodyBehindAppBar : false,
+        drawerScrimColor: scaffold.hasDrawerScrimColor() ? StylesBuilder.buildColor(scaffold.drawerScrimColor) : null,
+        drawerEdgeDragWidth: scaffold.hasDrawerEdgeDragWidth() ? scaffold.drawerEdgeDragWidth : null,
+        drawerEnableOpenDragGesture: scaffold.hasDrawerEnableOpenDragGesture() ? scaffold.drawerEnableOpenDragGesture : true,
+        endDrawerEnableOpenDragGesture: scaffold.hasEndDrawerEnableOpenDragGesture() ? scaffold.endDrawerEnableOpenDragGesture : false,
+        restorationId: scaffold.hasRestorationId() ? scaffold.restorationId : null,
+      );
   }
 
   static Widget buildAppBar(
@@ -37,27 +63,6 @@ class LayoutWidgetBuilder {
   ) {
     return AppBar(
       title: interpretWidget(appBar.title, context),
-    );
-  }
-
-  static Widget buildBody(
-    pb.Body body,
-    BuildContext context,
-    Widget Function(pb.Widget, BuildContext) interpretWidget,
-  ) {
-    final children = <Widget>[
-      interpretWidget(body.content, context),
-    ];
-
-    if (body.hasButton()) {
-      children.add(interpretWidget(body.button, context));
-    }
-
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: children,
-      ),
     );
   }
 
@@ -210,5 +215,46 @@ class LayoutWidgetBuilder {
       bottom: safeArea.hasBottom() ? safeArea.bottom : true,
       child: interpretWidget(safeArea.child, context),
     );
+  }
+
+  static AlignmentDirectional buildAlignmentDirectional(types.AlignmentDirectional persistentFooterAlignment) {
+    return switch (persistentFooterAlignment) {
+      types.AlignmentDirectional.BOTTOM_CENTER_ALIGNMENT_DIRECTIONAL => AlignmentDirectional.bottomCenter,
+      types.AlignmentDirectional.TOP_CENTER_ALIGNMENT_DIRECTIONAL => AlignmentDirectional.topCenter,
+      types.AlignmentDirectional.BOTTOM_START_ALIGNMENT_DIRECTIONAL => AlignmentDirectional.bottomStart,
+      types.AlignmentDirectional.BOTTOM_END_ALIGNMENT_DIRECTIONAL => AlignmentDirectional.bottomEnd,
+      types.AlignmentDirectional.CENTER_ALIGNMENT_DIRECTIONAL => AlignmentDirectional.center,
+      types.AlignmentDirectional.CENTER_START_ALIGNMENT_DIRECTIONAL => AlignmentDirectional.centerStart,
+      types.AlignmentDirectional.CENTER_END_ALIGNMENT_DIRECTIONAL => AlignmentDirectional.centerEnd,
+      types.AlignmentDirectional.TOP_START_ALIGNMENT_DIRECTIONAL => AlignmentDirectional.topStart,
+      types.AlignmentDirectional.TOP_END_ALIGNMENT_DIRECTIONAL => AlignmentDirectional.topEnd,
+      types.AlignmentDirectional() => AlignmentDirectional.centerEnd,
+    };
+  }
+  
+  static FloatingActionButtonLocation buildFloatingActionButtonLocation(types.FloatingActionButtonLocation floatingActionButtonLocation) {
+    return switch (floatingActionButtonLocation) {
+      types.FloatingActionButtonLocation.CENTER_DOCKED => FloatingActionButtonLocation.centerDocked,
+      types.FloatingActionButtonLocation.CENTER_FLOAT => FloatingActionButtonLocation.centerFloat,
+      types.FloatingActionButtonLocation.CENTER_TOP => FloatingActionButtonLocation.centerTop,
+      types.FloatingActionButtonLocation.END_CONTAINED => FloatingActionButtonLocation.endContained,
+      types.FloatingActionButtonLocation.END_DOCKED => FloatingActionButtonLocation.endDocked,
+      types.FloatingActionButtonLocation.END_FLOAT => FloatingActionButtonLocation.endFloat,
+      types.FloatingActionButtonLocation.END_TOP => FloatingActionButtonLocation.endTop,
+      types.FloatingActionButtonLocation.MINI_CENTER_DOCKED => FloatingActionButtonLocation.miniCenterDocked,
+      types.FloatingActionButtonLocation.MINI_CENTER_FLOAT => FloatingActionButtonLocation.miniCenterFloat,
+      types.FloatingActionButtonLocation.MINI_CENTER_TOP => FloatingActionButtonLocation.miniCenterTop,
+      types.FloatingActionButtonLocation.MINI_END_DOCKED => FloatingActionButtonLocation.miniEndDocked,
+      types.FloatingActionButtonLocation.MINI_END_FLOAT => FloatingActionButtonLocation.miniEndFloat,
+      types.FloatingActionButtonLocation.MINI_END_TOP => FloatingActionButtonLocation.miniEndTop,
+      types.FloatingActionButtonLocation.MINI_START_DOCKED => FloatingActionButtonLocation.miniStartDocked,
+      types.FloatingActionButtonLocation.MINI_START_FLOAT => FloatingActionButtonLocation.miniStartFloat,
+      types.FloatingActionButtonLocation.MINI_START_TOP => FloatingActionButtonLocation.miniStartTop,
+      types.FloatingActionButtonLocation.START_DOCKED => FloatingActionButtonLocation.startDocked,
+      types.FloatingActionButtonLocation.START_FLOAT => FloatingActionButtonLocation.startFloat,
+      types.FloatingActionButtonLocation.START_TOP => FloatingActionButtonLocation.startTop,
+      // TODO: Handle this case.
+      types.FloatingActionButtonLocation() => throw UnimplementedError(),
+    };
   }
 }

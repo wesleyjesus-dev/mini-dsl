@@ -34,9 +34,6 @@ class MainWidgetInterpreter {
         case pb.Widget_WidgetData.appBar:
           return layout.LayoutWidgetBuilder.buildAppBar(
               pbWidget.appBar, context, interpretWidget);
-        case pb.Widget_WidgetData.body:
-          return layout.LayoutWidgetBuilder.buildBody(
-              pbWidget.body, context, interpretWidget);
         case pb.Widget_WidgetData.row:
           return layout.LayoutWidgetBuilder.buildRow(
               pbWidget.row, context, interpretWidget);

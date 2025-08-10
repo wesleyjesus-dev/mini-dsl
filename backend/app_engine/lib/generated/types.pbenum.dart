@@ -819,5 +819,83 @@ class IconAlignment extends $pb.ProtobufEnum {
   const IconAlignment._($core.int v, $core.String n) : super(v, n);
 }
 
+class FloatingActionButtonLocation extends $pb.ProtobufEnum {
+  static const FloatingActionButtonLocation START_TOP = FloatingActionButtonLocation._(0, _omitEnumNames ? '' : 'START_TOP');
+  static const FloatingActionButtonLocation CENTER_TOP = FloatingActionButtonLocation._(1, _omitEnumNames ? '' : 'CENTER_TOP');
+  static const FloatingActionButtonLocation END_TOP = FloatingActionButtonLocation._(2, _omitEnumNames ? '' : 'END_TOP');
+  static const FloatingActionButtonLocation MINI_START_TOP = FloatingActionButtonLocation._(3, _omitEnumNames ? '' : 'MINI_START_TOP');
+  static const FloatingActionButtonLocation MINI_CENTER_TOP = FloatingActionButtonLocation._(4, _omitEnumNames ? '' : 'MINI_CENTER_TOP');
+  static const FloatingActionButtonLocation MINI_END_TOP = FloatingActionButtonLocation._(5, _omitEnumNames ? '' : 'MINI_END_TOP');
+  static const FloatingActionButtonLocation START_DOCKED = FloatingActionButtonLocation._(6, _omitEnumNames ? '' : 'START_DOCKED');
+  static const FloatingActionButtonLocation START_FLOAT = FloatingActionButtonLocation._(7, _omitEnumNames ? '' : 'START_FLOAT');
+  static const FloatingActionButtonLocation CENTER_DOCKED = FloatingActionButtonLocation._(8, _omitEnumNames ? '' : 'CENTER_DOCKED');
+  static const FloatingActionButtonLocation CENTER_FLOAT = FloatingActionButtonLocation._(9, _omitEnumNames ? '' : 'CENTER_FLOAT');
+  static const FloatingActionButtonLocation END_CONTAINED = FloatingActionButtonLocation._(10, _omitEnumNames ? '' : 'END_CONTAINED');
+  static const FloatingActionButtonLocation END_DOCKED = FloatingActionButtonLocation._(11, _omitEnumNames ? '' : 'END_DOCKED');
+  static const FloatingActionButtonLocation END_FLOAT = FloatingActionButtonLocation._(12, _omitEnumNames ? '' : 'END_FLOAT');
+  static const FloatingActionButtonLocation MINI_START_DOCKED = FloatingActionButtonLocation._(13, _omitEnumNames ? '' : 'MINI_START_DOCKED');
+  static const FloatingActionButtonLocation MINI_START_FLOAT = FloatingActionButtonLocation._(14, _omitEnumNames ? '' : 'MINI_START_FLOAT');
+  static const FloatingActionButtonLocation MINI_CENTER_DOCKED = FloatingActionButtonLocation._(15, _omitEnumNames ? '' : 'MINI_CENTER_DOCKED');
+  static const FloatingActionButtonLocation MINI_CENTER_FLOAT = FloatingActionButtonLocation._(16, _omitEnumNames ? '' : 'MINI_CENTER_FLOAT');
+  static const FloatingActionButtonLocation MINI_END_DOCKED = FloatingActionButtonLocation._(17, _omitEnumNames ? '' : 'MINI_END_DOCKED');
+  static const FloatingActionButtonLocation MINI_END_FLOAT = FloatingActionButtonLocation._(18, _omitEnumNames ? '' : 'MINI_END_FLOAT');
+
+  static const $core.List<FloatingActionButtonLocation> values = <FloatingActionButtonLocation> [
+    START_TOP,
+    CENTER_TOP,
+    END_TOP,
+    MINI_START_TOP,
+    MINI_CENTER_TOP,
+    MINI_END_TOP,
+    START_DOCKED,
+    START_FLOAT,
+    CENTER_DOCKED,
+    CENTER_FLOAT,
+    END_CONTAINED,
+    END_DOCKED,
+    END_FLOAT,
+    MINI_START_DOCKED,
+    MINI_START_FLOAT,
+    MINI_CENTER_DOCKED,
+    MINI_CENTER_FLOAT,
+    MINI_END_DOCKED,
+    MINI_END_FLOAT,
+  ];
+
+  static final $core.Map<$core.int, FloatingActionButtonLocation> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static FloatingActionButtonLocation? valueOf($core.int value) => _byValue[value];
+
+  const FloatingActionButtonLocation._($core.int v, $core.String n) : super(v, n);
+}
+
+class AlignmentDirectional extends $pb.ProtobufEnum {
+  static const AlignmentDirectional TOP_CENTER_ALIGNMENT_DIRECTIONAL = AlignmentDirectional._(0, _omitEnumNames ? '' : 'TOP_CENTER_ALIGNMENT_DIRECTIONAL');
+  static const AlignmentDirectional TOP_END_ALIGNMENT_DIRECTIONAL = AlignmentDirectional._(1, _omitEnumNames ? '' : 'TOP_END_ALIGNMENT_DIRECTIONAL');
+  static const AlignmentDirectional CENTER_START_ALIGNMENT_DIRECTIONAL = AlignmentDirectional._(2, _omitEnumNames ? '' : 'CENTER_START_ALIGNMENT_DIRECTIONAL');
+  static const AlignmentDirectional CENTER_ALIGNMENT_DIRECTIONAL = AlignmentDirectional._(3, _omitEnumNames ? '' : 'CENTER_ALIGNMENT_DIRECTIONAL');
+  static const AlignmentDirectional CENTER_END_ALIGNMENT_DIRECTIONAL = AlignmentDirectional._(4, _omitEnumNames ? '' : 'CENTER_END_ALIGNMENT_DIRECTIONAL');
+  static const AlignmentDirectional BOTTOM_START_ALIGNMENT_DIRECTIONAL = AlignmentDirectional._(5, _omitEnumNames ? '' : 'BOTTOM_START_ALIGNMENT_DIRECTIONAL');
+  static const AlignmentDirectional BOTTOM_CENTER_ALIGNMENT_DIRECTIONAL = AlignmentDirectional._(6, _omitEnumNames ? '' : 'BOTTOM_CENTER_ALIGNMENT_DIRECTIONAL');
+  static const AlignmentDirectional BOTTOM_END_ALIGNMENT_DIRECTIONAL = AlignmentDirectional._(7, _omitEnumNames ? '' : 'BOTTOM_END_ALIGNMENT_DIRECTIONAL');
+  static const AlignmentDirectional TOP_START_ALIGNMENT_DIRECTIONAL = AlignmentDirectional._(8, _omitEnumNames ? '' : 'TOP_START_ALIGNMENT_DIRECTIONAL');
+
+  static const $core.List<AlignmentDirectional> values = <AlignmentDirectional> [
+    TOP_CENTER_ALIGNMENT_DIRECTIONAL,
+    TOP_END_ALIGNMENT_DIRECTIONAL,
+    CENTER_START_ALIGNMENT_DIRECTIONAL,
+    CENTER_ALIGNMENT_DIRECTIONAL,
+    CENTER_END_ALIGNMENT_DIRECTIONAL,
+    BOTTOM_START_ALIGNMENT_DIRECTIONAL,
+    BOTTOM_CENTER_ALIGNMENT_DIRECTIONAL,
+    BOTTOM_END_ALIGNMENT_DIRECTIONAL,
+    TOP_START_ALIGNMENT_DIRECTIONAL,
+  ];
+
+  static final $core.Map<$core.int, AlignmentDirectional> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static AlignmentDirectional? valueOf($core.int value) => _byValue[value];
+
+  const AlignmentDirectional._($core.int v, $core.String n) : super(v, n);
+}
+
 
 const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

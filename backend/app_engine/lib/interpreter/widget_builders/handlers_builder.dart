@@ -5,6 +5,12 @@ import 'package:app_engine/dependency_injection.dart';
 class HandlersBuilder {
     static final dio = Dio();
 
+    static Function(bool)? onBooleanCallback()
+    {
+      return (bool value) {
+        return value;
+      };
+    }
     static Future<dynamic> fetchHandler(
         FetchHandler fetchHandler,
         Map<String, dynamic>? body,
