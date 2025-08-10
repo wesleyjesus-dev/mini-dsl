@@ -63,6 +63,7 @@ const Widget$json = {
     {'1': 'gesture_detector', '3': 44, '4': 1, '5': 11, '6': '.interpreter.widgets.GestureDetector', '9': 0, '10': 'gestureDetector'},
     {'1': 'safe_area', '3': 45, '4': 1, '5': 11, '6': '.interpreter.widgets.SafeArea', '9': 0, '10': 'safeArea'},
     {'1': 'single_child_scroll_view', '3': 46, '4': 1, '5': 11, '6': '.interpreter.widgets.SingleChildScrollView', '9': 0, '10': 'singleChildScrollView'},
+    {'1': 'if_widget', '3': 47, '4': 1, '5': 11, '6': '.interpreter.widgets.IfWidget', '9': 0, '10': 'ifWidget'},
   ],
   '8': [
     {'1': 'widget_data'},
@@ -124,7 +125,8 @@ final $typed_data.Uint8List widgetDescriptor = $convert.base64Decode(
     'ZWN0b3ISPAoJc2FmZV9hcmVhGC0gASgLMh0uaW50ZXJwcmV0ZXIud2lkZ2V0cy5TYWZlQXJlYU'
     'gAUghzYWZlQXJlYRJlChhzaW5nbGVfY2hpbGRfc2Nyb2xsX3ZpZXcYLiABKAsyKi5pbnRlcnBy'
     'ZXRlci53aWRnZXRzLlNpbmdsZUNoaWxkU2Nyb2xsVmlld0gAUhVzaW5nbGVDaGlsZFNjcm9sbF'
-    'ZpZXdCDQoLd2lkZ2V0X2RhdGE=');
+    'ZpZXcSPAoJaWZfd2lkZ2V0GC8gASgLMh0uaW50ZXJwcmV0ZXIud2lkZ2V0cy5JZldpZGdldEgA'
+    'UghpZldpZGdldEINCgt3aWRnZXRfZGF0YQ==');
 
 @$core.Deprecated('Use scaffoldDescriptor instead')
 const Scaffold$json = {
@@ -243,6 +245,7 @@ const ElevatedButton$json = {
   '2': [
     {'1': 'child', '3': 1, '4': 1, '5': 11, '6': '.interpreter.widgets.Widget', '10': 'child'},
     {'1': 'on_pressed_handler', '3': 2, '4': 1, '5': 11, '6': '.interpreter.handlers.Handler', '10': 'onPressedHandler'},
+    {'1': 'style', '3': 3, '4': 1, '5': 11, '6': '.interpreter.types.ButtonStyle', '10': 'style'},
   ],
 };
 
@@ -250,7 +253,8 @@ const ElevatedButton$json = {
 final $typed_data.Uint8List elevatedButtonDescriptor = $convert.base64Decode(
     'Cg5FbGV2YXRlZEJ1dHRvbhIxCgVjaGlsZBgBIAEoCzIbLmludGVycHJldGVyLndpZGdldHMuV2'
     'lkZ2V0UgVjaGlsZBJLChJvbl9wcmVzc2VkX2hhbmRsZXIYAiABKAsyHS5pbnRlcnByZXRlci5o'
-    'YW5kbGVycy5IYW5kbGVyUhBvblByZXNzZWRIYW5kbGVy');
+    'YW5kbGVycy5IYW5kbGVyUhBvblByZXNzZWRIYW5kbGVyEjQKBXN0eWxlGAMgASgLMh4uaW50ZX'
+    'JwcmV0ZXIudHlwZXMuQnV0dG9uU3R5bGVSBXN0eWxl');
 
 @$core.Deprecated('Use containerDescriptor instead')
 const Container$json = {
@@ -1616,4 +1620,20 @@ final $typed_data.Uint8List inputDecorationDescriptor = $convert.base64Decode(
     'aWR0aBgLIAEoAVISZW5hYmxlZEJvcmRlcldpZHRoEjAKFGZvY3VzZWRfYm9yZGVyX3dpZHRoGA'
     'wgASgBUhJmb2N1c2VkQm9yZGVyV2lkdGgSMgoVZGlzYWJsZWRfYm9yZGVyX3dpZHRoGA0gASgB'
     'UhNkaXNhYmxlZEJvcmRlcldpZHRo');
+
+@$core.Deprecated('Use ifWidgetDescriptor instead')
+const IfWidget$json = {
+  '1': 'IfWidget',
+  '2': [
+    {'1': 'condition', '3': 1, '4': 1, '5': 8, '10': 'condition'},
+    {'1': 'then', '3': 2, '4': 1, '5': 11, '6': '.interpreter.widgets.Widget', '10': 'then'},
+    {'1': 'else', '3': 3, '4': 1, '5': 11, '6': '.interpreter.widgets.Widget', '10': 'else'},
+  ],
+};
+
+/// Descriptor for `IfWidget`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List ifWidgetDescriptor = $convert.base64Decode(
+    'CghJZldpZGdldBIcCgljb25kaXRpb24YASABKAhSCWNvbmRpdGlvbhIvCgR0aGVuGAIgASgLMh'
+    'suaW50ZXJwcmV0ZXIud2lkZ2V0cy5XaWRnZXRSBHRoZW4SLwoEZWxzZRgDIAEoCzIbLmludGVy'
+    'cHJldGVyLndpZGdldHMuV2lkZ2V0UgRlbHNl');
 

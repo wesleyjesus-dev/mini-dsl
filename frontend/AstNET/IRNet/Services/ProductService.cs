@@ -5,7 +5,8 @@ namespace IRNet.Services
 {
     public interface IProductService
     {
-        Task<Product?> GetProductAsync(int id, CancellationToken cancellationToken);
+        Task<IEnumerable<Product>> GetProductsAsync(CancellationToken cancellationToken);
+        Task<Product?> GetProductAsync(Guid id, CancellationToken cancellationToken);
     }
 
     public class ProductService : IProductService
@@ -15,9 +16,19 @@ namespace IRNet.Services
         {
             _dbContext = dbContext;
         }
-        public async Task<Product?> GetProductAsync(int id, CancellationToken cancellationToken)
+
+        public async Task<IEnumerable<Product>> GetProductsAsync(CancellationToken cancellationToken)
         {
-            return await _dbContext.Products.FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
+            return await _dbContext.Products.ToListAsync(cancellationToken);
+        }
+
+        public async Task<Product?> GetProductAsync(Guid id, CancellationToken cancellationToken)
+        {
+            var result =  await _dbContext.Products.FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
+
+            Console.WriteLine($"Product found: {result?.Name}");
+
+            return result;
         }
     }
 }

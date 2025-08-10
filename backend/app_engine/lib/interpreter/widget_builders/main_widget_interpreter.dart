@@ -192,7 +192,6 @@ class MainWidgetInterpreter {
         case pb.Widget_WidgetData.navigationDestination:
           return navigation.NavigationWidgetBuilder.buildNavigationDestination(
               pbWidget.navigationDestination, context, interpretWidget);
-
         default:
           return SizedBox.shrink();
       }

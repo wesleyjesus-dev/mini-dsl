@@ -3,6 +3,7 @@ using Google.Protobuf;
 using System.Text.Json;
 using IRNet.Models;
 using IRNet.Screens.Components;
+using IRNet.Services;
 
 namespace IRNet.Screens
 {
@@ -10,30 +11,31 @@ namespace IRNet.Screens
     {
         public static RouteGroupBuilder MapProductScreens(this RouteGroupBuilder group)
         {
-            group.MapGet("/product/{id}", async (string id, CancellationToken cancellationToken) => await GetProductScreenAsync(id, cancellationToken));
+            group.MapGet("/product/{id}", async (Guid id, IProductService productService, CancellationToken cancellationToken) => await GetProductScreenAsync(id, productService, cancellationToken));
             return group;
         }
 
-        public static async Task<IResult> GetProductScreenAsync(string id, CancellationToken cancellationToken)
+        public static async Task<IResult> GetProductScreenAsync(Guid id, IProductService productService, CancellationToken cancellationToken)
         {
             // Sample product data based on ID
-            var productData = id switch
+            Console.WriteLine(id);
+            var productData = await productService.GetProductAsync(id, cancellationToken);
+
+            if (productData == null)
             {
-                "1" => new { Name = "Smartphone Pro Max", Price = "$999.99", Description = "Latest flagship smartphone with advanced camera system and powerful processor.", Image = "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop" },
-                "2" => new { Name = "Gaming Laptop", Price = "$1,499.99", Description = "High-performance gaming laptop with RTX graphics and fast SSD storage.", Image = "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop" },
-                "3" => new { Name = "Wireless Headphones", Price = "$299.99", Description = "Premium noise-canceling wireless headphones with superior sound quality.", Image = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop" },
-                _ => new { Name = "Product Not Found", Price = "N/A", Description = "The requested product could not be found.", Image = "" }
-            };
+                Console.WriteLine("Product not found");
+                return Results.NotFound();
+            }
 
             var addProductHandler = new IRNet.Widgets.Handler
             {
                 Type = "FetchHandler",
                 FetchHandler = new IRNet.Widgets.FetchHandler
                 {
-                    Endpoint = "http://10.0.2.2:5221",
+                    Endpoint = "http://192.168.31.201:5221",
                     Path = "/api/cart",
                     Verb = "POST",
-                    Body = JsonSerializer.Serialize(new CartItem { Id = 1, Name = productData.Name, Price = 999.99m }),
+                    Body = JsonSerializer.Serialize(new CartItem { Id = productData.Id, Name = productData.Name, Price = 999.99m }),
                 }
             };
 
@@ -58,7 +60,7 @@ namespace IRNet.Screens
                 Type = "Image",
                 Image = new IRNet.Widgets.Image
                 {
-                    Src = productData.Image,
+                    Src = productData.Images[0],
                     Width = 400,
                     Height = 300,
                     Fit = IRNet.Widgets.BoxFit.Cover
@@ -74,7 +76,7 @@ namespace IRNet.Screens
             };
 
             // Create product price
-            var productPrice = new IRNet.Widgets.Text { Value = productData.Price };
+            var productPrice = new IRNet.Widgets.Text { Value = productData.Price.ToString() };
             var productPriceWidget = new IRNet.Widgets.Widget
             {
                 Type = "Text",
@@ -114,6 +116,8 @@ namespace IRNet.Screens
                 Button = backButton
             };
 
+            
+
             // Create main content column
             var contentColumn = new IRNet.Widgets.Column();
             contentColumn.ChildrenExprs.Add(productImageWidget);
@@ -121,6 +125,7 @@ namespace IRNet.Screens
             contentColumn.ChildrenExprs.Add(productPriceWidget);
             contentColumn.ChildrenExprs.Add(productDescriptionWidget);
             contentColumn.ChildrenExprs.Add(backButtonWidget);
+            contentColumn.ChildrenExprs.Add(ElevatedButton.BuildWithChild(addProductHandler, Text.Build("Add to Cart")));
 
             var contentColumnWidget = new IRNet.Widgets.Widget
             {

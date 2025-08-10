@@ -97,6 +97,7 @@ message Column {
 message ElevatedButton {
   Widget child = 1;
   Handler on_pressed_handler = 2;
+  ButtonStyle style = 3;
 }
 
 // ============================================================================

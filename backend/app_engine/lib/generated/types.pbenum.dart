@@ -804,5 +804,20 @@ class MaterialState extends $pb.ProtobufEnum {
   const MaterialState._($core.int v, $core.String n) : super(v, n);
 }
 
+class IconAlignment extends $pb.ProtobufEnum {
+  static const IconAlignment START_ICON_ALIGNMENT = IconAlignment._(0, _omitEnumNames ? '' : 'START_ICON_ALIGNMENT');
+  static const IconAlignment END_ICON_ALIGNMENT = IconAlignment._(1, _omitEnumNames ? '' : 'END_ICON_ALIGNMENT');
+
+  static const $core.List<IconAlignment> values = <IconAlignment> [
+    START_ICON_ALIGNMENT,
+    END_ICON_ALIGNMENT,
+  ];
+
+  static final $core.Map<$core.int, IconAlignment> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static IconAlignment? valueOf($core.int value) => _byValue[value];
+
+  const IconAlignment._($core.int v, $core.String n) : super(v, n);
+}
+
 
 const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

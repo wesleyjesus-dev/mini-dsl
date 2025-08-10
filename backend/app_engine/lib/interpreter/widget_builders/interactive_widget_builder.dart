@@ -26,6 +26,9 @@ class InteractiveWidgetBuilder {
 
         executeHandler(button.handler, context);
       },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue,
+      ),
       child: interpretWidget(button.text, context),
     );
   }

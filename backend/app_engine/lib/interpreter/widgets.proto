@@ -4,7 +4,6 @@ package interpreter.widgets;
 
 import "types.proto";
 import "handlers.proto";
-import "router.proto";
 
 // Base Widget message with oneof for polymorphism
 message Widget {
@@ -55,6 +54,7 @@ message Widget {
     GestureDetector gesture_detector = 44;
     SafeArea safe_area = 45;
     SingleChildScrollView single_child_scroll_view = 46;
+    IfWidget if_widget = 47;
   }
 }
 
@@ -98,6 +98,7 @@ message Column {
 message ElevatedButton {
   Widget child = 1;
   interpreter.handlers.Handler on_pressed_handler = 2;
+  interpreter.types.ButtonStyle style = 3;
 }
 
 // ============================================================================
@@ -688,4 +689,12 @@ message InputDecoration {
     double enabled_border_width = 11;
     double focused_border_width = 12;
     double disabled_border_width = 13;
+}
+
+//=================== flows ============
+
+message IfWidget {
+    bool condition = 1;
+    Widget then = 2;
+    Widget else = 3;
 }

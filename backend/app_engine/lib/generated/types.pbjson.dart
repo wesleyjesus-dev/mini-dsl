@@ -664,6 +664,20 @@ final $typed_data.Uint8List materialStateDescriptor = $convert.base64Decode(
     'sKB0RSQUdHRUQQAxIMCghTRUxFQ1RFRBAEEhIKDlNDUk9MTEVEX1VOREVSEAUSDAoIRElTQUJM'
     'RUQQBhIJCgVFUlJPUhAH');
 
+@$core.Deprecated('Use iconAlignmentDescriptor instead')
+const IconAlignment$json = {
+  '1': 'IconAlignment',
+  '2': [
+    {'1': 'START_ICON_ALIGNMENT', '2': 0},
+    {'1': 'END_ICON_ALIGNMENT', '2': 1},
+  ],
+};
+
+/// Descriptor for `IconAlignment`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List iconAlignmentDescriptor = $convert.base64Decode(
+    'Cg1JY29uQWxpZ25tZW50EhgKFFNUQVJUX0lDT05fQUxJR05NRU5UEAASFgoSRU5EX0lDT05fQU'
+    'xJR05NRU5UEAE=');
+
 @$core.Deprecated('Use tValueDescriptor instead')
 const TValue$json = {
   '1': 'TValue',
@@ -1294,4 +1308,125 @@ const EdgeInsetsGeometry$json = {
 final $typed_data.Uint8List edgeInsetsGeometryDescriptor = $convert.base64Decode(
     'ChJFZGdlSW5zZXRzR2VvbWV0cnkSEgoEbGVmdBgBIAEoAVIEbGVmdBIQCgN0b3AYAiABKAFSA3'
     'RvcBIUCgVyaWdodBgDIAEoAVIFcmlnaHQSFgoGYm90dG9tGAQgASgBUgZib3R0b20=');
+
+@$core.Deprecated('Use inputDecorationDescriptor instead')
+const InputDecoration$json = {
+  '1': 'InputDecoration',
+  '2': [
+    {'1': 'hint_text', '3': 1, '4': 1, '5': 9, '10': 'hintText'},
+    {'1': 'label_text', '3': 2, '4': 1, '5': 9, '10': 'labelText'},
+    {'1': 'prefix_text', '3': 3, '4': 1, '5': 9, '10': 'prefixText'},
+    {'1': 'suffix_text', '3': 4, '4': 1, '5': 9, '10': 'suffixText'},
+    {'1': 'helper_text', '3': 5, '4': 1, '5': 9, '10': 'helperText'},
+    {'1': 'error_text', '3': 6, '4': 1, '5': 9, '10': 'errorText'},
+    {'1': 'is_dense', '3': 7, '4': 1, '5': 8, '10': 'isDense'},
+    {'1': 'padding', '3': 8, '4': 1, '5': 11, '6': '.interpreter.types.EdgeInsetsGeometry', '10': 'padding'},
+    {'1': 'margin', '3': 9, '4': 1, '5': 11, '6': '.interpreter.types.EdgeInsetsGeometry', '10': 'margin'},
+    {'1': 'enabled_border_width', '3': 10, '4': 1, '5': 1, '10': 'enabledBorderWidth'},
+    {'1': 'focused_border_width', '3': 11, '4': 1, '5': 1, '10': 'focusedBorderWidth'},
+    {'1': 'disabled_border_width', '3': 12, '4': 1, '5': 1, '10': 'disabledBorderWidth'},
+  ],
+};
+
+/// Descriptor for `InputDecoration`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List inputDecorationDescriptor = $convert.base64Decode(
+    'Cg9JbnB1dERlY29yYXRpb24SGwoJaGludF90ZXh0GAEgASgJUghoaW50VGV4dBIdCgpsYWJlbF'
+    '90ZXh0GAIgASgJUglsYWJlbFRleHQSHwoLcHJlZml4X3RleHQYAyABKAlSCnByZWZpeFRleHQS'
+    'HwoLc3VmZml4X3RleHQYBCABKAlSCnN1ZmZpeFRleHQSHwoLaGVscGVyX3RleHQYBSABKAlSCm'
+    'hlbHBlclRleHQSHQoKZXJyb3JfdGV4dBgGIAEoCVIJZXJyb3JUZXh0EhkKCGlzX2RlbnNlGAcg'
+    'ASgIUgdpc0RlbnNlEj8KB3BhZGRpbmcYCCABKAsyJS5pbnRlcnByZXRlci50eXBlcy5FZGdlSW'
+    '5zZXRzR2VvbWV0cnlSB3BhZGRpbmcSPQoGbWFyZ2luGAkgASgLMiUuaW50ZXJwcmV0ZXIudHlw'
+    'ZXMuRWRnZUluc2V0c0dlb21ldHJ5UgZtYXJnaW4SMAoUZW5hYmxlZF9ib3JkZXJfd2lkdGgYCi'
+    'ABKAFSEmVuYWJsZWRCb3JkZXJXaWR0aBIwChRmb2N1c2VkX2JvcmRlcl93aWR0aBgLIAEoAVIS'
+    'Zm9jdXNlZEJvcmRlcldpZHRoEjIKFWRpc2FibGVkX2JvcmRlcl93aWR0aBgMIAEoAVITZGlzYW'
+    'JsZWRCb3JkZXJXaWR0aA==');
+
+@$core.Deprecated('Use durationDescriptor instead')
+const Duration$json = {
+  '1': 'Duration',
+  '2': [
+    {'1': 'milliseconds', '3': 1, '4': 1, '5': 5, '10': 'milliseconds'},
+    {'1': 'microseconds', '3': 2, '4': 1, '5': 5, '10': 'microseconds'},
+    {'1': 'nanoseconds', '3': 3, '4': 1, '5': 5, '10': 'nanoseconds'},
+    {'1': 'seconds', '3': 4, '4': 1, '5': 5, '10': 'seconds'},
+    {'1': 'minutes', '3': 5, '4': 1, '5': 5, '10': 'minutes'},
+    {'1': 'hours', '3': 6, '4': 1, '5': 5, '10': 'hours'},
+    {'1': 'days', '3': 7, '4': 1, '5': 5, '10': 'days'},
+    {'1': 'weeks', '3': 8, '4': 1, '5': 5, '10': 'weeks'},
+    {'1': 'years', '3': 9, '4': 1, '5': 5, '10': 'years'},
+  ],
+};
+
+/// Descriptor for `Duration`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List durationDescriptor = $convert.base64Decode(
+    'CghEdXJhdGlvbhIiCgxtaWxsaXNlY29uZHMYASABKAVSDG1pbGxpc2Vjb25kcxIiCgxtaWNyb3'
+    'NlY29uZHMYAiABKAVSDG1pY3Jvc2Vjb25kcxIgCgtuYW5vc2Vjb25kcxgDIAEoBVILbmFub3Nl'
+    'Y29uZHMSGAoHc2Vjb25kcxgEIAEoBVIHc2Vjb25kcxIYCgdtaW51dGVzGAUgASgFUgdtaW51dG'
+    'VzEhQKBWhvdXJzGAYgASgFUgVob3VycxISCgRkYXlzGAcgASgFUgRkYXlzEhQKBXdlZWtzGAgg'
+    'ASgFUgV3ZWVrcxIUCgV5ZWFycxgJIAEoBVIFeWVhcnM=');
+
+@$core.Deprecated('Use buttonStyleDescriptor instead')
+const ButtonStyle$json = {
+  '1': 'ButtonStyle',
+  '2': [
+    {'1': 'foreground_color', '3': 1, '4': 1, '5': 11, '6': '.interpreter.types.Color', '10': 'foregroundColor'},
+    {'1': 'background_color', '3': 2, '4': 1, '5': 11, '6': '.interpreter.types.Color', '10': 'backgroundColor'},
+    {'1': 'disabled_foreground_color', '3': 3, '4': 1, '5': 11, '6': '.interpreter.types.Color', '10': 'disabledForegroundColor'},
+    {'1': 'disabled_background_color', '3': 4, '4': 1, '5': 11, '6': '.interpreter.types.Color', '10': 'disabledBackgroundColor'},
+    {'1': 'shadow_color', '3': 5, '4': 1, '5': 11, '6': '.interpreter.types.Color', '10': 'shadowColor'},
+    {'1': 'surface_tint_color', '3': 6, '4': 1, '5': 11, '6': '.interpreter.types.Color', '10': 'surfaceTintColor'},
+    {'1': 'icon_color', '3': 7, '4': 1, '5': 11, '6': '.interpreter.types.Color', '10': 'iconColor'},
+    {'1': 'icon_size', '3': 8, '4': 1, '5': 5, '10': 'iconSize'},
+    {'1': 'icon_alignment', '3': 9, '4': 1, '5': 14, '6': '.interpreter.types.IconAlignment', '10': 'iconAlignment'},
+    {'1': 'disabled_icon_color', '3': 10, '4': 1, '5': 11, '6': '.interpreter.types.Color', '10': 'disabledIconColor'},
+    {'1': 'overlay_color', '3': 11, '4': 1, '5': 11, '6': '.interpreter.types.Color', '10': 'overlayColor'},
+    {'1': 'elevation', '3': 12, '4': 1, '5': 1, '10': 'elevation'},
+    {'1': 'textStyle', '3': 13, '4': 1, '5': 11, '6': '.interpreter.types.TextStyle', '10': 'textStyle'},
+    {'1': 'padding', '3': 14, '4': 1, '5': 11, '6': '.interpreter.types.EdgeInsetsGeometry', '10': 'padding'},
+    {'1': 'minimum_size', '3': 15, '4': 1, '5': 11, '6': '.interpreter.types.Size', '10': 'minimumSize'},
+    {'1': 'fixed_size', '3': 16, '4': 1, '5': 11, '6': '.interpreter.types.Size', '10': 'fixedSize'},
+    {'1': 'maximum_size', '3': 17, '4': 1, '5': 11, '6': '.interpreter.types.Size', '10': 'maximumSize'},
+    {'1': 'side', '3': 18, '4': 1, '5': 11, '6': '.interpreter.types.BorderSide', '10': 'side'},
+    {'1': 'shape', '3': 19, '4': 1, '5': 11, '6': '.interpreter.types.OutlinedBorder', '10': 'shape'},
+    {'1': 'visual_density', '3': 22, '4': 1, '5': 11, '6': '.interpreter.types.VisualDensity', '10': 'visualDensity'},
+    {'1': 'tap_target_size', '3': 23, '4': 1, '5': 14, '6': '.interpreter.types.MaterialTapTargetSize', '10': 'tapTargetSize'},
+    {'1': 'animation_duration', '3': 24, '4': 1, '5': 11, '6': '.interpreter.types.Duration', '10': 'animationDuration'},
+    {'1': 'enable_feedback', '3': 25, '4': 1, '5': 8, '10': 'enableFeedback'},
+    {'1': 'alignment', '3': 26, '4': 1, '5': 11, '6': '.interpreter.types.AlignmentGeometry', '10': 'alignment'},
+    {'1': 'splash_factory', '3': 27, '4': 1, '5': 11, '6': '.interpreter.types.InteractiveInkFeatureFactory', '10': 'splashFactory'},
+  ],
+};
+
+/// Descriptor for `ButtonStyle`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List buttonStyleDescriptor = $convert.base64Decode(
+    'CgtCdXR0b25TdHlsZRJDChBmb3JlZ3JvdW5kX2NvbG9yGAEgASgLMhguaW50ZXJwcmV0ZXIudH'
+    'lwZXMuQ29sb3JSD2ZvcmVncm91bmRDb2xvchJDChBiYWNrZ3JvdW5kX2NvbG9yGAIgASgLMhgu'
+    'aW50ZXJwcmV0ZXIudHlwZXMuQ29sb3JSD2JhY2tncm91bmRDb2xvchJUChlkaXNhYmxlZF9mb3'
+    'JlZ3JvdW5kX2NvbG9yGAMgASgLMhguaW50ZXJwcmV0ZXIudHlwZXMuQ29sb3JSF2Rpc2FibGVk'
+    'Rm9yZWdyb3VuZENvbG9yElQKGWRpc2FibGVkX2JhY2tncm91bmRfY29sb3IYBCABKAsyGC5pbn'
+    'RlcnByZXRlci50eXBlcy5Db2xvclIXZGlzYWJsZWRCYWNrZ3JvdW5kQ29sb3ISOwoMc2hhZG93'
+    'X2NvbG9yGAUgASgLMhguaW50ZXJwcmV0ZXIudHlwZXMuQ29sb3JSC3NoYWRvd0NvbG9yEkYKEn'
+    'N1cmZhY2VfdGludF9jb2xvchgGIAEoCzIYLmludGVycHJldGVyLnR5cGVzLkNvbG9yUhBzdXJm'
+    'YWNlVGludENvbG9yEjcKCmljb25fY29sb3IYByABKAsyGC5pbnRlcnByZXRlci50eXBlcy5Db2'
+    'xvclIJaWNvbkNvbG9yEhsKCWljb25fc2l6ZRgIIAEoBVIIaWNvblNpemUSRwoOaWNvbl9hbGln'
+    'bm1lbnQYCSABKA4yIC5pbnRlcnByZXRlci50eXBlcy5JY29uQWxpZ25tZW50Ug1pY29uQWxpZ2'
+    '5tZW50EkgKE2Rpc2FibGVkX2ljb25fY29sb3IYCiABKAsyGC5pbnRlcnByZXRlci50eXBlcy5D'
+    'b2xvclIRZGlzYWJsZWRJY29uQ29sb3ISPQoNb3ZlcmxheV9jb2xvchgLIAEoCzIYLmludGVycH'
+    'JldGVyLnR5cGVzLkNvbG9yUgxvdmVybGF5Q29sb3ISHAoJZWxldmF0aW9uGAwgASgBUgllbGV2'
+    'YXRpb24SOgoJdGV4dFN0eWxlGA0gASgLMhwuaW50ZXJwcmV0ZXIudHlwZXMuVGV4dFN0eWxlUg'
+    'l0ZXh0U3R5bGUSPwoHcGFkZGluZxgOIAEoCzIlLmludGVycHJldGVyLnR5cGVzLkVkZ2VJbnNl'
+    'dHNHZW9tZXRyeVIHcGFkZGluZxI6CgxtaW5pbXVtX3NpemUYDyABKAsyFy5pbnRlcnByZXRlci'
+    '50eXBlcy5TaXplUgttaW5pbXVtU2l6ZRI2CgpmaXhlZF9zaXplGBAgASgLMhcuaW50ZXJwcmV0'
+    'ZXIudHlwZXMuU2l6ZVIJZml4ZWRTaXplEjoKDG1heGltdW1fc2l6ZRgRIAEoCzIXLmludGVycH'
+    'JldGVyLnR5cGVzLlNpemVSC21heGltdW1TaXplEjEKBHNpZGUYEiABKAsyHS5pbnRlcnByZXRl'
+    'ci50eXBlcy5Cb3JkZXJTaWRlUgRzaWRlEjcKBXNoYXBlGBMgASgLMiEuaW50ZXJwcmV0ZXIudH'
+    'lwZXMuT3V0bGluZWRCb3JkZXJSBXNoYXBlEkcKDnZpc3VhbF9kZW5zaXR5GBYgASgLMiAuaW50'
+    'ZXJwcmV0ZXIudHlwZXMuVmlzdWFsRGVuc2l0eVINdmlzdWFsRGVuc2l0eRJQCg90YXBfdGFyZ2'
+    'V0X3NpemUYFyABKA4yKC5pbnRlcnByZXRlci50eXBlcy5NYXRlcmlhbFRhcFRhcmdldFNpemVS'
+    'DXRhcFRhcmdldFNpemUSSgoSYW5pbWF0aW9uX2R1cmF0aW9uGBggASgLMhsuaW50ZXJwcmV0ZX'
+    'IudHlwZXMuRHVyYXRpb25SEWFuaW1hdGlvbkR1cmF0aW9uEicKD2VuYWJsZV9mZWVkYmFjaxgZ'
+    'IAEoCFIOZW5hYmxlRmVlZGJhY2sSQgoJYWxpZ25tZW50GBogASgLMiQuaW50ZXJwcmV0ZXIudH'
+    'lwZXMuQWxpZ25tZW50R2VvbWV0cnlSCWFsaWdubWVudBJWCg5zcGxhc2hfZmFjdG9yeRgbIAEo'
+    'CzIvLmludGVycHJldGVyLnR5cGVzLkludGVyYWN0aXZlSW5rRmVhdHVyZUZhY3RvcnlSDXNwbG'
+    'FzaEZhY3Rvcnk=');
 

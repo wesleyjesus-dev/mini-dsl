@@ -8,7 +8,7 @@ namespace IRNet.Services
     {
         Task<List<CartItem>> GetCartAsync(CancellationToken cancellationToken);
         Task AddToCartAsync(CartItem cartItem, CancellationToken cancellationToken);
-        Task RemoveFromCartAsync(int id, CancellationToken cancellationToken);
+        Task RemoveFromCartAsync(Guid id, CancellationToken cancellationToken);
     }
     public class CartService : ICartService
     {
@@ -29,7 +29,7 @@ namespace IRNet.Services
             await _dbContext.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task RemoveFromCartAsync(int id, CancellationToken cancellationToken)
+        public async Task RemoveFromCartAsync(Guid id, CancellationToken cancellationToken)
         {
             var cartItem = await _dbContext.CartItems.FirstOrDefaultAsync(item => item.Id == id, cancellationToken);
             if (cartItem != null)

@@ -63,6 +63,7 @@ enum Widget_WidgetData {
   gestureDetector, 
   safeArea, 
   singleChildScrollView, 
+  ifWidget, 
   notSet
 }
 
@@ -115,6 +116,7 @@ class Widget extends $pb.GeneratedMessage {
     GestureDetector? gestureDetector,
     SafeArea? safeArea,
     SingleChildScrollView? singleChildScrollView,
+    IfWidget? ifWidget,
   }) {
     final $result = create();
     if (type != null) {
@@ -255,6 +257,9 @@ class Widget extends $pb.GeneratedMessage {
     if (singleChildScrollView != null) {
       $result.singleChildScrollView = singleChildScrollView;
     }
+    if (ifWidget != null) {
+      $result.ifWidget = ifWidget;
+    }
     return $result;
   }
   Widget._() : super();
@@ -307,10 +312,11 @@ class Widget extends $pb.GeneratedMessage {
     44 : Widget_WidgetData.gestureDetector,
     45 : Widget_WidgetData.safeArea,
     46 : Widget_WidgetData.singleChildScrollView,
+    47 : Widget_WidgetData.ifWidget,
     0 : Widget_WidgetData.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Widget', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.widgets'), createEmptyInstance: create)
-    ..oo(0, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46])
+    ..oo(0, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47])
     ..aOS(1, _omitFieldNames ? '' : 'type')
     ..aOM<Scaffold>(2, _omitFieldNames ? '' : 'scaffold', subBuilder: Scaffold.create)
     ..aOM<AppBar>(3, _omitFieldNames ? '' : 'appBar', subBuilder: AppBar.create)
@@ -357,6 +363,7 @@ class Widget extends $pb.GeneratedMessage {
     ..aOM<GestureDetector>(44, _omitFieldNames ? '' : 'gestureDetector', subBuilder: GestureDetector.create)
     ..aOM<SafeArea>(45, _omitFieldNames ? '' : 'safeArea', subBuilder: SafeArea.create)
     ..aOM<SingleChildScrollView>(46, _omitFieldNames ? '' : 'singleChildScrollView', subBuilder: SingleChildScrollView.create)
+    ..aOM<IfWidget>(47, _omitFieldNames ? '' : 'ifWidget', subBuilder: IfWidget.create)
     ..hasRequiredFields = false
   ;
 
@@ -887,6 +894,17 @@ class Widget extends $pb.GeneratedMessage {
   void clearSingleChildScrollView() => clearField(46);
   @$pb.TagNumber(46)
   SingleChildScrollView ensureSingleChildScrollView() => $_ensure(45);
+
+  @$pb.TagNumber(47)
+  IfWidget get ifWidget => $_getN(46);
+  @$pb.TagNumber(47)
+  set ifWidget(IfWidget v) { setField(47, v); }
+  @$pb.TagNumber(47)
+  $core.bool hasIfWidget() => $_has(46);
+  @$pb.TagNumber(47)
+  void clearIfWidget() => clearField(47);
+  @$pb.TagNumber(47)
+  IfWidget ensureIfWidget() => $_ensure(46);
 }
 
 /// Widget implementations
@@ -1356,6 +1374,7 @@ class ElevatedButton extends $pb.GeneratedMessage {
   factory ElevatedButton({
     Widget? child,
     $1.Handler? onPressedHandler,
+    $0.ButtonStyle? style,
   }) {
     final $result = create();
     if (child != null) {
@@ -1363,6 +1382,9 @@ class ElevatedButton extends $pb.GeneratedMessage {
     }
     if (onPressedHandler != null) {
       $result.onPressedHandler = onPressedHandler;
+    }
+    if (style != null) {
+      $result.style = style;
     }
     return $result;
   }
@@ -1373,6 +1395,7 @@ class ElevatedButton extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ElevatedButton', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.widgets'), createEmptyInstance: create)
     ..aOM<Widget>(1, _omitFieldNames ? '' : 'child', subBuilder: Widget.create)
     ..aOM<$1.Handler>(2, _omitFieldNames ? '' : 'onPressedHandler', subBuilder: $1.Handler.create)
+    ..aOM<$0.ButtonStyle>(3, _omitFieldNames ? '' : 'style', subBuilder: $0.ButtonStyle.create)
     ..hasRequiredFields = false
   ;
 
@@ -1418,6 +1441,17 @@ class ElevatedButton extends $pb.GeneratedMessage {
   void clearOnPressedHandler() => clearField(2);
   @$pb.TagNumber(2)
   $1.Handler ensureOnPressedHandler() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $0.ButtonStyle get style => $_getN(2);
+  @$pb.TagNumber(3)
+  set style($0.ButtonStyle v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasStyle() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearStyle() => clearField(3);
+  @$pb.TagNumber(3)
+  $0.ButtonStyle ensureStyle() => $_ensure(2);
 }
 
 class Container extends $pb.GeneratedMessage {
@@ -9894,6 +9928,88 @@ class InputDecoration extends $pb.GeneratedMessage {
   $core.bool hasDisabledBorderWidth() => $_has(12);
   @$pb.TagNumber(13)
   void clearDisabledBorderWidth() => clearField(13);
+}
+
+class IfWidget extends $pb.GeneratedMessage {
+  factory IfWidget({
+    $core.bool? condition,
+    Widget? then,
+    Widget? else_3,
+  }) {
+    final $result = create();
+    if (condition != null) {
+      $result.condition = condition;
+    }
+    if (then != null) {
+      $result.then = then;
+    }
+    if (else_3 != null) {
+      $result.else_3 = else_3;
+    }
+    return $result;
+  }
+  IfWidget._() : super();
+  factory IfWidget.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory IfWidget.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'IfWidget', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.widgets'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'condition')
+    ..aOM<Widget>(2, _omitFieldNames ? '' : 'then', subBuilder: Widget.create)
+    ..aOM<Widget>(3, _omitFieldNames ? '' : 'else', subBuilder: Widget.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  IfWidget clone() => IfWidget()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  IfWidget copyWith(void Function(IfWidget) updates) => super.copyWith((message) => updates(message as IfWidget)) as IfWidget;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static IfWidget create() => IfWidget._();
+  IfWidget createEmptyInstance() => create();
+  static $pb.PbList<IfWidget> createRepeated() => $pb.PbList<IfWidget>();
+  @$core.pragma('dart2js:noInline')
+  static IfWidget getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<IfWidget>(create);
+  static IfWidget? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get condition => $_getBF(0);
+  @$pb.TagNumber(1)
+  set condition($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCondition() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCondition() => clearField(1);
+
+  @$pb.TagNumber(2)
+  Widget get then => $_getN(1);
+  @$pb.TagNumber(2)
+  set then(Widget v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasThen() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearThen() => clearField(2);
+  @$pb.TagNumber(2)
+  Widget ensureThen() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  Widget get else_3 => $_getN(2);
+  @$pb.TagNumber(3)
+  set else_3(Widget v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasElse_3() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearElse_3() => clearField(3);
+  @$pb.TagNumber(3)
+  Widget ensureElse_3() => $_ensure(2);
 }
 
 

@@ -26,7 +26,7 @@ namespace IRNet.API
                 return Results.Ok();
         }
 
-        private static async Task<IResult> RemoveFromCart(int id, ICartService cartService, CancellationToken cancellationToken)
+        private static async Task<IResult> RemoveFromCart(Guid id, ICartService cartService, CancellationToken cancellationToken)
         {
             await cartService.RemoveFromCartAsync(id, cancellationToken);
             return Results.Ok();

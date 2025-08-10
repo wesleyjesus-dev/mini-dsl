@@ -561,3 +561,52 @@ message InputDecoration {
     double focused_border_width = 11;
     double disabled_border_width = 12;
 }
+
+message Duration {
+  int32 milliseconds = 1;
+  int32 microseconds = 2;
+  int32 nanoseconds = 3;
+  int32 seconds = 4;
+  int32 minutes = 5;
+  int32 hours = 6;
+  int32 days = 7;
+  int32 weeks = 8;
+  int32 years = 9;
+}
+
+enum IconAlignment {
+  START_ICON_ALIGNMENT = 0;
+  END_ICON_ALIGNMENT = 1;
+}
+
+message ButtonStyle {
+  Color foreground_color = 1;
+  Color background_color = 2;
+  Color disabled_foreground_color = 3;
+  Color disabled_background_color = 4;
+  Color shadow_color = 5;
+  Color surface_tint_color = 6;
+  Color icon_color = 7;
+  int32 icon_size = 8;
+  IconAlignment icon_alignment = 9;
+  Color disabled_icon_color = 10;
+  Color overlay_color = 11;
+  double elevation = 12;
+  TextStyle textStyle = 13;
+  EdgeInsetsGeometry padding = 14;
+  Size minimum_size = 15;
+  Size fixed_size = 16;
+  Size maximum_size = 17;
+  BorderSide side = 18;
+  OutlinedBorder shape = 19;
+  // TODO: MouseCursor enabled_mouse_cursor = 20;
+  // TODO: MouseCursor disabled_mouse_cursor = 21;
+  VisualDensity visual_density = 22;
+  MaterialTapTargetSize tap_target_size = 23;
+  Duration animation_duration = 24;
+  bool enable_feedback = 25;
+  AlignmentGeometry alignment = 26;
+  InteractiveInkFeatureFactory splash_factory = 27;
+  // TODO: ButtonLayerBuilder background_builder = 28;
+  // TODO: ButtonLayerBuilder foreground_builder = 29;
+}

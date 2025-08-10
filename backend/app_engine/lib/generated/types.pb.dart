@@ -3146,6 +3146,804 @@ class EdgeInsetsGeometry extends $pb.GeneratedMessage {
   void clearBottom() => clearField(4);
 }
 
+class InputDecoration extends $pb.GeneratedMessage {
+  factory InputDecoration({
+    $core.String? hintText,
+    $core.String? labelText,
+    $core.String? prefixText,
+    $core.String? suffixText,
+    $core.String? helperText,
+    $core.String? errorText,
+    $core.bool? isDense,
+    EdgeInsetsGeometry? padding,
+    EdgeInsetsGeometry? margin,
+    $core.double? enabledBorderWidth,
+    $core.double? focusedBorderWidth,
+    $core.double? disabledBorderWidth,
+  }) {
+    final $result = create();
+    if (hintText != null) {
+      $result.hintText = hintText;
+    }
+    if (labelText != null) {
+      $result.labelText = labelText;
+    }
+    if (prefixText != null) {
+      $result.prefixText = prefixText;
+    }
+    if (suffixText != null) {
+      $result.suffixText = suffixText;
+    }
+    if (helperText != null) {
+      $result.helperText = helperText;
+    }
+    if (errorText != null) {
+      $result.errorText = errorText;
+    }
+    if (isDense != null) {
+      $result.isDense = isDense;
+    }
+    if (padding != null) {
+      $result.padding = padding;
+    }
+    if (margin != null) {
+      $result.margin = margin;
+    }
+    if (enabledBorderWidth != null) {
+      $result.enabledBorderWidth = enabledBorderWidth;
+    }
+    if (focusedBorderWidth != null) {
+      $result.focusedBorderWidth = focusedBorderWidth;
+    }
+    if (disabledBorderWidth != null) {
+      $result.disabledBorderWidth = disabledBorderWidth;
+    }
+    return $result;
+  }
+  InputDecoration._() : super();
+  factory InputDecoration.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory InputDecoration.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InputDecoration', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'hintText')
+    ..aOS(2, _omitFieldNames ? '' : 'labelText')
+    ..aOS(3, _omitFieldNames ? '' : 'prefixText')
+    ..aOS(4, _omitFieldNames ? '' : 'suffixText')
+    ..aOS(5, _omitFieldNames ? '' : 'helperText')
+    ..aOS(6, _omitFieldNames ? '' : 'errorText')
+    ..aOB(7, _omitFieldNames ? '' : 'isDense')
+    ..aOM<EdgeInsetsGeometry>(8, _omitFieldNames ? '' : 'padding', subBuilder: EdgeInsetsGeometry.create)
+    ..aOM<EdgeInsetsGeometry>(9, _omitFieldNames ? '' : 'margin', subBuilder: EdgeInsetsGeometry.create)
+    ..a<$core.double>(10, _omitFieldNames ? '' : 'enabledBorderWidth', $pb.PbFieldType.OD)
+    ..a<$core.double>(11, _omitFieldNames ? '' : 'focusedBorderWidth', $pb.PbFieldType.OD)
+    ..a<$core.double>(12, _omitFieldNames ? '' : 'disabledBorderWidth', $pb.PbFieldType.OD)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  InputDecoration clone() => InputDecoration()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  InputDecoration copyWith(void Function(InputDecoration) updates) => super.copyWith((message) => updates(message as InputDecoration)) as InputDecoration;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static InputDecoration create() => InputDecoration._();
+  InputDecoration createEmptyInstance() => create();
+  static $pb.PbList<InputDecoration> createRepeated() => $pb.PbList<InputDecoration>();
+  @$core.pragma('dart2js:noInline')
+  static InputDecoration getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<InputDecoration>(create);
+  static InputDecoration? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get hintText => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set hintText($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasHintText() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearHintText() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get labelText => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set labelText($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasLabelText() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLabelText() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get prefixText => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set prefixText($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPrefixText() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPrefixText() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get suffixText => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set suffixText($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasSuffixText() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearSuffixText() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get helperText => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set helperText($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasHelperText() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearHelperText() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get errorText => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set errorText($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasErrorText() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearErrorText() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.bool get isDense => $_getBF(6);
+  @$pb.TagNumber(7)
+  set isDense($core.bool v) { $_setBool(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasIsDense() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearIsDense() => clearField(7);
+
+  @$pb.TagNumber(8)
+  EdgeInsetsGeometry get padding => $_getN(7);
+  @$pb.TagNumber(8)
+  set padding(EdgeInsetsGeometry v) { setField(8, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasPadding() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearPadding() => clearField(8);
+  @$pb.TagNumber(8)
+  EdgeInsetsGeometry ensurePadding() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  EdgeInsetsGeometry get margin => $_getN(8);
+  @$pb.TagNumber(9)
+  set margin(EdgeInsetsGeometry v) { setField(9, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasMargin() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearMargin() => clearField(9);
+  @$pb.TagNumber(9)
+  EdgeInsetsGeometry ensureMargin() => $_ensure(8);
+
+  @$pb.TagNumber(10)
+  $core.double get enabledBorderWidth => $_getN(9);
+  @$pb.TagNumber(10)
+  set enabledBorderWidth($core.double v) { $_setDouble(9, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasEnabledBorderWidth() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearEnabledBorderWidth() => clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.double get focusedBorderWidth => $_getN(10);
+  @$pb.TagNumber(11)
+  set focusedBorderWidth($core.double v) { $_setDouble(10, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasFocusedBorderWidth() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearFocusedBorderWidth() => clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.double get disabledBorderWidth => $_getN(11);
+  @$pb.TagNumber(12)
+  set disabledBorderWidth($core.double v) { $_setDouble(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasDisabledBorderWidth() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearDisabledBorderWidth() => clearField(12);
+}
+
+class Duration extends $pb.GeneratedMessage {
+  factory Duration({
+    $core.int? milliseconds,
+    $core.int? microseconds,
+    $core.int? nanoseconds,
+    $core.int? seconds,
+    $core.int? minutes,
+    $core.int? hours,
+    $core.int? days,
+    $core.int? weeks,
+    $core.int? years,
+  }) {
+    final $result = create();
+    if (milliseconds != null) {
+      $result.milliseconds = milliseconds;
+    }
+    if (microseconds != null) {
+      $result.microseconds = microseconds;
+    }
+    if (nanoseconds != null) {
+      $result.nanoseconds = nanoseconds;
+    }
+    if (seconds != null) {
+      $result.seconds = seconds;
+    }
+    if (minutes != null) {
+      $result.minutes = minutes;
+    }
+    if (hours != null) {
+      $result.hours = hours;
+    }
+    if (days != null) {
+      $result.days = days;
+    }
+    if (weeks != null) {
+      $result.weeks = weeks;
+    }
+    if (years != null) {
+      $result.years = years;
+    }
+    return $result;
+  }
+  Duration._() : super();
+  factory Duration.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Duration.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Duration', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'milliseconds', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'microseconds', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'nanoseconds', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'seconds', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'minutes', $pb.PbFieldType.O3)
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'hours', $pb.PbFieldType.O3)
+    ..a<$core.int>(7, _omitFieldNames ? '' : 'days', $pb.PbFieldType.O3)
+    ..a<$core.int>(8, _omitFieldNames ? '' : 'weeks', $pb.PbFieldType.O3)
+    ..a<$core.int>(9, _omitFieldNames ? '' : 'years', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Duration clone() => Duration()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Duration copyWith(void Function(Duration) updates) => super.copyWith((message) => updates(message as Duration)) as Duration;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static Duration create() => Duration._();
+  Duration createEmptyInstance() => create();
+  static $pb.PbList<Duration> createRepeated() => $pb.PbList<Duration>();
+  @$core.pragma('dart2js:noInline')
+  static Duration getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Duration>(create);
+  static Duration? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get milliseconds => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set milliseconds($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasMilliseconds() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMilliseconds() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get microseconds => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set microseconds($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMicroseconds() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMicroseconds() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get nanoseconds => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set nanoseconds($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasNanoseconds() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearNanoseconds() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get seconds => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set seconds($core.int v) { $_setSignedInt32(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasSeconds() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearSeconds() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get minutes => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set minutes($core.int v) { $_setSignedInt32(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasMinutes() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMinutes() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get hours => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set hours($core.int v) { $_setSignedInt32(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasHours() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearHours() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.int get days => $_getIZ(6);
+  @$pb.TagNumber(7)
+  set days($core.int v) { $_setSignedInt32(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasDays() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearDays() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.int get weeks => $_getIZ(7);
+  @$pb.TagNumber(8)
+  set weeks($core.int v) { $_setSignedInt32(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasWeeks() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearWeeks() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.int get years => $_getIZ(8);
+  @$pb.TagNumber(9)
+  set years($core.int v) { $_setSignedInt32(8, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasYears() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearYears() => clearField(9);
+}
+
+class ButtonStyle extends $pb.GeneratedMessage {
+  factory ButtonStyle({
+    Color? foregroundColor,
+    Color? backgroundColor,
+    Color? disabledForegroundColor,
+    Color? disabledBackgroundColor,
+    Color? shadowColor,
+    Color? surfaceTintColor,
+    Color? iconColor,
+    $core.int? iconSize,
+    IconAlignment? iconAlignment,
+    Color? disabledIconColor,
+    Color? overlayColor,
+    $core.double? elevation,
+    TextStyle? textStyle,
+    EdgeInsetsGeometry? padding,
+    Size? minimumSize,
+    Size? fixedSize,
+    Size? maximumSize,
+    BorderSide? side,
+    OutlinedBorder? shape,
+    VisualDensity? visualDensity,
+    MaterialTapTargetSize? tapTargetSize,
+    Duration? animationDuration,
+    $core.bool? enableFeedback,
+    AlignmentGeometry? alignment,
+    InteractiveInkFeatureFactory? splashFactory,
+  }) {
+    final $result = create();
+    if (foregroundColor != null) {
+      $result.foregroundColor = foregroundColor;
+    }
+    if (backgroundColor != null) {
+      $result.backgroundColor = backgroundColor;
+    }
+    if (disabledForegroundColor != null) {
+      $result.disabledForegroundColor = disabledForegroundColor;
+    }
+    if (disabledBackgroundColor != null) {
+      $result.disabledBackgroundColor = disabledBackgroundColor;
+    }
+    if (shadowColor != null) {
+      $result.shadowColor = shadowColor;
+    }
+    if (surfaceTintColor != null) {
+      $result.surfaceTintColor = surfaceTintColor;
+    }
+    if (iconColor != null) {
+      $result.iconColor = iconColor;
+    }
+    if (iconSize != null) {
+      $result.iconSize = iconSize;
+    }
+    if (iconAlignment != null) {
+      $result.iconAlignment = iconAlignment;
+    }
+    if (disabledIconColor != null) {
+      $result.disabledIconColor = disabledIconColor;
+    }
+    if (overlayColor != null) {
+      $result.overlayColor = overlayColor;
+    }
+    if (elevation != null) {
+      $result.elevation = elevation;
+    }
+    if (textStyle != null) {
+      $result.textStyle = textStyle;
+    }
+    if (padding != null) {
+      $result.padding = padding;
+    }
+    if (minimumSize != null) {
+      $result.minimumSize = minimumSize;
+    }
+    if (fixedSize != null) {
+      $result.fixedSize = fixedSize;
+    }
+    if (maximumSize != null) {
+      $result.maximumSize = maximumSize;
+    }
+    if (side != null) {
+      $result.side = side;
+    }
+    if (shape != null) {
+      $result.shape = shape;
+    }
+    if (visualDensity != null) {
+      $result.visualDensity = visualDensity;
+    }
+    if (tapTargetSize != null) {
+      $result.tapTargetSize = tapTargetSize;
+    }
+    if (animationDuration != null) {
+      $result.animationDuration = animationDuration;
+    }
+    if (enableFeedback != null) {
+      $result.enableFeedback = enableFeedback;
+    }
+    if (alignment != null) {
+      $result.alignment = alignment;
+    }
+    if (splashFactory != null) {
+      $result.splashFactory = splashFactory;
+    }
+    return $result;
+  }
+  ButtonStyle._() : super();
+  factory ButtonStyle.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ButtonStyle.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ButtonStyle', package: const $pb.PackageName(_omitMessageNames ? '' : 'interpreter.types'), createEmptyInstance: create)
+    ..aOM<Color>(1, _omitFieldNames ? '' : 'foregroundColor', subBuilder: Color.create)
+    ..aOM<Color>(2, _omitFieldNames ? '' : 'backgroundColor', subBuilder: Color.create)
+    ..aOM<Color>(3, _omitFieldNames ? '' : 'disabledForegroundColor', subBuilder: Color.create)
+    ..aOM<Color>(4, _omitFieldNames ? '' : 'disabledBackgroundColor', subBuilder: Color.create)
+    ..aOM<Color>(5, _omitFieldNames ? '' : 'shadowColor', subBuilder: Color.create)
+    ..aOM<Color>(6, _omitFieldNames ? '' : 'surfaceTintColor', subBuilder: Color.create)
+    ..aOM<Color>(7, _omitFieldNames ? '' : 'iconColor', subBuilder: Color.create)
+    ..a<$core.int>(8, _omitFieldNames ? '' : 'iconSize', $pb.PbFieldType.O3)
+    ..e<IconAlignment>(9, _omitFieldNames ? '' : 'iconAlignment', $pb.PbFieldType.OE, defaultOrMaker: IconAlignment.START_ICON_ALIGNMENT, valueOf: IconAlignment.valueOf, enumValues: IconAlignment.values)
+    ..aOM<Color>(10, _omitFieldNames ? '' : 'disabledIconColor', subBuilder: Color.create)
+    ..aOM<Color>(11, _omitFieldNames ? '' : 'overlayColor', subBuilder: Color.create)
+    ..a<$core.double>(12, _omitFieldNames ? '' : 'elevation', $pb.PbFieldType.OD)
+    ..aOM<TextStyle>(13, _omitFieldNames ? '' : 'textStyle', protoName: 'textStyle', subBuilder: TextStyle.create)
+    ..aOM<EdgeInsetsGeometry>(14, _omitFieldNames ? '' : 'padding', subBuilder: EdgeInsetsGeometry.create)
+    ..aOM<Size>(15, _omitFieldNames ? '' : 'minimumSize', subBuilder: Size.create)
+    ..aOM<Size>(16, _omitFieldNames ? '' : 'fixedSize', subBuilder: Size.create)
+    ..aOM<Size>(17, _omitFieldNames ? '' : 'maximumSize', subBuilder: Size.create)
+    ..aOM<BorderSide>(18, _omitFieldNames ? '' : 'side', subBuilder: BorderSide.create)
+    ..aOM<OutlinedBorder>(19, _omitFieldNames ? '' : 'shape', subBuilder: OutlinedBorder.create)
+    ..aOM<VisualDensity>(22, _omitFieldNames ? '' : 'visualDensity', subBuilder: VisualDensity.create)
+    ..e<MaterialTapTargetSize>(23, _omitFieldNames ? '' : 'tapTargetSize', $pb.PbFieldType.OE, defaultOrMaker: MaterialTapTargetSize.PADDED, valueOf: MaterialTapTargetSize.valueOf, enumValues: MaterialTapTargetSize.values)
+    ..aOM<Duration>(24, _omitFieldNames ? '' : 'animationDuration', subBuilder: Duration.create)
+    ..aOB(25, _omitFieldNames ? '' : 'enableFeedback')
+    ..aOM<AlignmentGeometry>(26, _omitFieldNames ? '' : 'alignment', subBuilder: AlignmentGeometry.create)
+    ..aOM<InteractiveInkFeatureFactory>(27, _omitFieldNames ? '' : 'splashFactory', subBuilder: InteractiveInkFeatureFactory.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ButtonStyle clone() => ButtonStyle()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ButtonStyle copyWith(void Function(ButtonStyle) updates) => super.copyWith((message) => updates(message as ButtonStyle)) as ButtonStyle;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ButtonStyle create() => ButtonStyle._();
+  ButtonStyle createEmptyInstance() => create();
+  static $pb.PbList<ButtonStyle> createRepeated() => $pb.PbList<ButtonStyle>();
+  @$core.pragma('dart2js:noInline')
+  static ButtonStyle getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ButtonStyle>(create);
+  static ButtonStyle? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  Color get foregroundColor => $_getN(0);
+  @$pb.TagNumber(1)
+  set foregroundColor(Color v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasForegroundColor() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearForegroundColor() => clearField(1);
+  @$pb.TagNumber(1)
+  Color ensureForegroundColor() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  Color get backgroundColor => $_getN(1);
+  @$pb.TagNumber(2)
+  set backgroundColor(Color v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasBackgroundColor() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearBackgroundColor() => clearField(2);
+  @$pb.TagNumber(2)
+  Color ensureBackgroundColor() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  Color get disabledForegroundColor => $_getN(2);
+  @$pb.TagNumber(3)
+  set disabledForegroundColor(Color v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasDisabledForegroundColor() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDisabledForegroundColor() => clearField(3);
+  @$pb.TagNumber(3)
+  Color ensureDisabledForegroundColor() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  Color get disabledBackgroundColor => $_getN(3);
+  @$pb.TagNumber(4)
+  set disabledBackgroundColor(Color v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasDisabledBackgroundColor() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearDisabledBackgroundColor() => clearField(4);
+  @$pb.TagNumber(4)
+  Color ensureDisabledBackgroundColor() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  Color get shadowColor => $_getN(4);
+  @$pb.TagNumber(5)
+  set shadowColor(Color v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasShadowColor() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearShadowColor() => clearField(5);
+  @$pb.TagNumber(5)
+  Color ensureShadowColor() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  Color get surfaceTintColor => $_getN(5);
+  @$pb.TagNumber(6)
+  set surfaceTintColor(Color v) { setField(6, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasSurfaceTintColor() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearSurfaceTintColor() => clearField(6);
+  @$pb.TagNumber(6)
+  Color ensureSurfaceTintColor() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  Color get iconColor => $_getN(6);
+  @$pb.TagNumber(7)
+  set iconColor(Color v) { setField(7, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasIconColor() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearIconColor() => clearField(7);
+  @$pb.TagNumber(7)
+  Color ensureIconColor() => $_ensure(6);
+
+  @$pb.TagNumber(8)
+  $core.int get iconSize => $_getIZ(7);
+  @$pb.TagNumber(8)
+  set iconSize($core.int v) { $_setSignedInt32(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasIconSize() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearIconSize() => clearField(8);
+
+  @$pb.TagNumber(9)
+  IconAlignment get iconAlignment => $_getN(8);
+  @$pb.TagNumber(9)
+  set iconAlignment(IconAlignment v) { setField(9, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasIconAlignment() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearIconAlignment() => clearField(9);
+
+  @$pb.TagNumber(10)
+  Color get disabledIconColor => $_getN(9);
+  @$pb.TagNumber(10)
+  set disabledIconColor(Color v) { setField(10, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasDisabledIconColor() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearDisabledIconColor() => clearField(10);
+  @$pb.TagNumber(10)
+  Color ensureDisabledIconColor() => $_ensure(9);
+
+  @$pb.TagNumber(11)
+  Color get overlayColor => $_getN(10);
+  @$pb.TagNumber(11)
+  set overlayColor(Color v) { setField(11, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasOverlayColor() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearOverlayColor() => clearField(11);
+  @$pb.TagNumber(11)
+  Color ensureOverlayColor() => $_ensure(10);
+
+  @$pb.TagNumber(12)
+  $core.double get elevation => $_getN(11);
+  @$pb.TagNumber(12)
+  set elevation($core.double v) { $_setDouble(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasElevation() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearElevation() => clearField(12);
+
+  @$pb.TagNumber(13)
+  TextStyle get textStyle => $_getN(12);
+  @$pb.TagNumber(13)
+  set textStyle(TextStyle v) { setField(13, v); }
+  @$pb.TagNumber(13)
+  $core.bool hasTextStyle() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearTextStyle() => clearField(13);
+  @$pb.TagNumber(13)
+  TextStyle ensureTextStyle() => $_ensure(12);
+
+  @$pb.TagNumber(14)
+  EdgeInsetsGeometry get padding => $_getN(13);
+  @$pb.TagNumber(14)
+  set padding(EdgeInsetsGeometry v) { setField(14, v); }
+  @$pb.TagNumber(14)
+  $core.bool hasPadding() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearPadding() => clearField(14);
+  @$pb.TagNumber(14)
+  EdgeInsetsGeometry ensurePadding() => $_ensure(13);
+
+  @$pb.TagNumber(15)
+  Size get minimumSize => $_getN(14);
+  @$pb.TagNumber(15)
+  set minimumSize(Size v) { setField(15, v); }
+  @$pb.TagNumber(15)
+  $core.bool hasMinimumSize() => $_has(14);
+  @$pb.TagNumber(15)
+  void clearMinimumSize() => clearField(15);
+  @$pb.TagNumber(15)
+  Size ensureMinimumSize() => $_ensure(14);
+
+  @$pb.TagNumber(16)
+  Size get fixedSize => $_getN(15);
+  @$pb.TagNumber(16)
+  set fixedSize(Size v) { setField(16, v); }
+  @$pb.TagNumber(16)
+  $core.bool hasFixedSize() => $_has(15);
+  @$pb.TagNumber(16)
+  void clearFixedSize() => clearField(16);
+  @$pb.TagNumber(16)
+  Size ensureFixedSize() => $_ensure(15);
+
+  @$pb.TagNumber(17)
+  Size get maximumSize => $_getN(16);
+  @$pb.TagNumber(17)
+  set maximumSize(Size v) { setField(17, v); }
+  @$pb.TagNumber(17)
+  $core.bool hasMaximumSize() => $_has(16);
+  @$pb.TagNumber(17)
+  void clearMaximumSize() => clearField(17);
+  @$pb.TagNumber(17)
+  Size ensureMaximumSize() => $_ensure(16);
+
+  @$pb.TagNumber(18)
+  BorderSide get side => $_getN(17);
+  @$pb.TagNumber(18)
+  set side(BorderSide v) { setField(18, v); }
+  @$pb.TagNumber(18)
+  $core.bool hasSide() => $_has(17);
+  @$pb.TagNumber(18)
+  void clearSide() => clearField(18);
+  @$pb.TagNumber(18)
+  BorderSide ensureSide() => $_ensure(17);
+
+  @$pb.TagNumber(19)
+  OutlinedBorder get shape => $_getN(18);
+  @$pb.TagNumber(19)
+  set shape(OutlinedBorder v) { setField(19, v); }
+  @$pb.TagNumber(19)
+  $core.bool hasShape() => $_has(18);
+  @$pb.TagNumber(19)
+  void clearShape() => clearField(19);
+  @$pb.TagNumber(19)
+  OutlinedBorder ensureShape() => $_ensure(18);
+
+  /// TODO: MouseCursor enabled_mouse_cursor = 20;
+  /// TODO: MouseCursor disabled_mouse_cursor = 21;
+  @$pb.TagNumber(22)
+  VisualDensity get visualDensity => $_getN(19);
+  @$pb.TagNumber(22)
+  set visualDensity(VisualDensity v) { setField(22, v); }
+  @$pb.TagNumber(22)
+  $core.bool hasVisualDensity() => $_has(19);
+  @$pb.TagNumber(22)
+  void clearVisualDensity() => clearField(22);
+  @$pb.TagNumber(22)
+  VisualDensity ensureVisualDensity() => $_ensure(19);
+
+  @$pb.TagNumber(23)
+  MaterialTapTargetSize get tapTargetSize => $_getN(20);
+  @$pb.TagNumber(23)
+  set tapTargetSize(MaterialTapTargetSize v) { setField(23, v); }
+  @$pb.TagNumber(23)
+  $core.bool hasTapTargetSize() => $_has(20);
+  @$pb.TagNumber(23)
+  void clearTapTargetSize() => clearField(23);
+
+  @$pb.TagNumber(24)
+  Duration get animationDuration => $_getN(21);
+  @$pb.TagNumber(24)
+  set animationDuration(Duration v) { setField(24, v); }
+  @$pb.TagNumber(24)
+  $core.bool hasAnimationDuration() => $_has(21);
+  @$pb.TagNumber(24)
+  void clearAnimationDuration() => clearField(24);
+  @$pb.TagNumber(24)
+  Duration ensureAnimationDuration() => $_ensure(21);
+
+  @$pb.TagNumber(25)
+  $core.bool get enableFeedback => $_getBF(22);
+  @$pb.TagNumber(25)
+  set enableFeedback($core.bool v) { $_setBool(22, v); }
+  @$pb.TagNumber(25)
+  $core.bool hasEnableFeedback() => $_has(22);
+  @$pb.TagNumber(25)
+  void clearEnableFeedback() => clearField(25);
+
+  @$pb.TagNumber(26)
+  AlignmentGeometry get alignment => $_getN(23);
+  @$pb.TagNumber(26)
+  set alignment(AlignmentGeometry v) { setField(26, v); }
+  @$pb.TagNumber(26)
+  $core.bool hasAlignment() => $_has(23);
+  @$pb.TagNumber(26)
+  void clearAlignment() => clearField(26);
+  @$pb.TagNumber(26)
+  AlignmentGeometry ensureAlignment() => $_ensure(23);
+
+  @$pb.TagNumber(27)
+  InteractiveInkFeatureFactory get splashFactory => $_getN(24);
+  @$pb.TagNumber(27)
+  set splashFactory(InteractiveInkFeatureFactory v) { setField(27, v); }
+  @$pb.TagNumber(27)
+  $core.bool hasSplashFactory() => $_has(24);
+  @$pb.TagNumber(27)
+  void clearSplashFactory() => clearField(27);
+  @$pb.TagNumber(27)
+  InteractiveInkFeatureFactory ensureSplashFactory() => $_ensure(24);
+}
+
 
 const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
 const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');
