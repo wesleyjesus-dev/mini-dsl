@@ -15,18 +15,18 @@ project.lock.json
 *.userosscache
 *.sln.docstates
 
-frontend/AstNET/IRNet/bin
+backend/AstNET/IRNet/bin
 # Build results
-frontend/AstNET/IRNet/[Dd]ebug/
-frontend/AstNET/IRNet/[Dd]ebugPublic/
-frontend/AstNET/IRNet/[Rr]elease/
-frontend/AstNET/IRNet/[Rr]eleases/
-frontend/AstNET/IRNet/x64/
-frontend/AstNET/IRNet/x86/
-frontend/AstNET/IRNet/build/
-frontend/AstNET/IRNet/bld/
-frontend/AstNET/IRNet/[Bb]in/
-frontend/AstNET/IRNet/[Oo]bj/
+backend/AstNET/IRNet/[Dd]ebug/
+backend/AstNET/IRNet/[Dd]ebugPublic/
+backend/AstNET/IRNet/[Rr]elease/
+backend/AstNET/IRNet/[Rr]eleases/
+backend/AstNET/IRNet/x64/
+backend/AstNET/IRNet/x86/
+backend/AstNET/IRNet/build/
+backend/AstNET/IRNet/bld/
+backend/AstNET/IRNet/[Bb]in/
+backend/AstNET/IRNet/[Oo]bj/
 msbuild.log
 msbuild.err
 msbuild.wrn
